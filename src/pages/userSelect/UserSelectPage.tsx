@@ -2,8 +2,12 @@ import userData from "../../data/userData";
 import UserSelect from "./UserSelect";
 import "./styles.css";
 
-export default function UserSelectPage() {
-  const userElements = userData.map((user) => <UserSelect key={user.id} {...user} />);
+type Props = {
+  onClick: any;
+};
+
+export default function UserSelectPage({ onClick }: Props) {
+  const userElements = userData.map((user) => <UserSelect key={user.id} {...user} onClick={onClick} />);
 
   const handleManageProfiles = () => {
     console.error("Manage profiles not implemented yet");

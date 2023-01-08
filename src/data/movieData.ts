@@ -1,0 +1,68 @@
+const movieData = [
+  {
+    id: 1,
+    title: "The Shawshank Redemption",
+    year: 1994,
+    runtime: 142,
+    genres: ["Crime", "Drama"],
+    director: "Frank Darabont",
+    actors: "Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler",
+    plot: "Two imprisoned...",
+    posters: [
+      { id: 1, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Tim Robbins" },
+      { id: 2, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Morgan Freeman" },
+      { id: 3, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Bob Gunton" },
+      { id: 4, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "William Sadler" },
+    ],
+  },
+  {
+    id: 2,
+    title: "The Godfather",
+    year: 1972,
+    runtime: 175,
+    genres: ["Crime", "Drama"],
+    director: "Francis Ford Coppola",
+    actors: "Marlon Brando, Al Pacino, James Caan, Diane Keaton",
+    plot: "The aging patriarch...",
+    posters: [
+      { id: 1, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Marlon Brando" },
+      { id: 2, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Al Pacino" },
+      { id: 3, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "James Caan" },
+      { id: 4, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Diane Keaton" },
+    ],
+  },
+  {
+    id: 3,
+    title: "The Godfather: Part II",
+    year: 1974,
+    runtime: 202,
+    genres: ["Crime", "Drama"],
+    director: "Francis Ford Coppola",
+    actors: "Al Pacino, Robert De Niro, Robert Duvall, Diane Keaton",
+    plot: "The early life...",
+    posters: [
+      { id: 1, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Al Pacino" },
+      { id: 2, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Robert De Niro" },
+      { id: 3, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Robert Duvall" },
+      { id: 4, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Diane Keaton" },
+    ],
+  },
+  {
+    id: 4,
+    title: "The Dark Knight",
+    year: 2008,
+    runtime: 152,
+    genres: ["Action", "Crime", "Drama", "Thriller"],
+    director: "Christopher Nolan",
+    actors: "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
+    plot: "When the menace...",
+    posters: [
+      { id: 1, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Christian Bale" },
+      { id: 2, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Heath Ledger" },
+      { id: 3, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Aaron Eckhart" },
+      { id: 4, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Michael Caine" },
+    ],
+  },
+];
+
+export default movieData;
