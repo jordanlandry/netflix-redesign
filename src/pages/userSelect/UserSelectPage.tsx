@@ -1,4 +1,4 @@
-import userData from "./userData";
+import userData from "../../data/userData";
 import UserSelect from "./UserSelect";
 import "./styles.css";
 
@@ -7,6 +7,10 @@ export default function UserSelectPage() {
 
   const handleManageProfiles = () => {
     console.error("Manage profiles not implemented yet");
+  };
+
+  const handleAddUser = () => {
+    console.error("Add user not implemented yet");
   };
 
   return (

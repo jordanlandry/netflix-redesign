@@ -59,6 +59,34 @@
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-.user-select__user > img:hover {
-  box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.5);
+.user-select__user-icon-hover {
+  animation: user-select__user-icon-animation 0.2s forwards;
 }
+
+.user-select__user-icon {
+  animation: user-select__user-icon-animation-reverse 0.2s forwards;
+}
+
+@keyframes user-select__user-icon-animation {
+  from {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  to {
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes user-select__user-icon-animation-reverse {
+  from {
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  to {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* .user-select__user:hover {
+  box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.5);
+} */
