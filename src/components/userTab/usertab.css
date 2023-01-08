@@ -1,6 +1,35 @@
-.user-tab {
-}
+/* .user-tab {
+} */
 
 .user-tab > img {
   width: 50px;
+}
+
+.user-tab__user > img {
+  width: 50px;
+}
+
+.user-tab__list {
+  position: absolute;
+  right: 0;
+  list-style: none;
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+.user-tab__list > li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.user-tab__list > li:last-child {
+  justify-content: center;
+}
+
+.user-tab__list > li:hover {
+  text-decoration: underline;
 }

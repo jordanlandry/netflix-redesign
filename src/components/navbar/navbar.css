@@ -1,0 +1,26 @@
+.navbar__window-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.navbar__window {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar li {
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navlink__active {
+  color: var(--text);
+  cursor: default;
+  pointer-events: none;
+}

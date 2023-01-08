@@ -64,6 +64,28 @@ const users = [
       { id: 3, name: "Drama" },
     ],
   },
+  {
+    id: 3,
+    name: "John",
+    icon: "https://cdn.pixabay.com/photo/2018/11/13/22/01/avatar-3814081_960_720.png",
+    birthday: {
+      day: 10,
+      month: 18,
+      year: 2009,
+    },
+
+    recentlyWatched: [
+      { id: 1, time: 20 },
+      { id: 2, time: 10 },
+      { id: 4, time: 5 },
+    ],
+
+    genres: [
+      { id: 1, name: "Action" },
+      { id: 2, name: "Comedy" },
+      { id: 3, name: "Drama" },
+    ],
+  },
 ];
 
 export default users;

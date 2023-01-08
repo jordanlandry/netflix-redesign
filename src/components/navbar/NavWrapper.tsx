@@ -9,12 +9,6 @@ type Props = {};
 
 export default function NavWrapper({}: Props) {
   const width = useWidth();
-  const [isMobile, setIsMobile] = useState(width < properties.MOBILE_BREAKPOINT);
 
-  return (
-    <nav>
-      {isMobile ? <NavMobile /> : <NavWindow />}
-      <UserTab />
-    </nav>
-  );
+  return <nav className="navbar">{width < properties.MOBILE_BREAKPOINT ? <NavMobile /> : <NavWindow />}</nav>;
 }
