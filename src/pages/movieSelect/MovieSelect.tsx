@@ -1,7 +1,21 @@
-import React from "react";
+import { useState } from "react";
+import { MovieType } from "../../data/movieData";
 
-type Props = {};
+interface Props extends MovieType {
+  link: string;
+}
 
-export default function MovieSelect({}: Props) {
-  return <div>MovieSelect</div>;
+export default function MovieSelect({ title, posters, link }: Props) {
+  const [hover, setHover] = useState(false);
+
+  return (
+    <a
+      className="movie-select__poster"
+      href={link}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <img src={posters[0].url} alt={title} />
+    </a>
+  );
 }

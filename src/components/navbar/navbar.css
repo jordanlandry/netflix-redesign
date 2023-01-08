@@ -1,6 +1,10 @@
+.navbar {
+  height: 68px;
+}
+
 .navbar__window-wrapper {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
 }
 
@@ -9,6 +13,7 @@
   gap: 10px;
   align-items: center;
   justify-content: space-between;
+  height: inherit;
 }
 
 .navbar li {
@@ -17,10 +22,18 @@
 
 .navbar a {
   text-decoration: none;
+  color: var(--text);
+
+  transition: 0.2s;
+}
+
+.navbar a:hover {
+  filter: brightness(0.6);
 }
 
 .navlink__active {
   color: var(--text);
   cursor: default;
   pointer-events: none;
+  font-weight: 600;
 }

@@ -13,10 +13,7 @@ export type UserType = {
     time: number;
   }[];
 
-  genres: {
-    id: number;
-    name: string;
-  }[];
+  genres: string[];
 };
 
 const users = [
@@ -36,11 +33,7 @@ const users = [
       { id: 3, time: 5 },
     ],
 
-    genres: [
-      { id: 1, name: "Action" },
-      { id: 2, name: "Comedy" },
-      { id: 3, name: "Drama" },
-    ],
+    genres: ["Action", "Comedy", "Drama"],
   },
   {
     id: 2,
@@ -58,11 +51,7 @@ const users = [
       { id: 3, time: 5 },
     ],
 
-    genres: [
-      { id: 1, name: "Action" },
-      { id: 2, name: "Comedy" },
-      { id: 3, name: "Drama" },
-    ],
+    genres: ["Action", "Comedy", "Drama"],
   },
   {
     id: 3,
@@ -80,11 +69,7 @@ const users = [
       { id: 4, time: 5 },
     ],
 
-    genres: [
-      { id: 1, name: "Action" },
-      { id: 2, name: "Comedy" },
-      { id: 3, name: "Drama" },
-    ],
+    genres: ["Action", "Comedy", "Drama"],
   },
 ];
 
