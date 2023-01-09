@@ -6,7 +6,19 @@ import { UserType } from "../data/userData";
 export default function recommendMovies(user: UserType) {
   // ~~ Genre recommendation ~~ \\
   const genres = user.genres;
-  const filteredGenreData = movieData.filter((movie) => movie.genres.some((genre) => genres.includes(genre)));
+  const filteredGenreData = movieData.map((movie) => {
+    let relavancy = 0;
+
+    movie.genres.some((genre) => {
+      if (genres[genre]) relavancy += genres[genre] * Math.random(); // Add a random number to the relavancy to make the recommendations more varied
+      return genres[genre] ? true : false;
+    });
+
+    return { ...movie, relavancy };
+  });
+
+  // Sort the movies by the relavancy
+  filteredGenreData.sort((a, b) => b.relavancy - a.relavancy);
 
   // ~~ Actor recommendation ~~ \\
   // const actors = user.actors;
