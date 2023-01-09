@@ -8,6 +8,14 @@ export default function recommendMovies(user: UserType) {
   const genres = user.genres;
   const filteredGenreData = movieData.filter((movie) => movie.genres.some((genre) => genres.includes(genre)));
 
+  // ~~ Actor recommendation ~~ \\
+  // const actors = user.actors;
+  // const filteredActorData = movieData.filter((movie) => movie.actors.some((actor) => actors.includes(actor)));
+
+  // ~~ Director recommendation ~~ \\
+  // const directors = user.directors;
+  // const filteredDirectorData = movieData.filter((movie) => movie.directors.some((director) => directors.includes(director)));
+
   // Set to remove duplicates
   const recommendedMovies = new Set();
   filteredGenreData.forEach((movie) => recommendedMovies.add(movie));

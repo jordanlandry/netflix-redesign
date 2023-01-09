@@ -6,7 +6,6 @@ import recommendMovies from "../../helpers/recommendMovies";
 import MovieSelect from "./MovieSelect";
 import MovieSelectTab from "./MovieSelectTab";
 import "./styles.css";
-import TopTenMovieTab from "./TopTenMovieTab";
 
 export default function MovieSelectPage() {
   const user = useContext(UserContext)!;
@@ -38,7 +37,7 @@ export default function MovieSelectPage() {
         ) : (
           <>
             <ColorGradient />
-            <MovieSelectTab title="Top 10 today" movieList={recommendedMovies} />
+            {/* <MovieSelectTab title="Top 10 today" movieList={recommendedMovies} /> */}
             <MovieSelectTab title="Recommended for you" movieList={recommendedMovies} />
           </>
         )}
