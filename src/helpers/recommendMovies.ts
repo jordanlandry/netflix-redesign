@@ -4,6 +4,9 @@ import { UserType } from "../data/userData";
 // Find movies that the user has not watched that have actors/genres/directors that match
 // the user's preference If this was a real app, we would use a machine learning algorithm
 // to make the recommendations and use other user data to make the recommendations more accurate
+// and also could keep track of which movies have been recommended to the user and lower the relavancy
+// of those movies in the future to prevent the user from seeing the same movies over and over again
+// but for the sake of this project, we will just use a simple algorithm to make the recommendations
 export default function recommendMovies(user: UserType) {
   const relavancies = {
     genre: 0.5,
@@ -31,9 +34,9 @@ export default function recommendMovies(user: UserType) {
   // Sort the movies by the relavancy
   const sortedData = filteredData.sort((a, b) => b.relavancy - a.relavancy);
 
-  // Set to remove duplicates
+  // Set to remove duplicates, remove relavancy from the movies to prevent it from thinking that the movies are different
   const recommendedMovies = new Set();
-  sortedData.forEach((movie) => recommendedMovies.add(movie));
+  sortedData.forEach((movie) => recommendedMovies.add({ ...movie, relavancy: 0 }));
 
   return recommendedMovies;
 }

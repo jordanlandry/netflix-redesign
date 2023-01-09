@@ -137,7 +137,7 @@ const movieData: MovieType[] = [
     posters: [
       {
         id: 1,
-        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABYWktoJ11xQET_OQMZ2ltwSob_DNvfOlxR-_vVJc6RXz09BEozxBo0RDQ3K9mHyZ4vQYktVviaSMQqaivEx6AvoIoZ69qZyrzTU.webp?r=5a9",
+        url: "http://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRY4lgCLdYswgukE9UDneOJwGpAU5766GwohvqchRd0n7YYsFFmGUz3wtIkDk3YFkTnl3KvDM3PqhlDBbzksiTHtkP8fSpKheWw.webp?r=aa0",
         actor: "Christian Bale",
       },
     ],
@@ -156,6 +156,23 @@ const movieData: MovieType[] = [
         id: 1,
         url: "http://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbXM7qX-1oOzyd9-RKL9xEA1a4v4PJP3rDI6uz1WTFRa8K53Yq2jy5oMvkWQyQkFkGyQAijBf1ahZABnXvawNa4x_f4g-WiviTE.webp?r=1b8",
         actor: "Adam Sandler",
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: "El Camino: A Breaking Bad Movie",
+    year: 2019,
+    runtime: 123,
+    genres: ["Action", "Crime", "Drama"],
+    directors: ["Vince Gilligan"],
+    actors: ["Aaron Paul", "Charles Baker", "Matt Jones", "Charles Baker", "Bryan Cranston"],
+    plot: "In the wake of his dramatic escape from captivity, Jesse must come to terms with his past in order to forge some kind of future.",
+    posters: [
+      {
+        id: 1,
+        url: "http://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdixjq6T9KMGrnnpxJxbJ4ZuJNTMQF10Z7sG4JjTtzEcHjMr1Pxl1Nk2BLiEob4BB8EEtAFdKD2NsuYdxebkx9EoOK9kBdo1BbpjRYYpdP_VB4NNoD22uyRdMebYr_Ijl9kN.jpg?r=076",
+        actor: "Aaron Paul",
       },
     ],
   },
