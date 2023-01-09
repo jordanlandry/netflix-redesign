@@ -14,3 +14,24 @@
   display: flex;
   gap: 15px;
 }
+
+.movie-select {
+  padding: var(--outside-padding);
+}
+
+.movie-select__poster > img {
+  width: calc(100vw / 3 - (var(--outside-padding)));
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .movie-select__poster > img {
+    width: calc(100vw - (var(--outside-padding) * 2));
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .movie-select__poster > img {
+    width: calc(25vw - (var(--outside-padding)));
+  }
+}

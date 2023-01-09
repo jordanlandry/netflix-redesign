@@ -3,6 +3,7 @@
   --text: #fff;
 
   --navbar-item-height: 40px;
+  --outside-padding: 40px;
 }
 
 * {
@@ -15,6 +16,8 @@ body {
 
   background-color: var(--bg);
   color: var(--text);
+
+  overflow-x: hidden;
 }
 
 .btn-unstyled {

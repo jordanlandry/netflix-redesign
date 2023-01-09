@@ -1,0 +1,11 @@
+.color-gradient {
+  -webkit-animation: gradient 18s ease infinite;
+  -moz-animation: gradient 18s ease infinite;
+  animation: gradient 18s ease infinite;
+  display: flex;
+
+  filter: blur(50px);
+
+  position: absolute;
+  z-index: -1;
+}
