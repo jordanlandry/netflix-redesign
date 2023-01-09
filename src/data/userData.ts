@@ -29,11 +29,7 @@ const users = [
     id: 1,
     name: "Jordan",
     icon: "https://cdn.pixabay.com/photo/2018/11/13/22/01/avatar-3814081_960_720.png",
-    birthday: {
-      day: 6,
-      month: 2,
-      year: 2001,
-    },
+    birthday: { day: 6, month: 2, year: 2001 },
 
     recentlyWatched: [
       { id: 1, time: 20 },
@@ -43,7 +39,7 @@ const users = [
 
     genres: { Action: 1, Comedy: 1, Drama: 1 },
     directors: { "Steven Spielberg": 1 },
-    actors: { "Brad Pitt": 1 },
+    actors: { "Brad Pitt": 1, "Morgan Freeman": 0.2, "Tim Robbins": 0.9 },
 
     lastLoggedIn: 0,
   },
@@ -51,11 +47,7 @@ const users = [
     id: 2,
     name: "Sebastian",
     icon: "https://cdn.pixabay.com/photo/2018/11/13/22/01/avatar-3814081_960_720.png",
-    birthday: {
-      day: 26,
-      month: 1,
-      year: 2003,
-    },
+    birthday: { day: 26, month: 1, year: 2003 },
 
     recentlyWatched: [
       { id: 1, time: 20 },
@@ -73,11 +65,7 @@ const users = [
     id: 3,
     name: "John",
     icon: "https://cdn.pixabay.com/photo/2018/11/13/22/01/avatar-3814081_960_720.png",
-    birthday: {
-      day: 10,
-      month: 18,
-      year: 2009,
-    },
+    birthday: { day: 10, month: 18, year: 2009 },
 
     recentlyWatched: [
       { id: 1, time: 20 },

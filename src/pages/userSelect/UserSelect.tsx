@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { UserType } from "../../data/userData";
 
-interface Props extends UserType {
-  onClick: any;
-}
+// interface Props extends UserType {
+//   onClick: any;
+// }
 
-export default function UserSelect({ id, name, icon, birthday, recentlyWatched, genres, onClick }: Props) {
+export default function UserSelect({ id, name, icon, birthday, recentlyWatched, genres, onClick }: any) {
   // I have this instead of css hover because I only want to outline the icon when the user is hovering over the entire div
   const [hoveredClassName, setHoveredClassName] = useState("");
 

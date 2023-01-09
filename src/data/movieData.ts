@@ -59,7 +59,7 @@ const movieData: MovieType[] = [
     runtime: 92,
     genres: ["Comedy", "Sport"],
     directors: ["Dennis Dugan"],
-    actors: ["Adam Sandler", "Julie Bowen", " Christopher McDonald", "Allen Covert"],
+    actors: ["Adam Sandler", "Julie Bowen", "Christopher McDonald", "Allen Covert"],
     plot: "A rejected hockey player puts his skills to the golf course to save his grandmother's house.",
     posters: [
       {
