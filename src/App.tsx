@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import NavWrapper from "./components/navbar/NavWrapper";
 import { UserType } from "./data/userData";
@@ -15,11 +15,6 @@ export const SetSearchContext = createContext<any>(null);
 function App() {
   const [user, setUser] = useLocalStorage("user", null);
   const [search, setSearch] = useState("");
-
-  // Remove session after timeout, see props.ts to change timeout
-  const lastLoggedIn = user?.lastLoggedIn;
-  if (lastLoggedIn && Date.now() - lastLoggedIn > properties.SESSION_TIMEOUT) setUser(null);
-  else if (user) user.lastLoggedIn = Date.now();
 
   return (
     <div className="App">

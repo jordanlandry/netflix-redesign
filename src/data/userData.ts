@@ -13,12 +13,16 @@ export type UserType = {
     time: number;
   }[];
 
-  genres: string[];
-  directors: string[];
-  actors: string[];
+  genres: { [key: string]: number };
+  directors: { [key: string]: number };
+  actors: { [key: string]: number };
 
   lastLoggedIn: number;
 };
+
+// The genres, directors and actors are stored as an object with the name as the key and the value is the number of times they have been watched,
+// as a percentage of the total number of the movie watched. For example, if the user has watched 50% of the movies with Brad Pitt in them,
+// then the value for Brad Pitt will increase by 0.5. This will be used to order the recommendations to give the user the most relevant recommendations.
 
 const users = [
   {
@@ -37,9 +41,10 @@ const users = [
       { id: 3, time: 5 },
     ],
 
-    genres: ["Action", "Comedy", "Drama"],
-    directors: ["Steven Spielberg"],
-    actors: ["Brad Pitt"],
+    genres: { Action: 1, Comedy: 1, Drama: 1 },
+    directors: { "Steven Spielberg": 1 },
+    actors: { "Brad Pitt": 1 },
+
     lastLoggedIn: 0,
   },
   {
@@ -58,9 +63,10 @@ const users = [
       { id: 3, time: 5 },
     ],
 
-    genres: ["Drama"],
-    directors: ["Steven Spielberg"],
-    actors: ["Brad Pitt"],
+    genres: { Action: 1, Comedy: 1, Drama: 1 },
+    directors: { "Steven Spielberg": 1 },
+    actors: { "Brad Pitt": 1 },
+
     lastLoggedIn: 0,
   },
   {
@@ -79,9 +85,10 @@ const users = [
       { id: 4, time: 5 },
     ],
 
-    genres: ["Comedy"],
-    directors: ["Steven Spielberg"],
-    actors: ["Brad Pitt"],
+    genres: { Action: 1, Comedy: 1, Drama: 1 },
+    directors: { "Steven Spielberg": 1 },
+    actors: { "Brad Pitt": 1 },
+
     lastLoggedIn: 0,
   },
 ];
