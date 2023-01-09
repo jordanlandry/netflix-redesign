@@ -15,16 +15,16 @@ export default function UserTab({}: Props) {
 
   // Functions
   const handleMouseLeave = () => setHover(false);
-  const handleSwitchUser = (id: number) =>
-    setUser(
-      users.find((user) => {
-        if (user.id === id) {
-          user.lastLoggedIn = Date.now();
-          return true;
-        }
-        return false;
-      })!
-    );
+  const handleSwitchUser = (id: number) => {
+    users.find((user: any) => {
+      if (user.id === id) {
+        user.lastLoggedIn = Date.now();
+        setUser(user);
+        return true;
+      }
+      return false;
+    });
+  };
 
   // Elements
   const filteredUsers = users.filter((user) => user.id !== id);

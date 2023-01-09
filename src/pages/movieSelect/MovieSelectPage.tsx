@@ -37,7 +37,6 @@ export default function MovieSelectPage() {
         ) : (
           <>
             <ColorGradient />
-            {/* <MovieSelectTab title="Top 10 today" movieList={recommendedMovies} /> */}
             <MovieSelectTab title="Recommended for you" movieList={recommendedMovies} />
           </>
         )}
