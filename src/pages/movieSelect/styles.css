@@ -1,4 +1,16 @@
+.movie-select-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
 .movie-select-wrapper {
   display: flex;
   gap: 10px;
+}
+
+.movie-select__tab {
+  display: flex;
+  gap: 15px;
 }

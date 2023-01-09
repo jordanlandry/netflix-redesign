@@ -37,3 +37,41 @@
   pointer-events: none;
   font-weight: 600;
 }
+
+.navbar__window-secondary {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--navbar-item-height);
+}
+
+.navbar__window-search {
+  gap: 10px;
+}
+
+.navbar__window-search input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  height: calc(var(--navbar-item-height) - 2px);
+
+  background-color: transparent;
+  width: 250px;
+  color: white;
+}
+
+.navbar__window-search--active {
+  animation: open-search 0.2s forwards;
+  outline: 1px solid white;
+}
+
+@keyframes open-search {
+  0% {
+    width: 150px;
+  }
+  100% {
+    width: 300px;
+  }
+}
