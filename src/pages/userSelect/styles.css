@@ -1,12 +1,10 @@
-.user-tab {
-  height: var(--navbar-item-height);
-}
-
 .user-select__flex {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  height: 100vh;
 
   background-color: var(--bg);
 }
@@ -47,7 +45,6 @@
 
 .user-select__user {
   width: 100px;
-  height: var(--navbar-item-height);
   border-radius: 15px;
   cursor: pointer;
   transition: 0.2s;

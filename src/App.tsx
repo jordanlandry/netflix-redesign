@@ -5,6 +5,7 @@ import { UserType } from "./data/userData";
 import useLocalStorage from "./hooks/useLocalStorage";
 import MovieSelectPage from "./pages/movieSelect/MovieSelectPage";
 import UserSelectPage from "./pages/userSelect/UserSelectPage";
+import properties from "./properties";
 
 export const UserContext = createContext<UserType | null>(null);
 export const SetUserContext = createContext<React.Dispatch<React.SetStateAction<UserType | null>> | null>(null);
@@ -14,6 +15,11 @@ export const SetSearchContext = createContext<any>(null);
 function App() {
   const [user, setUser] = useLocalStorage("user", null);
   const [search, setSearch] = useState("");
+
+  // Remove session after timeout, see props.ts to change timeout
+  const lastLoggedIn = user?.lastLoggedIn;
+  if (lastLoggedIn && Date.now() - lastLoggedIn > properties.SESSION_TIMEOUT) setUser(null);
+  else if (user) user.lastLoggedIn = Date.now();
 
   return (
     <div className="App">

@@ -16,6 +16,8 @@ export type UserType = {
   genres: string[];
   directors: string[];
   actors: string[];
+
+  lastLoggedIn: number;
 };
 
 const users = [
@@ -38,6 +40,7 @@ const users = [
     genres: ["Action", "Comedy", "Drama"],
     directors: ["Steven Spielberg"],
     actors: ["Brad Pitt"],
+    lastLoggedIn: 0,
   },
   {
     id: 2,
@@ -58,6 +61,7 @@ const users = [
     genres: ["Drama"],
     directors: ["Steven Spielberg"],
     actors: ["Brad Pitt"],
+    lastLoggedIn: 0,
   },
   {
     id: 3,
@@ -78,6 +82,7 @@ const users = [
     genres: ["Comedy"],
     directors: ["Steven Spielberg"],
     actors: ["Brad Pitt"],
+    lastLoggedIn: 0,
   },
 ];
 

@@ -15,7 +15,7 @@ export default function MovieSelect({ title, posters, link }: Props) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <img src={posters[0].url} alt={title} />
+      <img src={posters[0].url} alt={title} loading="lazy" />
     </a>
   );
 }
