@@ -125,6 +125,40 @@ const movieData: MovieType[] = [
       },
     ],
   },
+  {
+    id: 7,
+    title: "American Psycho",
+    year: 2000,
+    runtime: 102,
+    genres: ["Crime", "Drama", "Thriller"],
+    directors: ["Mary Harron"],
+    actors: ["Christian Bale", "Justin Theroux", "Josh Lucas", "Samantha Mathis"],
+    plot: "A wealthy New York investment banking executive hides his alternate psychopathic ego from his co-workers and friends as he delves deeper into his violent, hedonistic fantasies.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABYWktoJ11xQET_OQMZ2ltwSob_DNvfOlxR-_vVJc6RXz09BEozxBo0RDQ3K9mHyZ4vQYktVviaSMQqaivEx6AvoIoZ69qZyrzTU.webp?r=5a9",
+        actor: "Christian Bale",
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: "Billy Madison",
+    year: 1995,
+    runtime: 89,
+    genres: ["Comedy"],
+    directors: ["Tamra Davis"],
+    actors: ["Adam Sandler", "Bradley Whitford", "Rachel Ticotin", "Luis Armand Garcia"],
+    plot: "The spoiled son of a wealthy businessman must repeat the 6th grade at a public school in order to inherit his father's fortune.",
+    posters: [
+      {
+        id: 1,
+        url: "http://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbXM7qX-1oOzyd9-RKL9xEA1a4v4PJP3rDI6uz1WTFRa8K53Yq2jy5oMvkWQyQkFkGyQAijBf1ahZABnXvawNa4x_f4g-WiviTE.webp?r=1b8",
+        actor: "Adam Sandler",
+      },
+    ],
+  },
 ];
 
 export default movieData;

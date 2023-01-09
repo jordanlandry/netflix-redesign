@@ -5,12 +5,22 @@ import { UserType } from "../../data/userData";
 //   onClick: any;
 // }
 
-export default function UserSelect({ id, name, icon, birthday, recentlyWatched, genres, onClick }: any) {
+export default function UserSelect({
+  id,
+  name,
+  icon,
+  birthday,
+  recentlyWatched,
+  genres,
+  onClick,
+  actors,
+  directors,
+}: any) {
   // I have this instead of css hover because I only want to outline the icon when the user is hovering over the entire div
   const [hoveredClassName, setHoveredClassName] = useState("");
 
   const handleOnClick = () => {
-    onClick({ id, name, icon, birthday, recentlyWatched, genres, lastLoggedIn: Date.now() });
+    onClick({ id, name, icon, birthday, recentlyWatched, genres, actors, directors, lastLoggedIn: Date.now() });
   };
 
   return (

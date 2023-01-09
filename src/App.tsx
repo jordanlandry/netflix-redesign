@@ -13,7 +13,8 @@ export const SearchContext = createContext<string | null>(null);
 export const SetSearchContext = createContext<any>(null);
 
 function App() {
-  const [user, setUser] = useLocalStorage("user", null);
+  // const [user, setUser] = useLocalStorage("user", null);
+  const [user, setUser] = useState<any>(null); // TODO: Change this back to useLocalStorage when I'm done testing
   const [search, setSearch] = useState("");
 
   return (
