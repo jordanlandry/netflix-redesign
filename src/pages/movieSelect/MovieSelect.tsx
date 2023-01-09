@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../../App";
 import { MovieType } from "../../data/movieData";
+import selectPoster from "../../helpers/selectPoster";
 
 interface Props extends MovieType {
   link: string;
@@ -7,6 +9,9 @@ interface Props extends MovieType {
 
 export default function MovieSelect({ title, posters, link }: Props) {
   const [hover, setHover] = useState(false);
+  const user = useContext(UserContext)!;
+
+  const poster = selectPoster(user, posters);
 
   return (
     <a
@@ -15,7 +20,7 @@ export default function MovieSelect({ title, posters, link }: Props) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <img src={posters[0].url} alt={title} loading="lazy" />
+      <img src={poster.url} alt={title} loading="lazy" />
     </a>
   );
 }

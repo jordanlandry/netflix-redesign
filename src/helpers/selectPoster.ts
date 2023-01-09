@@ -1,9 +1,16 @@
 import { UserType } from "../data/userData";
 
 export default function selectPoster(user: UserType, posters: any) {
-  // Look through recent movies the user has watched and find actors that match the posters
+  // Go through posters
+  let result: number[] = [];
+  posters.forEach((poster: any) => {
+    if (user.actors[poster.actor]) result.push(user.actors[poster.actor]);
+  });
 
-  console.error("Select poster not implemented");
+  let maxIdx = 0;
+  result.forEach((value, i) => {
+    if (value > result[maxIdx]) maxIdx = i;
+  });
 
-  // If there is a match, return the most popular poster
+  return posters[maxIdx];
 }

@@ -39,7 +39,7 @@ const users = [
 
     genres: { Action: 1, Comedy: 1, Drama: 1 },
     directors: { "Steven Spielberg": 1 },
-    actors: { "Brad Pitt": 1, "Morgan Freeman": 0.2, "Tim Robbins": 0.9 },
+    actors: { "Brad Pitt": 1, "Jonah Hill": 3, "Morgan Freeman": 0.2, "Tim Robbins": 0.9 },
 
     lastLoggedIn: 0,
   },
