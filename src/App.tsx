@@ -1,12 +1,12 @@
-import { createContext, useEffect, useState } from "react";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { createContext, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavWrapper from "./components/navbar/NavWrapper";
 import { UserType } from "./data/userData";
 import useLocalStorage from "./hooks/useLocalStorage";
-import ManageProfiles from "./pages/manageProfiles/ManageProfilesPage";
+import AvatarPage from "./pages/manageProfiles/AvatarPage";
+import ManageProfilesPage from "./pages/manageProfiles/ManageProfilesPage";
 import MovieSelectPage from "./pages/movieSelect/MovieSelectPage";
 import UserSelectPage from "./pages/userSelect/UserSelectPage";
-import properties from "./properties";
 
 export const UserContext = createContext<UserType | null>(null);
 export const SetUserContext = createContext<React.Dispatch<React.SetStateAction<UserType | null>> | null>(null);
@@ -14,8 +14,7 @@ export const SearchContext = createContext<string | null>(null);
 export const SetSearchContext = createContext<any>(null);
 
 function App() {
-  // const [user, setUser] = useLocalStorage("user", null);
-  const [user, setUser] = useState<any>(null); // TODO: Change this back to useLocalStorage when I'm done testing
+  const [user, setUser] = useLocalStorage("user", null);
   const [search, setSearch] = useState("");
 
   return (
@@ -29,7 +28,8 @@ function App() {
                 <BrowserRouter>
                   <Routes>
                     <Route path="/" element={<MovieSelectPage />} />
-                    <Route path="/manage-profiles" element={<ManageProfiles />} />
+                    <Route path="/manage-profiles" element={<ManageProfilesPage />} />
+                    <Route path="/manage-profiles/change-avatar/:id" element={<AvatarPage />} />
                   </Routes>
                 </BrowserRouter>
               </SetSearchContext.Provider>

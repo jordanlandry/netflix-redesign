@@ -519,7 +519,7 @@ const avatarData = [
       "https://occ-0-1068-92.1.nflxso.net/art/a1e2e/8df363033e55d299a5472731245fc9b8548a1e2e.",
       "https://occ-0-1068-92.1.nflxso.net/art/104bb/b03cce661372bfbc175b19c16e7549e2403104bb.",
       "https://occ-0-1068-92.1.nflxso.net/art/614f0/2ec4f3777f897f9a231a16788f278865d30614f0.",
-      "https://occ-0-1068-92.1.nflxso.net/art/fd14d/fd0eb7f7db42dba1e22e92d9198ce9c53c1fd14d",
+      "https://occ-0-1068-92.1.nflxso.net/art/fd14d/fd0eb7f7db42dba1e22e92d9198ce9c53c1fd14d.",
     ],
   },
 ];
