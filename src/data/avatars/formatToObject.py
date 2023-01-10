@@ -40,5 +40,11 @@ def formatToObject():
 
 
     append_file.write("}\n];\nexport default avatarData;")
+
+    # Close the file
+    read_file.close()
+    write_file.close()
+    append_file.close()
+    
     
 formatToObject()

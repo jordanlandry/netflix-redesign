@@ -42,10 +42,18 @@ export default function UserTab({}: Props) {
       {hover ? (
         <ul className="user-tab__list">
           {userElements}
-          <li>Manage Profiles</li>
-          <li>Transfer Profile</li>
-          <li>Account</li>
-          <li>Help Center</li>
+          <li>
+            <a href="/manage-profiles">Manage Profiles</a>
+          </li>
+          <li>
+            <a href="">Transfer Profile</a>
+          </li>
+          <li>
+            <a href="">Account</a>
+          </li>
+          <li>
+            <a href="">Help Center</a>
+          </li>
           <hr />
           <li>Sign out</li>
         </ul>

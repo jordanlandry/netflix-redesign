@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import NavWrapper from "./components/navbar/NavWrapper";
 import { UserType } from "./data/userData";
 import useLocalStorage from "./hooks/useLocalStorage";
+import ManageProfiles from "./pages/manageProfiles/ManageProfilesPage";
 import MovieSelectPage from "./pages/movieSelect/MovieSelectPage";
 import UserSelectPage from "./pages/userSelect/UserSelectPage";
 import properties from "./properties";
@@ -28,6 +29,7 @@ function App() {
                 <BrowserRouter>
                   <Routes>
                     <Route path="/" element={<MovieSelectPage />} />
+                    <Route path="/manage-profiles" element={<ManageProfiles />} />
                   </Routes>
                 </BrowserRouter>
               </SetSearchContext.Provider>
