@@ -35,3 +35,36 @@
     width: calc(25vw - (var(--outside-padding)));
   }
 }
+
+.movie-select__button {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  font-size: 2rem;
+}
+
+.movie-tab__next {
+  animation: movie-tab-next 0.5s forwards;
+}
+
+.movie-tab__prev {
+  animation: movie-tab-prev 0.5s forwards;
+}
+
+@keyframes movie-tab-next {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw / 3));
+  }
+}
+
+@keyframes movie-tab-prev {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100vw / 3));
+  }
+}

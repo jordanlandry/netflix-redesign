@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import nextId from "react-id-generator";
 import { SearchContext, UserContext } from "../../App";
 import ColorGradient from "../../components/ColorGradient";
-import movieData, { MovieType } from "../../data/movieData";
+import movieData, { MovieType } from "../../data/movie/movieData";
 import recommendMovies from "../../helpers/recommendMovies";
 import MovieSelect from "./MovieSelect";
 import MovieSelectTab from "./MovieSelectTab";

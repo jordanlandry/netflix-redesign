@@ -1,12 +1,11 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../App";
-import { MovieType } from "../../data/movieData";
+import { MovieType } from "../../data/movie/movieData";
 import selectPoster from "../../helpers/selectPoster";
 
 type Props = {
   title: string;
   posters: { id: number; url: string; actor: string }[];
-  // posters: any;
   link: string;
 };
 

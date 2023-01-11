@@ -1,5 +1,5 @@
 import React from "react";
-import { MovieType } from "../../data/movieData";
+import { MovieType } from "../../data/movie/movieData";
 
 type Props = { movies: MovieType };
 

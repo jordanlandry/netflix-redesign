@@ -1,19 +1,3 @@
-// export type MovieType = {
-//   id: number;
-//   title: string;
-//   year: number;
-//   runtime: number;
-//   genres: string[];
-//   directors: string[];
-//   actors: string[];
-//   plot: string;
-//   posters: {
-//     id: number;
-//     url: string;
-//     actor: string;
-//   }[];
-// };
-
 export type MovieType = {
   [key: string]: {
     title: string;
@@ -108,6 +92,11 @@ const movieData: MovieType = {
         id: 2,
         url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABYWktoJ11xQET_OQMZ2ltwSob_DNvfOlxR-_vVJc6RXz09BEozxBo0RDQ3K9mHyZ4vQYktVviaSMQqaivEx6AvoIoZ69qZyrzTU.webp?r=5a9",
         actor: "Jonah Hill",
+      },
+      {
+        id: 3,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRZohwYg8_guDWqTpNZpV27hZ6EMl_dOId6IpgHKaVJsHLdVB5_lgE6YrDmvPdBpTWJjDtbIVqNzYD9qqos6vfFzCFjN-zGGtHY.webp?r=09b",
+        actor: "Chris Pratt",
       },
     ],
   },
@@ -284,6 +273,22 @@ const movieData: MovieType = {
         id: 1,
         url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeEPdp4_bsFQpxbgqPp1v2OY-4UzMbg1GAvt-hLiL56fKIep3qaebTjzQl0Ff5qND5xxkAG_r6Hrw8qCCk_w4g2IKs7tBd6fjFE.webp?r=50c",
         actor: "Tobey Maguire",
+      },
+    ],
+  },
+  "16": {
+    title: "Kung Fu Panda",
+    year: 2008,
+    runtime: 92,
+    genres: ["Animation", "Action", "Adventure"],
+    directors: ["Mark Osborne", "John Stevenson"],
+    actors: ["Jack Black", "Ian McShane", "Angelina Jolie", "Dustin Hoffman"],
+    plot: "The Dragon Warrior has to clash against the savage Tai Lung as China's fate hangs in the balance: However, the Dragon Warrior mantle is supposedly mistaken to be bestowed upon an obese panda who is a novice in martial arts.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABR0zP17rVQgLccmVxlLJst0pNcoHEVloRMK2kHiFdEGavJLr68Z-dUUKTKT_bPdqadvqHasPqlVhLGCG1ttyGj4CTOFj4x3287k.webp?r=9f0",
+        actor: "Jack Black",
       },
     ],
   },
