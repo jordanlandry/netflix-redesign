@@ -1,6 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-import { SetUserContext, UserContext } from "../../App";
-import users from "../../data/userData";
+import { SetUserContext, UserContext, UserDataContext } from "../../App";
 import "./usertab.css";
 
 type Props = {};
@@ -10,13 +9,14 @@ export default function UserTab({}: Props) {
   const [hover, setHover] = useState(false);
 
   // Context
-  const { id, name, icon, birthday, recentlyWatched, genres } = useContext(UserContext)!;
+  const { id, name, icon, birthday, recentlyWatched, habits } = useContext(UserContext)!;
+  const userData = useContext(UserDataContext)!;
   const setUser = useContext(SetUserContext)!;
 
   // Functions
   const handleMouseLeave = () => setHover(false);
   const handleSwitchUser = (id: number) => {
-    users.find((user: any) => {
+    userData.find((user: any) => {
       if (user.id === id) {
         user.lastLoggedIn = Date.now();
         setUser(user);
@@ -27,8 +27,16 @@ export default function UserTab({}: Props) {
   };
 
   // Elements
-  const filteredUsers = users.filter((user) => user.id !== id);
-  const userElements = filteredUsers.map((user) => (
+  // const filteredUsers = users.filter((user) => user.id !== id);
+  // const userElements = filteredUsers.map((user) => (
+  //   <li key={user.id} className="user-tab__user" onClick={() => handleSwitchUser(user.id)}>
+  //     <img src={user.icon}></img>
+  //     <span>{user.name}</span>
+  //   </li>
+  // ));
+
+  const filteredUsers = userData.filter((user: any) => user.id !== id);
+  const userElements = filteredUsers.map((user: any) => (
     <li key={user.id} className="user-tab__user" onClick={() => handleSwitchUser(user.id)}>
       <img src={user.icon}></img>
       <span>{user.name}</span>

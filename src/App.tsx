@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavWrapper from "./components/navbar/NavWrapper";
-import { UserType } from "./data/userData";
 import useLocalStorage from "./hooks/useLocalStorage";
 import CreateUserPage from "./pages/createUser/CreateUserPage";
 import AvatarPage from "./pages/manageProfiles/AvatarPage";
@@ -9,14 +8,27 @@ import ManageProfilesPage from "./pages/manageProfiles/ManageProfilesPage";
 import MovieSelectPage from "./pages/movieSelect/MovieSelectPage";
 import UserSelectPage from "./pages/userSelect/UserSelectPage";
 
-export const UserDataContext = createContext<UserType[] | null>(null);
+export interface UserType {
+  id: string;
+  name: string;
+  icon: string;
+  birthday: string;
+  recentlyWatched: string[]; // String of movie ids
+  habits: { actors: string[]; genres: string[]; directors: string[] };
+  lastLoggedIn: number;
+}
+
+export const UserDataContext = createContext<any>(null);
+export const SetUserDataContext = createContext<any>(null);
+
 export const UserContext = createContext<UserType | null>(null);
 export const SetUserContext = createContext<any>(null);
+
 export const SearchContext = createContext<string | null>(null);
 export const SetSearchContext = createContext<any>(null);
 
 function App() {
-  const [userData, setUserData] = useState<UserType[]>([]); // This is just for the demo, I didn't implement a backend, so I just use local storage to store the users
+  const [userData, setUserData] = useLocalStorage("userData", ""); // This is just for the demo, I didn't implement a backend, so I just use local storage to store the users
   const [user, setUser] = useLocalStorage("user", null);
   const [search, setSearch] = useState("");
 
@@ -28,26 +40,32 @@ function App() {
     <div className="App">
       {user ? (
         <UserDataContext.Provider value={userData}>
-          <UserContext.Provider value={user}>
-            <SetUserContext.Provider value={setUser}>
-              <SearchContext.Provider value={search}>
-                <SetSearchContext.Provider value={setSearch}>
-                  <NavWrapper />
-                  <BrowserRouter>
-                    <Routes>
-                      <Route path="/" element={<MovieSelectPage />} />
-                      <Route path="/manage-profiles" element={<ManageProfilesPage />} />
-                      <Route path="/manage-profiles/change-avatar/:id" element={<AvatarPage />} />
-                      <Route path="/create-user" element={<CreateUserPage />} />
-                    </Routes>
-                  </BrowserRouter>
-                </SetSearchContext.Provider>
-              </SearchContext.Provider>
-            </SetUserContext.Provider>
-          </UserContext.Provider>
+          <SetUserDataContext.Provider value={setUserData}>
+            <UserContext.Provider value={user}>
+              <SetUserContext.Provider value={setUser}>
+                <SearchContext.Provider value={search}>
+                  <SetSearchContext.Provider value={setSearch}>
+                    <NavWrapper />
+                    <BrowserRouter>
+                      <Routes>
+                        <Route path="/" element={<MovieSelectPage />} />
+                        <Route path="/manage-profiles" element={<ManageProfilesPage />} />
+                        <Route path="/manage-profiles/change-avatar/:id" element={<AvatarPage />} />
+                        <Route path="/create-user" element={<CreateUserPage />} />
+                      </Routes>
+                    </BrowserRouter>
+                  </SetSearchContext.Provider>
+                </SearchContext.Provider>
+              </SetUserContext.Provider>
+            </UserContext.Provider>
+          </SetUserDataContext.Provider>
         </UserDataContext.Provider>
       ) : (
-        <UserSelectPage onClick={setUser} />
+        <SetUserDataContext.Provider value={setUserData}>
+          <UserDataContext.Provider value={userData}>
+            <UserSelectPage onClick={setUser} />
+          </UserDataContext.Provider>
+        </SetUserDataContext.Provider>
       )}
     </div>
   );

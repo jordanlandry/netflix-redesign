@@ -36,7 +36,7 @@ def formatToObject():
 
         # Add the avatars to the file
         else:
-            append_file.write('"' + line + '",\n\t\t')
+            append_file.write('"' + line + 'png' +  '",\n\t\t')
 
 
     append_file.write("}\n];\nexport default avatarData;")

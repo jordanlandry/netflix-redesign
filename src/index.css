@@ -37,3 +37,15 @@ body {
 .pointer {
   cursor: pointer;
 }
+
+.input {
+  background-color: transparent;
+
+  border: 1px solid white;
+  padding: 2px;
+  color: white;
+}
+
+.input:focus {
+  outline: none;
+}

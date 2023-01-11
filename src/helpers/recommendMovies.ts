@@ -7,7 +7,9 @@ import { UserType } from "../data/userData";
 // and also could keep track of which movies have been recommended to the user and lower the relavancy
 // of those movies in the future to prevent the user from seeing the same movies over and over again
 // but for the sake of this project, we will just use a simple algorithm to make the recommendations
-export default function recommendMovies(user: UserType) {
+
+// TODO: Fix this type
+export default function recommendMovies(user: any) {
   const relavancies = {
     genre: 0.5,
     actor: 0.6,
@@ -15,7 +17,8 @@ export default function recommendMovies(user: UserType) {
     random: 0.2,
   };
 
-  const { genres, actors, directors } = user;
+  const { genres, actors, directors } = user.habits;
+
   const filteredData = movieData.map((movie) => {
     let relavancy = Math.random() * relavancies.random; // Add a random number to the relavancy to make the recommendations more varied
 
@@ -26,7 +29,7 @@ export default function recommendMovies(user: UserType) {
     );
 
     // Remove movies that the user has already watched
-    user.recentlyWatched.forEach((watchedMovie) => (watchedMovie.id === movie.id ? (relavancy = 0) : false));
+    user.recentlyWatched.forEach((watchedMovie: any) => (watchedMovie.id === movie.id ? (relavancy = 0) : false));
 
     return { ...movie, relavancy };
   });
