@@ -27,6 +27,7 @@ export default function MovieSelectTab({ title, movieList }: Props) {
 
   const [scrollIndex, setScrollIndex] = useState(0);
   const [widthToScroll, setWidthToScroll] = useState(0);
+  const [scrollOffset, setScrollOffset] = useState(0);
 
   // The width of the next and previous buttons should be the width of the movie shown, that is off screen
   useEffect(() => {
@@ -41,9 +42,10 @@ export default function MovieSelectTab({ title, movieList }: Props) {
     const numberOfImagesInView = Math.floor(width / imageWidth);
     const buttonWidth = width - imageWidth * numberOfImagesInView - gap * numberOfImagesInView - outSidePadding;
 
-    setButtonWidth(buttonWidth);
+    setButtonWidth(buttonWidth - gap);
     setButtonHeight(movieRef.current.children[0].children[0].getBoundingClientRect().height);
     setWidthToScroll((imageWidth + gap) * numberOfImagesInView);
+    setScrollOffset(gap);
   }, [movieRef, width]);
 
   return (
@@ -59,7 +61,10 @@ export default function MovieSelectTab({ title, movieList }: Props) {
       <div
         className="movie-select__tab"
         ref={movieRef}
-        style={{ transform: `translateX(${widthToScroll * -scrollIndex}px)`, transition: "transform 0.5s" }}
+        style={{
+          transform: `translateX(${widthToScroll * -scrollIndex + scrollOffset}px)`,
+          transition: "transform 0.5s",
+        }}
       >
         {movieElements}
       </div>

@@ -21,6 +21,15 @@ export default function MovieSelect({ title, posters, link }: Props) {
       href={link}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onClick={() => {
+        // Add to recently watched
+        // const movie: MovieType = {
+        //   id: posters[0].id,
+        //   title,
+        //   poster: poster.url,
+        //   actor: poster.actor,
+        // };
+      }}
     >
       <img src={poster.url} alt={title} loading="lazy" />
     </a>
