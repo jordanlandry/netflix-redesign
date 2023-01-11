@@ -18,11 +18,15 @@ export default function MovieSelectTab({ title, movieList }: Props) {
     return <MovieSelect key={nextId()} {...movie} link={`/watch/${movie.id}`} />;
   });
 
+  const [hover, setHover] = useState(false);
+
   const [buttonWidth, setButtonWidth] = useState(0);
   const [buttonHeight, setButtonHeight] = useState(0);
-  const [aTagOffset, setATagOffset] = useState(0); // The offset of the a tag that surrounds the image
   const movieRef = useRef<HTMLDivElement>(null);
   const width = useWidth();
+
+  const [scrollIndex, setScrollIndex] = useState(0);
+  const [widthToScroll, setWidthToScroll] = useState(0);
 
   // The width of the next and previous buttons should be the width of the movie shown, that is off screen
   useEffect(() => {
@@ -39,22 +43,29 @@ export default function MovieSelectTab({ title, movieList }: Props) {
 
     setButtonWidth(buttonWidth);
     setButtonHeight(movieRef.current.children[0].children[0].getBoundingClientRect().height);
+    setWidthToScroll((imageWidth + gap) * numberOfImagesInView);
   }, [movieRef, width]);
 
   return (
-    <div>
+    <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <h2>{title}</h2>
       <div
-        className="movie-select__left movie-select__button"
+        className="movie-select__left movie-select__button pointer"
         style={{ width: buttonWidth, position: "absolute", left: "0", height: buttonHeight, zIndex: 2 }}
+        onClick={() => setScrollIndex((prev) => prev - 1)}
       >
         <ChevronLeft />
       </div>
-      <div className="movie-select__tab" ref={movieRef}>
+      <div
+        className="movie-select__tab"
+        ref={movieRef}
+        style={{ transform: `translateX(${widthToScroll * -scrollIndex}px)`, transition: "transform 0.5s" }}
+      >
         {movieElements}
       </div>
       <div
-        className="movie-select__right movie-select__button"
+        className="movie-select__right movie-select__button pointer"
+        onClick={() => setScrollIndex((prev) => prev + 1)}
         style={{
           width: buttonWidth,
           position: "absolute",
