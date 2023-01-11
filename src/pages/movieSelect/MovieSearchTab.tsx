@@ -1,14 +1,14 @@
 import React from "react";
 import { MovieType } from "../../data/movieData";
 
-type Props = { movies: MovieType[] };
+type Props = { movies: MovieType };
 
 export default function MovieSearchTab({ movies }: Props) {
-  return (
-    <div>
-      {movies.map((movie) => (
-        <div key={movie.id}>{movie.title}</div>
-      ))}
-    </div>
-  );
+  // Turn movie object into array of JSX elements
+  const movieElements: any = [];
+  Object.keys(movies).forEach((key: string) => {
+    movieElements.push(<div key={key}>{movies[key].title}</div>);
+  });
+
+  return <div></div>;
 }

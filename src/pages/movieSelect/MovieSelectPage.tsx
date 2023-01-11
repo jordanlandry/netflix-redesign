@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import nextId from "react-id-generator";
 import { SearchContext, UserContext } from "../../App";
 import ColorGradient from "../../components/ColorGradient";
 import movieData, { MovieType } from "../../data/movieData";
@@ -11,9 +12,10 @@ export default function MovieSelectPage() {
   const user = useContext(UserContext)!;
   const search = useContext(SearchContext)!;
 
-  // Filter by search: actors, title, genres, directors
-  const filteredSearchData = movieData.filter((movie) => {
-    const { actors, title, genres, directors } = movie;
+  // Filter by search: actors, title, genres, directors (Returns an array of keys/ids)
+  const filteredSearchData = Object.keys(movieData).filter((key) => {
+    const { actors, title, genres, directors } = movieData[key];
+
     return (
       actors.some((actor) => actor.toLowerCase().includes(search.toLowerCase())) ||
       title.toLowerCase().includes(search.toLowerCase()) ||
@@ -23,8 +25,8 @@ export default function MovieSelectPage() {
   });
 
   // Search Elements
-  const searchElements = filteredSearchData.map((movie) => (
-    <MovieSelect key={movie.id} {...movie} link={`/watch/${movie.id}`} />
+  const searchElements = filteredSearchData.map((key) => (
+    <MovieSelect key={key} title={movieData[key].title} posters={movieData[key].posters} link={`/watch/${key}`} />
   ));
 
   const recommendedMovies = recommendMovies(user);

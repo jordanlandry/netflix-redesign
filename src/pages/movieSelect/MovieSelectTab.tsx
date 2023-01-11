@@ -1,3 +1,4 @@
+import nextId from "react-id-generator";
 import movieData, { MovieType } from "../../data/movieData";
 import MovieSelect from "./MovieSelect";
 
@@ -9,7 +10,7 @@ type Props = {
 // Carousel of movies
 export default function MovieSelectTab({ title, movieList }: Props) {
   const movieElements = Array.from(movieList).map((movie: any) => (
-    <MovieSelect key={movie.id} {...movie} link={`/watch/${movie.id}`} />
+    <MovieSelect key={nextId()} {...movie} link={`/watch/${movie.id}`} />
   ));
 
   return (

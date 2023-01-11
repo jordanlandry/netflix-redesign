@@ -3,9 +3,12 @@ import { UserContext } from "../../App";
 import { MovieType } from "../../data/movieData";
 import selectPoster from "../../helpers/selectPoster";
 
-interface Props extends MovieType {
+type Props = {
+  title: string;
+  posters: { id: number; url: string; actor: string }[];
+  // posters: any;
   link: string;
-}
+};
 
 export default function MovieSelect({ title, posters, link }: Props) {
   const [hover, setHover] = useState(false);

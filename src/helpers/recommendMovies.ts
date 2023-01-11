@@ -18,18 +18,18 @@ export default function recommendMovies(user: any) {
   };
 
   const { genres, actors, directors } = user.habits;
-
-  const filteredData = movieData.map((movie) => {
+  // Turn the movieData object into an array
+  const filteredData = Object.values(movieData).map((movie) => {
     let relavancy = Math.random() * relavancies.random; // Add a random number to the relavancy to make the recommendations more varied
 
-    movie.genres.forEach((genre) => (genres[genre] ? (relavancy += genres[genre] * relavancies.genre) : false));
-    movie.actors.forEach((actor) => (actors[actor] ? (relavancy += actors[actor] * relavancies.actor) : false));
-    movie.directors.forEach((director) =>
+    movie.genres.forEach((genre: string) => (genres[genre] ? (relavancy += genres[genre] * relavancies.genre) : false));
+    movie.actors.forEach((actor: string) => (actors[actor] ? (relavancy += actors[actor] * relavancies.actor) : false));
+    movie.directors.forEach((director: string) =>
       directors[director] ? (relavancy += directors[director] * relavancies.director) : false
     );
 
     // Remove movies that the user has already watched
-    user.recentlyWatched.forEach((watchedMovie: any) => (watchedMovie.id === movie.id ? (relavancy = 0) : false));
+    // user.recentlyWatched.forEach((watchedMovie: any) => (watchedMovie.id === key ? (relavancy = 0) : false));
 
     return { ...movie, relavancy };
   });

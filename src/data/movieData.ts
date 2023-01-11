@@ -1,22 +1,43 @@
+// export type MovieType = {
+//   id: number;
+//   title: string;
+//   year: number;
+//   runtime: number;
+//   genres: string[];
+//   directors: string[];
+//   actors: string[];
+//   plot: string;
+//   posters: {
+//     id: number;
+//     url: string;
+//     actor: string;
+//   }[];
+// };
+
 export type MovieType = {
-  id: number;
-  title: string;
-  year: number;
-  runtime: number;
-  genres: string[];
-  directors: string[];
-  actors: string[];
-  plot: string;
-  posters: {
-    id: number;
-    url: string;
-    actor: string;
-  }[];
+  [key: string]: {
+    title: string;
+    year: number;
+    runtime: number;
+    genres: string[];
+    directors: string[];
+    actors: string[];
+    plot: string;
+    posters: {
+      id: number;
+      url: string;
+      actor: string;
+    }[];
+  };
 };
 
-const movieData: MovieType[] = [
-  {
-    id: 1,
+// Movie data is a key value pair of movie id and movie data so we can instantly access the movie data by id
+// without having to loop through the array, as in a real world scenario, we would probably have millions of movies,
+// so looping through the array would be very inefficient.. We would also use a database like MongoDB to store the data,
+// which would handle all this but for the sake of this project, we will use a key value pair of movie id and movie data
+
+const movieData: MovieType = {
+  "1": {
     title: "The Shawshank Redemption",
     year: 1994,
     runtime: 142,
@@ -28,15 +49,16 @@ const movieData: MovieType[] = [
       {
         id: 1,
         url: "http://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaT19MAP0NDJ6LphiqxjuXTRkVGVjuRfvtzbk38v9BnmV58R6lb4DoA-J-x4BTHDoBZIjeYqOnpu00FUAc1EuxCKFpbreCy4hVQ.webp?r=d45",
+        actor: "Morgan Freeman",
+      },
+      {
+        id: 2,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABe8AZTnXYGyeS-RqLtSaj7WEhvsLaf8lRTFOMCnmP1-P1zwuFR7HogIyYTMJbwpgIc8buuXNpmQwy_rgU-J4q-D-hc9S9n-3cM4.webp?r=cc1",
         actor: "Tim Robbins",
       },
-      { id: 2, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Morgan Freeman" },
-      { id: 3, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "Bob Gunton" },
-      { id: 4, url: "https://images-na.ssl-images-amazon.com/images/I/51j8Y9Z7QWL._AC_.jpg", actor: "William Sadler" },
     ],
   },
-  {
-    id: 2,
+  "2": {
     title: "The Spongebob Movie",
     year: 2004,
     runtime: 87,
@@ -48,19 +70,18 @@ const movieData: MovieType[] = [
       {
         id: 1,
         url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUfefspsij4-seOUjnvKkYYHt9Hhmth0PybQK19HeER7nx9ukdvuVF4ePp_Y-dwPYirGtDjgUjqlJgX2jvSv2dEeKvMyITXYV2c.webp?r=6cc",
-        actor: "Spongebob",
+        actor: "NULL",
       },
     ],
   },
-  {
-    id: 3,
+  "3": {
     title: "Happy Gilmore",
     year: 1996,
     runtime: 92,
     genres: ["Comedy", "Sport"],
     directors: ["Dennis Dugan"],
-    actors: ["Adam Sandler", "Julie Bowen", "Christopher McDonald", "Allen Covert"],
-    plot: "A rejected hockey player puts his skills to the golf course to save his grandmother's house.",
+    actors: ["Adam Sandler", "Julie Bowen", "Carl Weathers", "Allen Covert"],
+    plot: "Happy Gilmore has a magical hockey stick and a magical temper. He's a struggling young golfer with anger management issues. When his grandmother and her house are threatened with foreclosure, Happy decides to try to win a PGA Tour event to save her home.",
     posters: [
       {
         id: 1,
@@ -69,8 +90,7 @@ const movieData: MovieType[] = [
       },
     ],
   },
-  {
-    id: 4,
+  "4": {
     title: "Moneyball",
     year: 2011,
     runtime: 133,
@@ -91,8 +111,7 @@ const movieData: MovieType[] = [
       },
     ],
   },
-  {
-    id: 5,
+  "5": {
     title: "Despicable Me",
     year: 2010,
     runtime: 95,
@@ -108,8 +127,7 @@ const movieData: MovieType[] = [
       },
     ],
   },
-  {
-    id: 6,
+  "6": {
     title: "Shrek",
     year: 2001,
     runtime: 90,
@@ -125,8 +143,7 @@ const movieData: MovieType[] = [
       },
     ],
   },
-  {
-    id: 7,
+  "7": {
     title: "American Psycho",
     year: 2000,
     runtime: 102,
@@ -142,8 +159,7 @@ const movieData: MovieType[] = [
       },
     ],
   },
-  {
-    id: 8,
+  "8": {
     title: "Billy Madison",
     year: 1995,
     runtime: 89,
@@ -159,8 +175,7 @@ const movieData: MovieType[] = [
       },
     ],
   },
-  {
-    id: 9,
+  "9": {
     title: "El Camino: A Breaking Bad Movie",
     year: 2019,
     runtime: 123,
@@ -176,6 +191,102 @@ const movieData: MovieType[] = [
       },
     ],
   },
-];
+  "10": {
+    title: "Paul Blart: Mall Cop",
+    year: 2009,
+    runtime: 91,
+    genres: ["Action", "Comedy", "Crime"],
+    directors: ["Steve Carr"],
+    actors: ["Kevin James", "Jayma Mays", "Raini Rodriguez", "David Henrie"],
+    plot: "Security guard Paul Blart is headed to Las Vegas to attend a Security Guard Expo with his teenage daughter Maya before she departs for college. While at the convention, he inadvertently discovers a heist - and it's up to Blart to apprehend the criminals.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABU27T4t8SB10VBYGIFG6gq0hCfA0jSVHbppkPvFHR0PoqIohmF_nbCdhPfO2X5fHVidwxqOHyjSJ3ImXZw75qsNZueU2VoN8mjs.webp?r=00a",
+        actor: "Kevin James",
+      },
+    ],
+  },
+  "11": {
+    title: "John Wick",
+    year: 2014,
+    runtime: 101,
+    genres: ["Action", "Crime", "Thriller"],
+    directors: ["Chad Stahelski"],
+    actors: ["Keanu Reeves", "Michael Nyqvist", "Alfie Allen", "Willem Dafoe"],
+    plot: "An ex-hitman comes out of retirement to track down the gangsters that killed his dog and took everything from him.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdSebCGNXuFB9Dd3-aAZvMDxr8U7Y6ekw2hX6yzcHa4f6qcXCGdfb9GC1cHcCCHwiK5_d4aA7brtMzwKHeaqDsqTGr3UZhQTdlo.webp?r=de5",
+        actor: "Keanu Reeves",
+      },
+    ],
+  },
+  "12": {
+    title: "Top Gun",
+    year: 1986,
+    runtime: 110,
+    genres: ["Action", "Adventure", "Romance"],
+    directors: ["Tony Scott"],
+    actors: ["Tom Cruise", "Kelly McGillis", "Val Kilmer", "Anthony Edwards"],
+    plot: "As students at the United States Navy's elite fighter weapons school compete to be best in the class, one daring young pilot learns a few things from a civilian instructor that are not taught in the classroom.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABagetP_gx3ZVWUP12TYW977SKDFc18RrxM9uV73YIVKsLUfQhw52DVa3axgbWwSCglj_vyck3Tmm9_CQhQn2-vMO9tmLdvG8Fg2eu_TSYAf1ZtLVvdqBWRzZf_nAGDiRlvwgeCIpJ20AWVqxRTNOcEcc7DvBqjFeDW0.webp?r=931",
+        actor: "Tom Cruise",
+      },
+    ],
+  },
+  "13": {
+    title: "The Big Short",
+    year: 2015,
+    runtime: 130,
+    genres: ["Biography", "Comedy", "Drama"],
+    directors: ["Adam McKay"],
+    actors: ["Ryan Gosling", "Finn Wittrock", "Melanie Lynskey", "John Magaro"],
+    plot: "Four denizens in the world of high-finance predict the credit and housing bubble collapse of the mid-2000s, and decide to take on the big banks for their greed and lack of foresight.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdhOp1xfEwPwkTAeSvTkxUHWP8RvghcQBgO0qXHvWHxQ19-NWE1ylVSIPmX2xgZh_M0Rm4w6J2i_ly1g83IrEq-v-g3J9qRJCD4.webp?r=bfa",
+        actor: "Ryan Gosling",
+      },
+    ],
+  },
+  "14": {
+    title: "Big Daddy",
+    year: 1999,
+    runtime: 93,
+    genres: ["Comedy"],
+    directors: ["Dennis Dugan"],
+    actors: ["Adam Sandler", "Joey Lauren Adams", "Jon Stewart", "Cole Sprouse"],
+    plot: "A lazy law school grad adopts a kid to impress his girlfriend, but everything doesn't go as planned and he becomes the unlikely foster father.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeEPdp4_bsFQpxbgqPp1v2OY-4UzMbg1GAvt-hLiL56fKIep3qaebTjzQl0Ff5qND5xxkAG_r6Hrw8qCCk_w4g2IKs7tBd6fjFE.webp?r=50c",
+        actor: "Adam Sandler",
+      },
+    ],
+  },
+  "15": {
+    title: "Spiderman",
+    year: 2002,
+    runtime: 121,
+    genres: ["Action", "Adventure", "Fantasy"],
+    directors: ["Sam Raimi"],
+    actors: ["Tobey Maguire", "Willem Dafoe", "Kirsten Dunst", "James Franco"],
+    plot: "When bitten by a genetically modified spider, a nerdy, shy, and awkward high school student gains spider-like abilities that he eventually must use to fight evil as a superhero after tragedy befalls his family.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeEPdp4_bsFQpxbgqPp1v2OY-4UzMbg1GAvt-hLiL56fKIep3qaebTjzQl0Ff5qND5xxkAG_r6Hrw8qCCk_w4g2IKs7tBd6fjFE.webp?r=50c",
+        actor: "Tobey Maguire",
+      },
+    ],
+  },
+};
 
 export default movieData;
