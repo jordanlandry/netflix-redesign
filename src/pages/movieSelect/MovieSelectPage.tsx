@@ -3,6 +3,7 @@ import nextId from "react-id-generator";
 import { SearchContext, UserContext } from "../../App";
 import ColorGradient from "../../components/ColorGradient";
 import movieData, { MovieType } from "../../data/movie/movieData";
+import getTrending from "../../helpers/getTrending";
 import recommendMovies from "../../helpers/recommendMovies";
 import MovieSelect from "./MovieSelect";
 import MovieSelectTab from "./MovieSelectTab";
@@ -36,6 +37,9 @@ export default function MovieSelectPage() {
   ));
 
   const recommendedMovies = recommendMovies(user);
+  const trendingMovies = getTrending();
+
+  console.log(recommendedMovies, trendingMovies);
 
   return (
     <div className="movie-select">
@@ -46,6 +50,7 @@ export default function MovieSelectPage() {
           <>
             <ColorGradient />
             <MovieSelectTab title="Recommended for you" movieList={recommendedMovies} />
+            <MovieSelectTab title="Trending" movieList={trendingMovies} />
           </>
         )}
       </div>

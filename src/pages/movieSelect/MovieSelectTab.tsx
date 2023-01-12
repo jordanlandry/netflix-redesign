@@ -16,7 +16,10 @@ export default function MovieSelectTab({ title, movieList }: Props) {
   return (
     <div>
       <h2>{title}</h2>
-      <Carousel itemsToShow={{ s: 1, m: 3, l: 4 }} extraButtonStyles={{ borderRadius: "var(--movie-border-radius)" }}>
+      <Carousel
+        itemsToShow={{ s: 2, m: 3, l: 4, xl: 5, xxl: 6, max: 7 }}
+        extraButtonStyles={{ borderRadius: "var(--movie-border-radius)" }}
+      >
         {movieElements}
       </Carousel>
     </div>
