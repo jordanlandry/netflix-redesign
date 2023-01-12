@@ -25,7 +25,6 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
   );
 
   const [scrollIndex, setScrollIndex] = useState(0);
-  const [widthToScroll, setWidthToScroll] = useState(width / 3);
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -47,9 +46,6 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
     if (!wrapperRef.current) return;
 
     let w = (width - outsidePadding * 2 - gap * (numberOfItemsToShow - 1)) / numberOfItemsToShow;
-
-    // Update the width
-    setWidthToScroll(w * numberOfItemsToShow);
 
     for (let i = 0; i < wrapperRef.current.children.length; i++) {
       const child = wrapperRef.current.children[i];
@@ -84,14 +80,13 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
         style={{
           display: "flex",
           gap: `${gap}px`,
-          transform: `translateX(calc(${scrollIndex * -100}% - ${scrollIndex * gap - 2}px))`,
+          transform: `translateX(calc(${scrollIndex * -100}% - ${scrollIndex * gap}px))`,
           transition: `0.5s`,
         }}
       >
         {children}
       </div>
       <div
-        className=""
         style={{ ...BUTTON_STYLES, right: 0, transform: `translateY(${-buttonHeight}px)` }}
         onClick={() => setScrollIndex((prev) => prev + 1)}
       >
