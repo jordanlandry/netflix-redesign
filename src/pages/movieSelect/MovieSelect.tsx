@@ -45,8 +45,8 @@ export default function MovieSelect({ title, posters, link, id }: Props) {
   };
 
   return (
-    <a className="movie-select__poster" href={link} onClick={onClick}>
-      <img src={poster.url} alt={title} loading="lazy" />
+    <a className="movie-select__poster" href={link} onClick={onClick} style={{ display: "block" }}>
+      <img src={poster.url} alt={title} loading="lazy" style={{ margin: "0" }} />
     </a>
   );
 }

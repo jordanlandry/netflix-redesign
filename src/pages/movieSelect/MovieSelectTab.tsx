@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 import nextId from "react-id-generator";
+import Carousel from "../../components/carousel/Carousel";
 import movieData, { MovieType } from "../../data/movie/movieData";
 import useHover from "../../hooks/useHover";
 import useWidth from "../../hooks/useWidth";
@@ -51,7 +52,10 @@ export default function MovieSelectTab({ title, movieList }: Props) {
   return (
     <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <h2>{title}</h2>
-      <div
+      <Carousel outsidePadding={100} itemsToShow={{ s: 1, m: 3, l: 4 }}>
+        {movieElements}
+      </Carousel>
+      {/* <div
         className="movie-select__button pointer"
         style={{ width: buttonWidth, position: "absolute", left: "0", height: buttonHeight, zIndex: 2 }}
         onClick={() => setScrollIndex((prev) => prev - 1)}
@@ -80,7 +84,7 @@ export default function MovieSelectTab({ title, movieList }: Props) {
         }}
       >
         <ChevronRight />
-      </div>
+      </div> */}
     </div>
   );
 }
