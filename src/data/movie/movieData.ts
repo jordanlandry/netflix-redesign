@@ -271,7 +271,7 @@ const movieData: MovieType = {
     posters: [
       {
         id: 1,
-        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeEPdp4_bsFQpxbgqPp1v2OY-4UzMbg1GAvt-hLiL56fKIep3qaebTjzQl0Ff5qND5xxkAG_r6Hrw8qCCk_w4g2IKs7tBd6fjFE.webp?r=50c",
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcn0HsWOFtXyP2gPr5ffQ9ZRXUL49J_2bxkHI39j-_eJ9rB6ir8zk0oFUvRs4o3zszggFHWFEBVDpl9ZAYxO_j6DSJQzvKkj-vA.webp?r=426",
         actor: "Tobey Maguire",
       },
     ],

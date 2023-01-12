@@ -5,6 +5,8 @@ const properties = {
   SESSION_TIMEOUT: 30 * 1000, // 30 seconds TODO (for testing, will change to 30 minutes)
 
   MIN_AGE: 8,
+
+  MAX_WATCH_HISTORY: 50,
 };
 
 export default properties;

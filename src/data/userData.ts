@@ -1,11 +1,11 @@
 export type UserType = {
-  id: number;
+  id: string;
   name: string;
   icon: string;
   birthday: {
     day: number;
-    month: number;
-    year: number;
+    month: string;
+    year: string;
   };
 
   recentlyWatched: {
@@ -13,9 +13,11 @@ export type UserType = {
     time: number;
   }[];
 
-  genres: { [key: string]: number };
-  directors: { [key: string]: number };
-  actors: { [key: string]: number };
+  habits: {
+    genres: { [key: string]: number };
+    directors: { [key: string]: number };
+    actors: { [key: string]: number };
+  };
 
   lastLoggedIn: number;
 };

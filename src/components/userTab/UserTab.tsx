@@ -22,18 +22,10 @@ export default function UserTab({}: Props) {
         setUser(user);
         return true;
       }
+
       return false;
     });
   };
-
-  // Elements
-  // const filteredUsers = users.filter((user) => user.id !== id);
-  // const userElements = filteredUsers.map((user) => (
-  //   <li key={user.id} className="user-tab__user" onClick={() => handleSwitchUser(user.id)}>
-  //     <img src={user.icon}></img>
-  //     <span>{user.name}</span>
-  //   </li>
-  // ));
 
   const filteredUsers = userData.filter((user: any) => user.id !== id);
   const userElements = filteredUsers.map((user: any) => (

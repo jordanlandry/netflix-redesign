@@ -26,7 +26,13 @@ export default function MovieSelectPage() {
 
   // Search Elements
   const searchElements = filteredSearchData.map((key) => (
-    <MovieSelect key={key} title={movieData[key].title} posters={movieData[key].posters} link={`/watch/${key}`} />
+    <MovieSelect
+      id={key}
+      key={key}
+      title={movieData[key].title}
+      posters={movieData[key].posters}
+      link={`/watch/${key}`}
+    />
   ));
 
   const recommendedMovies = recommendMovies(user);

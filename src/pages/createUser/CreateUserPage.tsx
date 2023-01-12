@@ -66,7 +66,7 @@ export default function CreateUserPage() {
           name,
           birthday: { month, day, year },
           icon: avatar,
-          habits: { actors: [], genres: [], directors: [] },
+          habits: { actors: {}, genres: {}, directors: {} },
           recentlyWatched: [],
         },
       ]);

@@ -1,22 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavWrapper from "./components/navbar/NavWrapper";
+import { UserType } from "./data/userData";
 import useLocalStorage from "./hooks/useLocalStorage";
 import CreateUserPage from "./pages/createUser/CreateUserPage";
 import AvatarPage from "./pages/manageProfiles/AvatarPage";
 import ManageProfilesPage from "./pages/manageProfiles/ManageProfilesPage";
 import MovieSelectPage from "./pages/movieSelect/MovieSelectPage";
 import UserSelectPage from "./pages/userSelect/UserSelectPage";
-
-export interface UserType {
-  id: string;
-  name: string;
-  icon: string;
-  birthday: string;
-  recentlyWatched: string[]; // String of movie ids
-  habits: { actors: string[]; genres: string[]; directors: string[] };
-  lastLoggedIn: number;
-}
 
 export const UserDataContext = createContext<any>(null);
 export const SetUserDataContext = createContext<any>(null);

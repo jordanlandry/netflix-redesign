@@ -52,7 +52,7 @@ export default function MovieSelectTab({ title, movieList }: Props) {
     <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
       <h2>{title}</h2>
       <div
-        className="movie-select__left movie-select__button pointer"
+        className="movie-select__button pointer"
         style={{ width: buttonWidth, position: "absolute", left: "0", height: buttonHeight, zIndex: 2 }}
         onClick={() => setScrollIndex((prev) => prev - 1)}
       >
@@ -62,14 +62,14 @@ export default function MovieSelectTab({ title, movieList }: Props) {
         className="movie-select__tab"
         ref={movieRef}
         style={{
-          transform: `translateX(${widthToScroll * -scrollIndex + scrollOffset}px)`,
+          transform: `translateX(${widthToScroll * -scrollIndex - scrollOffset / 2}px)`,
           transition: "transform 0.5s",
         }}
       >
         {movieElements}
       </div>
       <div
-        className="movie-select__right movie-select__button pointer"
+        className="movie-select__button pointer"
         onClick={() => setScrollIndex((prev) => prev + 1)}
         style={{
           width: buttonWidth,

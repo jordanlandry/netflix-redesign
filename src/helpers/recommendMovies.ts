@@ -9,7 +9,7 @@ import { UserType } from "../data/userData";
 // but for the sake of this project, we will just use a simple algorithm to make the recommendations
 
 // TODO: Fix this type
-export default function recommendMovies(user: any) {
+export default function recommendMovies(user: UserType) {
   const relavancies = {
     genre: 0.5,
     actor: 0.6,
@@ -40,9 +40,11 @@ export default function recommendMovies(user: any) {
     movieData[key].genres.forEach((genre: string) =>
       genres[genre] ? (relavancy += genres[genre] * relavancies.genre) : false
     );
+
     movieData[key].actors.forEach((actor: string) =>
       actors[actor] ? (relavancy += actors[actor] * relavancies.actor) : false
     );
+
     movieData[key].directors.forEach((director: string) =>
       directors[director] ? (relavancy += directors[director] * relavancies.director) : false
     );
