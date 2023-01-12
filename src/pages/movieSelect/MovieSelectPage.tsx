@@ -39,8 +39,6 @@ export default function MovieSelectPage() {
   const recommendedMovies = recommendMovies(user);
   const trendingMovies = getTrending();
 
-  console.log(recommendedMovies, trendingMovies);
-
   return (
     <div className="movie-select">
       <div>
