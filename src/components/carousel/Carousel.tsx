@@ -53,7 +53,7 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
       child.children[0].setAttribute("width", w + "px");
     }
 
-    setButtonHeight(wrapperRef.current.children[0].getBoundingClientRect().height!);
+    setButtonHeight(Math.ceil(wrapperRef.current.children[0].getBoundingClientRect().height!));
   }, [width]);
 
   // -4 everywhere because for some reason the height of the a tag is 4px larger than the image inside it, there is no padding or margin on the a tag so I don't know why this is happening
