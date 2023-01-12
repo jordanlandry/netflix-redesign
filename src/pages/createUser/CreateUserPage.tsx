@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { ArrowLeftCircle, ArrowLeftCircleFill, ArrowRightCircle, ArrowRightCircleFill } from "react-bootstrap-icons";
 import nextId from "react-id-generator";
 import { SearchContext, SetUserDataContext, UserContext } from "../../App";
@@ -8,10 +8,13 @@ import daysPerMonth from "../../helpers/daysPerMonth";
 import getYear from "../../helpers/getYear";
 import random from "../../helpers/random";
 import useHover from "../../hooks/useHover";
+import AvatarPage from "../manageProfiles/AvatarPage";
 import "./styles.css";
 
 export default function CreateUserPage() {
   const setUserData = useContext(SetUserDataContext);
+
+  const formRef = useRef<HTMLFormElement>(null);
 
   const [section, setSection] = useState(0);
 
@@ -50,12 +53,15 @@ export default function CreateUserPage() {
     return () => window.removeEventListener("keydown", handleKeydown);
   }, []);
 
+  const inputRef = useRef<HTMLInputElement>(null);
   // User creation
   useEffect(() => {
+    if (formRef.current === null) return;
+
     if (section < 0) setSection(0);
 
     // If this was a real world app I would use a backend to store the data and not just the browser's local storage
-    if (section === 4) {
+    if (section === formRef.current.children.length) {
       const avatarCategory = avatarData[random(0, avatarData.length - 1)];
       const avatar = avatarCategory.avatars[random(0, avatarCategory.avatars.length - 1)];
 
@@ -71,7 +77,10 @@ export default function CreateUserPage() {
         },
       ]);
     }
-  }, [section]);
+
+    // Unfocus input
+    if (inputRef.current && section !== 0) inputRef.current.blur();
+  }, [section, formRef, inputRef.current]);
 
   return (
     <div className="create-user-page">
@@ -80,8 +89,9 @@ export default function CreateUserPage() {
         <button className="btn-unstyled" onClick={() => setSection((prev) => prev - 1)}>
           {leftArrowElement}
         </button>
-        <form>
+        <form ref={formRef}>
           <input
+            ref={inputRef}
             className={`input create-user__section ${
               section === 0 ? "create-user__next" : section === 1 ? "create-user__prev" : "create-user__none"
             }`}
@@ -145,6 +155,7 @@ export default function CreateUserPage() {
               );
             })}
           </select>
+          {section === 5 ? <AvatarPage /> : null}
         </form>
         <button className="btn-unstyled" onClick={() => setSection((prev) => prev + 1)}>
           {rightArrowElement}

@@ -4,6 +4,11 @@
   align-items: center;
   justify-content: center;
   background-color: var(--color-primary);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .create-user__wrapper {
@@ -14,7 +19,7 @@
   height: 100%;
   position: relative;
 
-  gap: min(max(650px, 45vw), 450px);
+  gap: min(max(650px, 45vw), 400px);
 }
 
 .create-user-page form {
@@ -29,7 +34,7 @@
 
 .create-user-page form > * {
   font-size: 1.3rem;
-  width: min(max(600px, 40vw), 400px);
+  width: min(max(600px, 40vw), 350px);
   position: absolute;
   top: 50%;
   left: 50%;
