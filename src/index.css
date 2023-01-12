@@ -4,10 +4,13 @@
 
   --navbar-item-height: 40px;
   --outside-padding: 40px;
+
+  --movie-border-radius: 3px;
 }
 
 * {
   font-family: "Montserrat", sans-serif;
+  user-select: none;
 }
 
 body {
