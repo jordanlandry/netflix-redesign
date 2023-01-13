@@ -1,12 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  ChevronBarContract,
-  ChevronCompactLeft,
-  ChevronCompactRight,
-  ChevronLeft,
-  ChevronRight,
-  Translate,
-} from "react-bootstrap-icons";
+import { ChevronCompactLeft, ChevronCompactRight } from "react-bootstrap-icons";
 import useWidth from "../../hooks/useWidth";
 
 type Props = {
@@ -14,11 +7,14 @@ type Props = {
   gap?: number;
   itemsToShow?: { s: number; m: number; l: number; xl: number; xxl: number; max: number } | number;
   extraButtonStyles?: React.CSSProperties;
+  aspectRatio: number;
 };
 
-export default function Carousel({ children, itemsToShow = 3, gap = 10, extraButtonStyles }: Props) {
+export default function Carousel({ children, itemsToShow = 3, gap = 10, extraButtonStyles, aspectRatio }: Props) {
   const width = useWidth();
   const breakPoints = { m: 768, l: 1024, xl: 1280, xxl: 1536, max: 1920 };
+
+  const [reRender, setReRender] = useState(0);
 
   const outsidePadding = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue("--outside-padding").replace("px", "")
@@ -26,7 +22,7 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [scrollIndex, setScrollIndex] = useState(0);
-  const [buttonHeight, setButtonHeight] = useState(wrapperRef.current?.children[0].getBoundingClientRect().height!);
+  const [buttonHeight, setButtonHeight] = useState(0);
   const [scrollBarWidth, setScrollBarWidth] = useState(window.innerWidth - window.visualViewport!.width);
 
   let numberOfItemsToShow = 0;
@@ -40,6 +36,12 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
     else numberOfItemsToShow = itemsToShow.max;
   }
 
+  const updateSizes = (w: number) => {
+    // setButtonHeight(Math.ceil(wrapperRef.current!.children[0].getBoundingClientRect().height!));
+    setScrollBarWidth(window.innerWidth - window.visualViewport!.width);
+    setButtonHeight(Math.ceil(w / aspectRatio));
+  };
+
   useEffect(() => {
     if (!wrapperRef.current) return;
 
@@ -47,19 +49,20 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
 
     for (let i = 0; i < wrapperRef.current.children.length; i++) {
       const child = wrapperRef.current.children[i];
-      // Set the width of the children
       child.children[0].setAttribute("width", w + "px");
     }
 
-    setButtonHeight(Math.ceil(wrapperRef.current.children[0].getBoundingClientRect().height!));
-    setScrollBarWidth(window.innerWidth - window.visualViewport!.width);
-  }, [width, wrapperRef.current, scrollBarWidth]);
+    updateSizes(w);
+  }, [width, wrapperRef, scrollBarWidth, reRender]);
+
+  // setReRender((prev) => prev + 1);
+  // useMountEffect(updateSizes);
 
   // -4 everywhere because for some reason the height of the a tag is 4px larger than the image inside it, there is no padding or margin on the a tag so I don't know why this is happening
   const BUTTON_STYLES: React.CSSProperties = {
     ...extraButtonStyles,
     cursor: "pointer",
-    height: buttonHeight! - 4 + "px",
+    height: buttonHeight,
     position: "absolute",
     display: "flex",
     alignItems: "center",
@@ -69,11 +72,16 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
     fontSize: "2rem",
   };
 
+  // @ts-ignore
+  const availableElements = children.length;
+
   return (
     <div>
-      <div className="" style={{ ...BUTTON_STYLES, left: 0 }} onClick={() => setScrollIndex((prev) => prev - 1)}>
-        <ChevronCompactLeft />
-      </div>
+      {availableElements > numberOfItemsToShow ? (
+        <div className="" style={{ ...BUTTON_STYLES, left: 0 }} onClick={() => setScrollIndex((prev) => prev - 1)}>
+          <ChevronCompactLeft />
+        </div>
+      ) : null}
       <div
         ref={wrapperRef}
         style={{
@@ -85,12 +93,14 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
       >
         {children}
       </div>
-      <div
-        style={{ ...BUTTON_STYLES, right: 0, transform: `translateY(${-buttonHeight}px)` }}
-        onClick={() => setScrollIndex((prev) => prev + 1)}
-      >
-        <ChevronCompactRight />
-      </div>
+      {availableElements > numberOfItemsToShow ? (
+        <div
+          style={{ ...BUTTON_STYLES, right: 0, transform: `translateY(${-buttonHeight - 4}px)` }}
+          onClick={() => setScrollIndex((prev) => prev + 1)}
+        >
+          <ChevronCompactRight />
+        </div>
+      ) : null}
     </div>
   );
 }

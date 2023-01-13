@@ -39,7 +39,9 @@ export default function AvatarCategory({ name, avatars }: Props) {
     <div className="avatar-category">
       <h2>{name}</h2>
       <div className="avatar__wrapper">
-        <Carousel itemsToShow={{ s: 4, m: 6, l: 8, xl: 10, xxl: 12, max: 14 }}>{avatarElements}</Carousel>
+        <Carousel itemsToShow={{ s: 4, m: 6, l: 8, xl: 10, xxl: 12, max: 14 }} aspectRatio={1}>
+          {avatarElements}
+        </Carousel>
       </div>
     </div>
   );

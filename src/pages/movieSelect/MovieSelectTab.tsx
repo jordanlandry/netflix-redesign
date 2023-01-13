@@ -19,6 +19,7 @@ export default function MovieSelectTab({ title, movieList }: Props) {
       <Carousel
         itemsToShow={{ s: 2, m: 3, l: 4, xl: 5, xxl: 6, max: 7 }}
         extraButtonStyles={{ borderRadius: "var(--movie-border-radius)" }}
+        aspectRatio={73 / 41}
       >
         {movieElements}
       </Carousel>
