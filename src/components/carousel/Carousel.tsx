@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronCompactLeft, ChevronCompactRight } from "react-bootstrap-icons";
+import sleep from "../../helpers/sleep";
 import useWidth from "../../hooks/useWidth";
 import "./styles.css";
 
@@ -18,7 +19,7 @@ export default function Carousel({
   gap = 10,
   extraButtonStyles,
   aspectRatio,
-  infinite = true,
+  infinite = false,
 }: Props) {
   const width = useWidth();
   const breakPoints = { m: 768, l: 1024, xl: 1280, xxl: 1536, max: 1920 };
@@ -32,8 +33,6 @@ export default function Carousel({
   const [buttonHeight, setButtonHeight] = useState(0);
   const [scrollBarWidth, setScrollBarWidth] = useState(window.innerWidth - window.visualViewport!.width);
 
-  const [transitionX, setTransitionX] = useState(0);
-
   let numberOfItemsToShow = 0;
   if (typeof itemsToShow === "number") numberOfItemsToShow = itemsToShow;
   else {
@@ -45,56 +44,28 @@ export default function Carousel({
     else numberOfItemsToShow = itemsToShow.max;
   }
 
+  const [loading, setLoading] = useState(true);
+
   const updateSizes = (w: number) => {
     setScrollBarWidth(window.innerWidth - window.visualViewport!.width);
     setButtonHeight(Math.ceil(w / aspectRatio));
   };
 
   useEffect(() => {
-    if (!wrapperRef.current) return;
+    const update = async () => {
+      if (!wrapperRef.current) return;
 
-    let w = (width - outsidePadding * 2 - gap * (numberOfItemsToShow - 1) - scrollBarWidth) / numberOfItemsToShow;
+      let w = (width - outsidePadding * 2 - gap * (numberOfItemsToShow - 1) - scrollBarWidth) / numberOfItemsToShow;
+      for (let i = 0; i < wrapperRef.current.children.length; i++) {
+        const child = wrapperRef.current.children[i];
+        child.children[0].setAttribute("width", w + "px");
+      }
+      updateSizes(w);
+      setLoading(false);
+    };
 
-    for (let i = 0; i < wrapperRef.current.children.length; i++) {
-      const child = wrapperRef.current.children[i];
-      child.children[0].setAttribute("width", w + "px");
-    }
-
-    updateSizes(w);
-  }, [width, wrapperRef, scrollBarWidth]);
-
-  // const [targetScrollIndex, setTargetScrollIndex] = useState(0);
-
-  // useEffect(() => {
-  //   setTargetScrollIndex(scrollIndex * window.visualViewport!.width - scrollIndex * gap);
-  // }, [scrollIndex]);
-
-  // useEffect(() => {
-  //   if (transitionX === targetScrollIndex) return;
-
-  //   setTimeout(() => {
-  //     setTransitionX((prev) => {
-  //       const diff = targetScrollIndex - prev;
-  //       const step = diff / (animationTime / 10);
-  //       return prev + step;
-  //     });
-  //   }, 2);
-  // }, [transitionX, targetScrollIndex]);
-
-  useEffect(() => {
-    if (!infinite) return;
-
-    // Push the first two items to the end of the array
-    // setTimeout(() => {
-    // -1 because we still want to see the previous item
-    // for (let i = 0; i < numberOfItemsToShow - 1; i++) {
-    //   // @ts-ignore
-    //   const a = children.shift();
-    //   // @ts-ignore
-    //   if (a) children.push(a);
-    // }
-    // }, 500);
-  }, [scrollIndex, numberOfItemsToShow]);
+    update();
+  }, [width, wrapperRef, scrollBarWidth, children]);
 
   // -4 everywhere because for some reason the height of the a tag is 4px larger than the image inside it, there is no padding or margin on the a tag so I don't know why this is happening
   const BUTTON_STYLES: React.CSSProperties = {
@@ -107,7 +78,6 @@ export default function Carousel({
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     zIndex: 2,
     width: outsidePadding - gap,
-    // fontSize: "1.5rem",
   };
 
   // @ts-ignore
@@ -127,7 +97,7 @@ export default function Carousel({
       <div
         ref={wrapperRef}
         style={{
-          display: "flex",
+          display: loading ? "none" : "flex",
           gap: `${gap}px`,
           transform: `translateX(calc(${scrollIndex * -100}% - ${scrollIndex * gap}px))`,
           transition: `0.5s`,

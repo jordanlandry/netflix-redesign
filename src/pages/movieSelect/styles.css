@@ -13,3 +13,16 @@
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
   border-radius: var(--movie-border-radius);
 }
+
+.movie--loading {
+  animation: 1s movie-loading infinite alternate;
+}
+
+@keyframes movie-loading {
+  0% {
+    background-color: #555;
+  }
+  100% {
+    background-color: #333;
+  }
+}

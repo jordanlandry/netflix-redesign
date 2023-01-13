@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
-import nextId from "react-id-generator";
+import { useContext, useEffect, useState } from "react";
 import { SearchContext, UserContext } from "../../App";
 import ColorGradient from "../../components/ColorGradient";
-import movieData, { MovieType } from "../../data/movie/movieData";
+import movieData from "../../data/movie/movieData";
 import getTrending from "../../helpers/getTrending";
 import recommendMovies from "../../helpers/recommendMovies";
+import useDebounce from "../../hooks/useDebounce";
+import properties from "../../properties";
 import MovieSelect from "./MovieSelect";
 import MovieSelectTab from "./MovieSelectTab";
 import "./styles.css";
@@ -36,8 +37,22 @@ export default function MovieSelectPage() {
     />
   ));
 
-  const recommendedMovies = recommendMovies(user);
-  const trendingMovies = getTrending();
+  const [recommendedMovies, setRecommendedMovies] = useState<any>([]);
+  const [trendingMovies, setTrendingMovies] = useState<any>([]);
+
+  const debouncedRecommendedMovies = useDebounce(recommendedMovies);
+  const debouncedTrendingMovies = useDebounce(trendingMovies);
+
+  useEffect(() => {
+    const getData = () => {
+      setTimeout(() => {
+        setRecommendedMovies(recommendMovies(user));
+        setTrendingMovies(getTrending());
+      }, properties.SIMULATE_FETCH_DELAY * Math.random());
+    };
+
+    getData();
+  }, [user]);
 
   return (
     <div className="movie-select">
@@ -47,8 +62,8 @@ export default function MovieSelectPage() {
         ) : (
           <>
             <ColorGradient />
-            <MovieSelectTab title="Recommended for you" movieList={recommendedMovies} />
-            <MovieSelectTab title="Trending" movieList={trendingMovies} />
+            <MovieSelectTab title="Recommended for you" movieList={debouncedRecommendedMovies} />
+            <MovieSelectTab title="Trending" movieList={debouncedTrendingMovies} />
           </>
         )}
       </div>
