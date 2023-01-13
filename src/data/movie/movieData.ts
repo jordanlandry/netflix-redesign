@@ -292,6 +292,102 @@ const movieData: MovieType = {
       },
     ],
   },
+  "17": {
+    title: "Seven",
+    year: 1999,
+    runtime: 127,
+    genres: ["Crime", "Drama", "Mystery"],
+    directors: ["David Fincher"],
+    actors: ["Morgan Freeman", "Brad Pitt", "Kevin Spacey", "Andrew Kevin Walker"],
+    plot: "Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZJ8lmqMU5dBENWnvHDbHQp1g0aM7Cl0ZTdYx5Ru6z9hOdoWhggIFX2arLDeCn0wXDK3pKl09H1ekIdPCou27jKG87Oae5uCfmc.webp?r=813",
+        actor: "Morgan Freeman",
+      },
+    ],
+  },
+  "18": {
+    title: "Django Unchained",
+    year: 2012,
+    runtime: 165,
+    genres: ["Drama", "Western"],
+    directors: ["Quentin Tarantino"],
+    actors: ["Jamie Foxx", "Christoph Waltz", "Leonardo DiCaprio", "Kerry Washington"],
+    plot: "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUnba8j1hq1OVKLDiA6sgUeb-psIlVxS30S-fGmEcc1gJ6xixTlfkod7KPIj6RN5CemZqU-5ZSUySHm2YGIbJM7Sb6mHDbSkcIU.webp?r=1be",
+        actor: "Jamie Foxx",
+      },
+    ],
+  },
+  "19": {
+    title: "50 First Dates",
+    year: 2004,
+    runtime: 99,
+    genres: ["Comedy", "Romance"],
+    directors: ["Peter Segal"],
+    actors: ["Adam Sandler", "Drew Barrymore", "Rob Schneider", "Sean Astin"],
+    plot: "A woman suffers from short-term memory loss and has no idea who her boyfriend is every day when she wakes up.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABe5vaIK5Cf2Zq-43vNXEWVpHzkw11D_GWKDWOjl8kqiOrvMyfi-dbIuVfC5aZhmGF5GGik-IE5C6WFxAglt0Xxh_IMCmWkk9EFk.webp?r=45a",
+        actor: "Adam Sandler",
+      },
+    ],
+  },
+  "20": {
+    title: "30 Minutes or Less",
+    year: 2011,
+    runtime: 83,
+    genres: ["Action", "Comedy", "Crime"],
+    directors: ["Ruben Fleischer"],
+    actors: ["Jesse Eisenberg", "Danny McBride", "Aziz Ansari", "Nick Swardson"],
+    plot: "A pizza delivery guy finds himself in the middle of a hostage situation when he is asked to rob a bank.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZhG4zMf3fcNJsL3ROcdggXXvCVEw1TFFPh-aDMBPgcClELvgyeKblk9pDwFmGNdI2gcH_3a2SR12cLsLwsqqDQcHE1SNQhTt-w.webp?r=a4e",
+        actor: "Jesse Eisenberg",
+      },
+    ],
+  },
+  "21": {
+    title: "Limitless",
+    year: 2011,
+    runtime: 105,
+    genres: ["Mystery", "Sci-Fi", "Thriller"],
+    directors: ["Neil Burger"],
+    actors: ["Bradley Cooper", "Anna Friel", "Abbie Cornish", "Robert De Niro"],
+    plot: "With the help of a mysterious pill that enables the user to access 100 percent of his brain abilities, a struggling writer becomes a financial wizard, but it also puts him in a new world with lots of dangers.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRPykFk3YWv8wT03-oA-3K3-vbytruFNKcvt34hSEqbJiifCeQJNI6UJdz-UpaokcreMGiAigTeA17L4a1UEKwl5lZeI4w52Xyk.webp?r=d32",
+        actor: "Bradley Cooper",
+      },
+    ],
+  },
+  "22": {
+    title: "Dark Waters",
+    year: 2019,
+    runtime: 127,
+    genres: ["Drama", "Thriller"],
+    directors: ["Todd Haynes"],
+    actors: ["Mark Ruffalo", "Anne Hathaway", "Tim Robbins", "Bill Pullman"],
+    plot: "A corporate defense attorney takes on an environmental lawsuit against a chemical company that exposes a lengthy history of pollution.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeJTr6-4LGNZLVQRUC-RoMuHkh9Oos8E4wicwH5-DeK5yb8_mtG8sHmukawOkKKWkP7yFhwuKQIN-vAkHn7Hvi2nERflyCfWjH0.webp?r=cb4",
+        actor: "Mark Ruffalo",
+      },
+    ],
+  },
 };
 
 export default movieData;

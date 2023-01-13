@@ -1,0 +1,8 @@
+.carousel__button {
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.carousel__button:hover {
+  font-size: 2.5rem;
+}
