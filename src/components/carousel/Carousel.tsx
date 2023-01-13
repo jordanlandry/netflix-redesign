@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { ChevronCompactLeft, ChevronCompactRight } from "react-bootstrap-icons";
 import sleep from "../../helpers/sleep";
 import useWidth from "../../hooks/useWidth";
+import properties from "../../properties";
 import "./styles.css";
 
 type Props = {
@@ -22,7 +23,7 @@ export default function Carousel({
   infinite = false,
 }: Props) {
   const width = useWidth();
-  const breakPoints = { m: 768, l: 1024, xl: 1280, xxl: 1536, max: 1920 };
+  const breakPoints = properties.BREAKPOINTS;
 
   const outsidePadding = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue("--outside-padding").replace("px", "")

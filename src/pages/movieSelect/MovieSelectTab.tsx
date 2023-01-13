@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import nextId from "react-id-generator";
 import Carousel from "../../components/carousel/Carousel";
+import getBreakpoint from "../../helpers/getBreakpoint";
+import useWidth from "../../hooks/useWidth";
+import properties from "../../properties";
 import MovieLoading from "./MovieLoading";
 import MovieSelect from "./MovieSelect";
 
@@ -16,27 +19,29 @@ export default function MovieSelectTab({ title, movieList }: Props) {
   });
 
   const [loading, setLoading] = useState(movieElements.length === 0);
+  const width = useWidth();
 
   useEffect(() => {
     setLoading(movieElements.length === 0);
   }, [movieElements]);
 
+  const itemsToShow = { s: 2, m: 3, l: 4, xl: 5, xxl: 6, max: 7 };
+  const elementsCount = itemsToShow[getBreakpoint(width)];
+
+  const loadingElements = Array.from({ length: elementsCount }).map((_, index) => (
+    <MovieLoading key={index} elementsCount={elementsCount} />
+  ));
+
   return (
     <div>
       <h2>{title}</h2>
       {loading ? (
-        <div style={{ display: "flex", gap: 25 }}>
-          <MovieLoading />
-          <MovieLoading />
-          <MovieLoading />
-          <MovieLoading />
-          <MovieLoading />
-        </div>
+        <div style={{ display: "flex", gap: 25 }}>{loadingElements}</div>
       ) : (
         <Carousel
-          itemsToShow={{ s: 2, m: 3, l: 4, xl: 5, xxl: 6, max: 7 }}
+          itemsToShow={itemsToShow}
           extraButtonStyles={{ borderRadius: "var(--movie-border-radius)" }}
-          aspectRatio={73 / 41}
+          aspectRatio={properties.POSTER_ASPECT_RATIO}
         >
           {movieElements}
         </Carousel>
