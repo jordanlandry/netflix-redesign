@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import nextId from "react-id-generator";
 import { SetUserContext, UserContext } from "../../App";
+import Carousel from "../../components/carousel/Carousel";
 import users from "../../data/userData";
 
 type Props = {
@@ -29,13 +30,17 @@ export default function AvatarCategory({ name, avatars }: Props) {
   };
 
   const avatarElements = avatars.map((avatar) => (
-    <img onClick={() => handleClick(avatar)} key={nextId()} src={`${avatar}`} loading="lazy" className="pointer" />
+    <div key={nextId()}>
+      <img onClick={() => handleClick(avatar)} src={`${avatar}`} loading="lazy" className="pointer" />
+    </div>
   ));
 
   return (
     <div className="avatar-category">
       <h2>{name}</h2>
-      <div className="avatar__wrapper">{avatarElements}</div>
+      <div className="avatar__wrapper">
+        <Carousel itemsToShow={{ s: 4, m: 6, l: 8, xl: 10, xxl: 12, max: 14 }}>{avatarElements}</Carousel>
+      </div>
     </div>
   );
 }

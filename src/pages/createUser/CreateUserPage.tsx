@@ -1,14 +1,13 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { ArrowLeftCircle, ArrowLeftCircleFill, ArrowRightCircle, ArrowRightCircleFill } from "react-bootstrap-icons";
 import nextId from "react-id-generator";
-import { SearchContext, SetUserDataContext, UserContext } from "../../App";
+import { SetUserDataContext } from "../../App";
 import avatarData from "../../data/avatars/avatarData";
-
 import daysPerMonth from "../../helpers/daysPerMonth";
 import getYear from "../../helpers/getYear";
 import random from "../../helpers/random";
 import useHover from "../../hooks/useHover";
-import AvatarPage from "../manageProfiles/AvatarPage";
+import useKeybind from "../../hooks/useKeybind";
 import "./styles.css";
 
 export default function CreateUserPage() {
@@ -81,6 +80,11 @@ export default function CreateUserPage() {
     // Unfocus input
     if (inputRef.current && section !== 0) inputRef.current.blur();
   }, [section, formRef, inputRef.current]);
+
+  // If you are on the first section and you press enter, it will go to the next section
+  useKeybind("Enter", () => {
+    if (section === 0) setSection((prev) => prev + 1);
+  });
 
   return (
     <div className="create-user-page">
@@ -155,7 +159,7 @@ export default function CreateUserPage() {
               );
             })}
           </select>
-          {section === 5 ? <AvatarPage /> : null}
+          {/* {section === 4 ? <AvatarPage /> : null} */}
         </form>
         <button className="btn-unstyled" onClick={() => setSection((prev) => prev + 1)}>
           {rightArrowElement}

@@ -24,9 +24,10 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
     getComputedStyle(document.documentElement).getPropertyValue("--outside-padding").replace("px", "")
   );
 
-  const [scrollIndex, setScrollIndex] = useState(0);
-
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const [scrollIndex, setScrollIndex] = useState(0);
+  const [buttonHeight, setButtonHeight] = useState(wrapperRef.current?.children[0].getBoundingClientRect().height!);
+  const [scrollBarWidth, setScrollBarWidth] = useState(window.innerWidth - window.visualViewport!.width);
 
   let numberOfItemsToShow = 0;
   if (typeof itemsToShow === "number") numberOfItemsToShow = itemsToShow;
@@ -39,13 +40,10 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
     else numberOfItemsToShow = itemsToShow.max;
   }
 
-  const [itemWidth, setItemWidth] = useState(width - outsidePadding * 2 - gap * (numberOfItemsToShow - 1));
-  const [buttonHeight, setButtonHeight] = useState(wrapperRef.current?.children[0].getBoundingClientRect().height!);
-
   useEffect(() => {
     if (!wrapperRef.current) return;
 
-    let w = (width - outsidePadding * 2 - gap * (numberOfItemsToShow - 1)) / numberOfItemsToShow;
+    let w = (width - outsidePadding * 2 - gap * (numberOfItemsToShow - 1) - scrollBarWidth) / numberOfItemsToShow;
 
     for (let i = 0; i < wrapperRef.current.children.length; i++) {
       const child = wrapperRef.current.children[i];
@@ -54,7 +52,8 @@ export default function Carousel({ children, itemsToShow = 3, gap = 10, extraBut
     }
 
     setButtonHeight(Math.ceil(wrapperRef.current.children[0].getBoundingClientRect().height!));
-  }, [width]);
+    setScrollBarWidth(window.innerWidth - window.visualViewport!.width);
+  }, [width, wrapperRef.current, scrollBarWidth]);
 
   // -4 everywhere because for some reason the height of the a tag is 4px larger than the image inside it, there is no padding or margin on the a tag so I don't know why this is happening
   const BUTTON_STYLES: React.CSSProperties = {
