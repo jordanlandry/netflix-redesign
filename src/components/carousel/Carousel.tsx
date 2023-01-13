@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronCompactLeft, ChevronCompactRight } from "react-bootstrap-icons";
+import getBreakpoint from "../../helpers/getBreakpoint";
 import sleep from "../../helpers/sleep";
 import useWidth from "../../hooks/useWidth";
 import properties from "../../properties";
@@ -36,14 +37,7 @@ export default function Carousel({
 
   let numberOfItemsToShow = 0;
   if (typeof itemsToShow === "number") numberOfItemsToShow = itemsToShow;
-  else {
-    if (window.innerWidth < breakPoints.m + 1) numberOfItemsToShow = itemsToShow.s;
-    else if (window.innerWidth < breakPoints.l + 1) numberOfItemsToShow = itemsToShow.m;
-    else if (window.innerWidth < breakPoints.xl + 1) numberOfItemsToShow = itemsToShow.l;
-    else if (window.innerWidth < breakPoints.xxl + 1) numberOfItemsToShow = itemsToShow.xl;
-    else if (window.innerWidth < breakPoints.max + 1) numberOfItemsToShow = itemsToShow.xxl;
-    else numberOfItemsToShow = itemsToShow.max;
-  }
+  else numberOfItemsToShow = itemsToShow[getBreakpoint(width)];
 
   const [loading, setLoading] = useState(true);
 
@@ -68,6 +62,13 @@ export default function Carousel({
     update();
   }, [width, wrapperRef, scrollBarWidth, children]);
 
+  const [btnTransition, setBtnTransition] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setBtnTransition(0.5);
+    }, 500);
+  }, [buttonHeight]);
   // -4 everywhere because for some reason the height of the a tag is 4px larger than the image inside it, there is no padding or margin on the a tag so I don't know why this is happening
   const BUTTON_STYLES: React.CSSProperties = {
     ...extraButtonStyles,
@@ -76,6 +77,8 @@ export default function Carousel({
     position: "absolute",
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
+    transition: `${btnTransition}s`,
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     zIndex: 2,
     width: outsidePadding - gap,

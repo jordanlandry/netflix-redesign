@@ -388,6 +388,22 @@ const movieData: MovieType = {
       },
     ],
   },
+  "23": {
+    title: "Oblivion",
+    year: 2013,
+    runtime: 124,
+    genres: ["Action", "Adventure", "Mystery"],
+    directors: ["Joseph Kosinski"],
+    actors: ["Tom Cruise", "Morgan Freeman", "Olga Kurylenko", "Andrea Riseborough"],
+    plot: "A veteran assigned to extract Earth's remaining resources begins to question what he knows about his mission and himself.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTA7KCCT3NayyCZZk5FomF10MdJZYNeCCpE4beLQx3ZkBpGNBlj-Wag1QAoUBpzxwmtdWhF5mJL_CFh7qCXfgwb6YkPq7lHpEVQ.webp?r=23b",
+        actor: "Tom Cruise",
+      },
+    ],
+  },
 };
 
 export default movieData;
