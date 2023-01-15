@@ -404,6 +404,198 @@ const movieData: MovieType = {
       },
     ],
   },
+  "24": {
+    title: "Grown Ups 2",
+    year: 2013,
+    runtime: 101,
+    genres: ["Comedy"],
+    directors: ["Dennis Dugan"],
+    actors: ["Adam Sandler", "Kevin James", "Chris Rock", "David Spade"],
+    plot: "After moving his family back to his hometown to be with his friends and their kids, Lenny finds out that between old bullies, new bullies, schizo bus drivers, drunk cops on skis, and 400 costumed party crashers sometimes crazy follows you.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABYQNBqgGTt8uNAGMNCbQPN8r-MZWdQGL1mRRXMy2z6wkDhd8kK2QVdQdnh5kTKVN669YTyzEvi7Ce8B2US_vIbzj6E50D0_fN9A.webp?r=c1d",
+        actor: "Adam Sandler",
+      },
+    ],
+  },
+  "25": {
+    title: "21",
+    year: 2008,
+    runtime: 123,
+    genres: ["Crime", "Drama"],
+    directors: ["Robert Luketic"],
+    actors: ["Jim Sturgess", "Kevin Spacey", "Kate Bosworth", "Aaron Yoo"],
+    plot: "A brilliant group of students become card-counting experts with the intent of swindling millions out of Las Vegas casinos by playing blackjack.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABccc5VFect0fVfwBFpv3H8ohg7LrJdrIpTGki48SCXeeFdc0OPwFruSqP73b9xI_lBrn4XBrailXyUyXtCV0c6Mkxsn8VRbH6K4.webp?r=e73",
+        actor: "Jim Sturgess",
+      },
+    ],
+  },
+  "26": {
+    title: "John Wick 2",
+    year: 2017,
+    runtime: 122,
+    genres: ["Action", "Crime", "Thriller"],
+    directors: ["Chad Stahelski"],
+    actors: ["Keanu Reeves", "Riccardo Scamarcio", "Ian McShane", "Ruby Rose"],
+    plot: "John Wick is forced out of retirement by a former associate looking to seize control of a shadowy international assassins' guild. Bound by a blood oath to aid him, Wick travels to Rome and does battle against some of the world's most dangerous killers.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbYi8g7ckeBJ-Q1M1b-8Is5semc_B8e5wk1JncLckOdd6KWw2tcuZ0zS3EoLfmFhToKXQ34dDCy3EsdA3PoEf897OwG0CimJ-6c.webp?r=664",
+        actor: "Keanu Reeves",
+      },
+    ],
+  },
+  "27": {
+    title: "Spiderman into the Spiderverse",
+    year: 2018,
+    runtime: 117,
+    genres: ["Animation", "Action", "Adventure"],
+    directors: ["Bob Persichetti", "Peter Ramsey", "Rodney Rothman"],
+    actors: ["Shameik Moore", "Jake Johnson", "Hailee Steinfeld", "Mahershala Ali"],
+    plot: "Miles Morales is juggling his life between being a high school student and being a...",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQwkjYc8x8wmkNzKOXChJUIhL1KDTvTZYIvixvN9MtiKro4lP5iew1D-Cho3w5JW2SSeZ05hIsVzUjIr4ZSLG2Pl2J2PR02mKio.webp?r=764,",
+        actor: "Shameik Moore",
+      },
+    ],
+  },
+  "28": {
+    title: "The Blind Side",
+    year: 2009,
+    runtime: 129,
+    genres: ["Biography", "Drama", "Sport"],
+    directors: ["John Lee Hancock"],
+    actors: ["Sandra Bullock", "Tim McGraw", "Quinton Aaron", "Kathy Bates"],
+    plot: "The story of Michael Oher, a homeless and traumatizing...",
+    posters: [
+      {
+        id: 1,
+        url: "http://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeV7gT0SSdQ2vkO9Rau_9GGDApKyg3SH1pPE-sJ_IrB27oGndkGZzkEysE4JCn9Gcr8HtJ26on-4GPbjFqBf4T4AWXEduCqsj5M.webp?r=c5f",
+        actor: "Sandra Bullock",
+      },
+    ],
+  },
+  "29": {
+    title: "The Breakfast Club",
+    year: 1985,
+    runtime: 97,
+    genres: ["Comedy", "Drama"],
+    directors: ["John Hughes"],
+    actors: ["Emilio Estevez", "Judd Nelson", "Molly Ringwald", "Ally Sheedy"],
+    plot: "Five high school students, all different stereotypes, meet in detention, where they pour their hearts out to each other, and discover how they have a lot more in common than they thought.",
+    posters: [
+      {
+        id: 1,
+        url: "http://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABe5Kczlq3rRMr8dXn_0HYFldiuVJmuXTs-4GdIFYnU92fnYsxIuf2FIZi3-wLzSnyi8p3A4oWz8RaBA29o2DaIQ6rPpQkoKGwmQ.webp?r=79e",
+        actor: "Molly Ringwald",
+      },
+    ],
+  },
+  "30": {
+    title: "Back to the Future",
+    year: 1985,
+    runtime: 116,
+    genres: ["Adventure", "Comedy", "Sci-Fi"],
+    directors: ["Robert Zemeckis"],
+    actors: ["Michael J. Fox", "Christopher Lloyd", "Lea Thompson", "Crispin Glover"],
+    plot: "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABU7BURHhsuRHceg0J_BYL3AhbGAgKZBQK02JQtr_VHfmcr2sQeV_oHWxovZL0TZ8SK4GBv7nizR0cRUFwIEEm87xaIcdA1Bmav0.webp?r=929",
+        actor: "Michael J. Fox",
+      },
+    ],
+  },
+  "31": {
+    title: "The Hangover",
+    year: 2009,
+    runtime: 100,
+    genres: ["Comedy"],
+    directors: ["Todd Phillips"],
+    actors: ["Bradley Cooper", "Ed Helms", "Zach Galifianakis", "Justin Bartha"],
+    plot: "Three buddies wake up from a bachelor party in Las Vegas, with no memory of the previous night and the bachelor missing. They make their way around the city in order to find their friend before his wedding.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABa3SokHnUFIeRr4e52Q9cJGudcrihayLNDTFBWX-etQjvsdVSyofMnOxQhOrxVQHQXw0Zb6CWdFzypQZwtAz82Hl0qDFASoS4m8.webp?r=0f8",
+        actor: "Bradley Cooper",
+      },
+    ],
+  },
+  "32": {
+    title: "Inception",
+    year: 2010,
+    runtime: 148,
+    genres: ["Action", "Adventure", "Sci-Fi"],
+    directors: ["Christopher Nolan"],
+    actors: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page", "Tom Hardy"],
+    plot: "A thief who steals corporate secrets through use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSKgYXgCLuCXTBG_tW3FcM7z3tQL5NynOXsG02rEzOihVuaZtQfO9EL76AucYb94pDJc3VUERSwbahUdUDiCR2pU5GRVoYBeWPI.webp?r=c15",
+        actor: "Leonardo DiCaprio",
+      },
+    ],
+  },
+  "33": {
+    title: "GoodFellas",
+    year: 1990,
+    runtime: 146,
+    actors: ["Robert De Niro", "Ray Liotta", "Joe Pesci", "Lorraine Bracco"],
+    genres: ["Biography", "Crime", "Drama"],
+    directors: ["Martin Scorsese"],
+    plot: "The story of Henry Hill and his life through the teen years into the years of mafia, covering his relationship with his wife Karen Hill and his Mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABX37qgg9JP9rLJv2xoaUqcG718o3ydPeb8jE_UDF9YwIm4Vqyf2MXAsairsubTmrCAHPxqDCLRjf_J4CYMvUo7HDbheS6PuLrog.webp?r=22f",
+        actor: "Robert De Niro",
+      },
+    ],
+  },
+  "34": {
+    title: "22 Jump Street",
+    year: 2014,
+    runtime: 112,
+    genres: ["Action", "Comedy", "Crime"],
+    directors: ["Phil Lord", "Christopher Miller"],
+    actors: ["Channing Tatum", "Jonah Hill", "Ice Cube", "Dave Franco"],
+    plot: "After making their way through high school (twice), big changes are in store for officers Schmidt and Jenko when they go deep undercover at a local college. But when Jenko meets a kindred spirit on the football team, and Schmidt infiltrates the bohemian art major scene, they begin to question their partnership. Now they don't have to just crack the case - they have to figure out if they can have a mature relationship. If these two overgrown adolescents can grow from freshmen into real men",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABa9KFk7N4Lp2tZ07fYkqDAoMVdNo60F9CMaxmdcva9XmKBahS_BPzBFEV-IFeG5TY1vOqh3J3Ao4rMu_ckIxXL9Na0Fu6bNsjyE.webp?r=aa1",
+        actor: "Channing Tatum",
+      },
+    ],
+  },
+  "35": {
+    title: "Charlie and the Chocolate Factory",
+    year: 2005,
+    runtime: 115,
+    genres: ["Adventure", "Family", "Fantasy"],
+    directors: ["Tim Burton"],
+    actors: ["Johnny Depp", "Freddie Highmore", "Helena Bonham Carter", "Noah Taylor"],
+    plot: "",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcdbTGvbqcm2S3vYgGcDp_or1q27frCPFzZeEQKlJjuen0LqZfqD1W6RaDgY61DaFz3xYwScEBpz7uii8rgX1OGsKEVkqT3CHU4.webp?r=6bc",
+        actor: "Johnny Depp",
+      },
+    ],
+  },
 };
 
 export default movieData;
