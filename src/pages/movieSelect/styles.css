@@ -18,6 +18,12 @@
   animation: 1s movie-loading infinite alternate;
 }
 
+/* Modal Content */
+.movie-modal__info-wrapper {
+  display: flex;
+  gap: 15px;
+}
+
 @keyframes movie-loading {
   0% {
     background-color: #555;

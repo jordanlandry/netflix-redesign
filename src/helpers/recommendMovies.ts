@@ -9,7 +9,7 @@ import { UserType } from "../data/userData";
 // but for the sake of this project, we will just use a simple algorithm to make the recommendations
 
 // TODO: Fix this type
-export default function recommendMovies(user: UserType) {
+export default function recommendMovies(user: UserType, includeRelavancy = false) {
   const relavancies = {
     genre: 0.5,
     actor: 0.6,
@@ -46,7 +46,7 @@ export default function recommendMovies(user: UserType) {
   // Set to remove duplicates, remove relavancy from the movies to prevent it from thinking that the movies are different
   const recommendedMovies = new Set();
   sortedData.forEach((movie) => {
-    return recommendedMovies.add({ ...movie, relavancy: 0, id: movie.id });
+    return recommendedMovies.add({ ...movie, relavancy: includeRelavancy ? movie.relavancy : 0, id: movie.id });
   });
 
   return recommendedMovies;

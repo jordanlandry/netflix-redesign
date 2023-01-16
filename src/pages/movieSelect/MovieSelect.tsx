@@ -4,6 +4,7 @@ import movieData, { MovieType } from "../../data/movie/movieData";
 import selectPoster from "../../helpers/selectPoster";
 import updateHabits from "../../helpers/updateHabits";
 import properties from "../../properties";
+import { SetMovieInViewContext } from "./MovieSelectPage";
 
 type Props = {
   id: string;
@@ -15,12 +16,16 @@ type Props = {
 export default function MovieSelect({ title, posters, link, id }: Props) {
   const user = useContext(UserContext)!;
 
+  const setMovieInView = useContext(SetMovieInViewContext);
+
   const setUserData = useContext(SetUserDataContext);
   const setUser = useContext(SetUserContext);
 
   const poster = selectPoster(user, posters);
 
   const onClick = () => {
+    // Handle user data
+
     // Add to recently watched
     const newUser = updateHabits(id, { ...user });
 
@@ -33,7 +38,6 @@ export default function MovieSelect({ title, posters, link, id }: Props) {
     // Remove last item if more than max
     if (newUser.recentlyWatched.length > properties.MAX_WATCH_HISTORY) newUser.recentlyWatched.pop();
 
-    setUser(newUser);
     setUserData((prev: any) => {
       const newUserData = [...prev];
       const index = newUserData.findIndex((user: any) => user.id === newUser.id);
@@ -41,11 +45,14 @@ export default function MovieSelect({ title, posters, link, id }: Props) {
 
       return newUserData;
     });
+
+    // Open movie modal
+    setMovieInView(id);
   };
 
   return (
-    <a className="movie-select__poster" href={link} onClick={onClick} style={{ display: "block" }}>
+    <div className="movie-select__poster" onClick={onClick} style={{ display: "block" }}>
       <img src={poster.url} alt={title} loading="lazy" style={{ margin: "0" }} />
-    </a>
+    </div>
   );
 }

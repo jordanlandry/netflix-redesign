@@ -1,18 +1,24 @@
-import { useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { SearchContext, UserContext } from "../../App";
-import ColorGradient from "../../components/ColorGradient";
+import Modal from "../../components/Modal";
 import movieData from "../../data/movie/movieData";
 import getTrending from "../../helpers/getTrending";
 import recommendMovies from "../../helpers/recommendMovies";
 import useDebounce from "../../hooks/useDebounce";
 import properties from "../../properties";
+import MovieModal from "./MovieModal";
 import MovieSelect from "./MovieSelect";
 import MovieSelectTab from "./MovieSelectTab";
 import "./styles.css";
 
+export const MovieInViewContext = createContext<string | null>(null);
+export const SetMovieInViewContext = createContext<any>(null);
+
 export default function MovieSelectPage() {
   const user = useContext(UserContext)!;
   const search = useContext(SearchContext)!;
+
+  const [movieInView, setMovieInView] = useState(""); // Movie id in view
 
   // Filter by search: actors, title, genres, directors (Returns an array of keys/ids)
   const filteredSearchData = Object.keys(movieData).filter((key) => {
@@ -62,9 +68,17 @@ export default function MovieSelectPage() {
           <div className="movie-select-search">{searchElements}</div>
         ) : (
           <>
-            <ColorGradient />
-            <MovieSelectTab title="Recommended for you" movieList={debouncedRecommendedMovies} />
-            <MovieSelectTab title="Trending" movieList={debouncedTrendingMovies} />
+            {movieInView ? (
+              <Modal open={movieInView !== ""} onClose={() => setMovieInView("")}>
+                <MovieModal movieId={movieInView} />
+              </Modal>
+            ) : null}
+            <MovieInViewContext.Provider value={movieInView}>
+              <SetMovieInViewContext.Provider value={setMovieInView}>
+                <MovieSelectTab title="Recommended for you" movieList={debouncedRecommendedMovies} />
+                <MovieSelectTab title="Trending" movieList={debouncedTrendingMovies} />
+              </SetMovieInViewContext.Provider>
+            </MovieInViewContext.Provider>
           </>
         )}
       </div>
