@@ -596,6 +596,22 @@ const movieData: MovieType = {
       },
     ],
   },
+  "36": {
+    title: "Kung Fu Panda 3",
+    year: 2016,
+    runtime: 95,
+    genres: ["Animation", "Action", "Adventure"],
+    directors: ["Alessandro Carloni", "Jennifer Yuh Nelson"],
+    actors: ["Jack Black", "Dustin Hoffman", "Angelina Jolie", "Lucy Liu"],
+    plot: `Continuing his "legendary adventures of awesomeness", Po must face two hugely epic, but different threats: one supernatural and the other a little closer to his home.`,
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcTAiQkIFBgaKW9VsBfODraRDgYb9etsArxLsbD8nYl7cQSkC8M9zwnf-jK3zdevulvPhF_XFgEDCLlnoeM8Ck8cWaASmAIZv18.webp?r=3bd",
+        actor: "Jack Black",
+      },
+    ],
+  },
 };
 
 export default movieData;

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SetUserContext, UserContext, UserDataContext } from "../../App";
 import "./usertab.css";
 
@@ -34,6 +34,16 @@ export default function UserTab({}: Props) {
       <span>{user.name}</span>
     </li>
   ));
+
+  // const [showUserTab, setShowUserTab] = useState(false);
+  // useEffect(() => {
+  //   if (hover) setShowUserTab(true);
+  //   else {
+  //     setTimeout(() => {
+  //       setShowUserTab(false);
+  //     }, 500);
+  //   }
+  // }, [hover]);
 
   // Render
   return (

@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import nextId from "react-id-generator";
+import { UserContext } from "../../App";
 import Carousel from "../../components/carousel/Carousel";
 import getBreakpoint from "../../helpers/getBreakpoint";
 import useWidth from "../../hooks/useWidth";
@@ -18,12 +19,16 @@ export default function MovieSelectTab({ title, movieList }: Props) {
     return <MovieSelect key={nextId()} {...movie} link={`/watch/${movie.id}`} />;
   });
 
-  const [loading, setLoading] = useState(movieElements.length === 0);
+  const user = useContext(UserContext)!;
+
+  const [loading, setLoading] = useState(true);
   const width = useWidth();
 
   useEffect(() => {
     setLoading(movieElements.length === 0);
   }, [movieElements]);
+
+  useEffect(() => setLoading(true), [user]);
 
   const itemsToShow = { s: 2, m: 3, l: 4, xl: 5, xxl: 6, max: 7 };
   const elementsCount = itemsToShow[getBreakpoint(width)];

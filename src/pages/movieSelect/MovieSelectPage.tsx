@@ -44,14 +44,15 @@ export default function MovieSelectPage() {
   const debouncedTrendingMovies = useDebounce(trendingMovies);
 
   useEffect(() => {
-    const getData = () => {
-      setTimeout(() => {
-        setRecommendedMovies(recommendMovies(user));
-        setTrendingMovies(getTrending());
-      }, properties.SIMULATE_FETCH_DELAY * Math.random());
-    };
+    setRecommendedMovies([]);
+    setTrendingMovies([]);
+  }, [user]);
 
-    getData();
+  useEffect(() => {
+    setTimeout(() => {
+      setRecommendedMovies(recommendMovies(user));
+      setTrendingMovies(getTrending());
+    }, properties.SIMULATE_FETCH_DELAY * Math.random());
   }, [user]);
 
   return (
