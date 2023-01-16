@@ -15,20 +15,27 @@ type Props = {
 
 // Carousel of movies
 export default function MovieSelectTab({ title, movieList }: Props) {
-  const movieElements = Array.from(movieList).map((movie: any) => {
-    return <MovieSelect key={nextId()} {...movie} link={`/watch/${movie.id}`} />;
-  });
+  // const movieElements = Array.from(movieList).map((movie: any) => {
+  //   return <MovieSelect key={nextId()} {...movie} link={`/watch/${movie.id}`} />;
+  // });
 
   const user = useContext(UserContext)!;
 
-  const [loading, setLoading] = useState(true);
-  const width = useWidth();
+  useEffect(() => {
+    movieElements.length = 0;
+  }, [user]);
+
+  const [movieElements, setMovieElements] = useState<any>([]);
 
   useEffect(() => {
-    setLoading(movieElements.length === 0);
-  }, [movieElements]);
+    setMovieElements(
+      Array.from(movieList).map((movie: any) => {
+        return <MovieSelect key={nextId()} {...movie} link={`/watch/${movie.id}`} />;
+      })
+    );
+  }, [movieList]);
 
-  useEffect(() => setLoading(true), [user]);
+  const width = useWidth();
 
   const itemsToShow = { s: 2, m: 3, l: 4, xl: 5, xxl: 6, max: 7 };
   const elementsCount = itemsToShow[getBreakpoint(width)];
@@ -40,7 +47,7 @@ export default function MovieSelectTab({ title, movieList }: Props) {
   return (
     <div>
       <h2>{title}</h2>
-      {loading ? (
+      {movieElements.length === 0 ? (
         <div style={{ display: "flex", gap: 25 }}>{loadingElements}</div>
       ) : (
         <Carousel

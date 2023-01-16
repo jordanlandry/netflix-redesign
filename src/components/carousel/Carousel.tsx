@@ -62,13 +62,6 @@ export default function Carousel({
     update();
   }, [width, wrapperRef, scrollBarWidth, children]);
 
-  const [btnTransition, setBtnTransition] = useState(0);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setBtnTransition(0.5);
-    }, 500);
-  }, [buttonHeight]);
   // -4 everywhere because for some reason the height of the a tag is 4px larger than the image inside it, there is no padding or margin on the a tag so I don't know why this is happening
   const BUTTON_STYLES: React.CSSProperties = {
     ...extraButtonStyles,
@@ -78,7 +71,7 @@ export default function Carousel({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    transition: `${btnTransition}s`,
+    transition: `0.5s font-size`,
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     zIndex: 2,
     width: outsidePadding - gap,

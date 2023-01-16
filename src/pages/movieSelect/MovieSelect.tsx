@@ -13,7 +13,6 @@ type Props = {
 };
 
 export default function MovieSelect({ title, posters, link, id }: Props) {
-  // const [hover, setHover] = useState(false);
   const user = useContext(UserContext)!;
 
   const setUserData = useContext(SetUserDataContext);
