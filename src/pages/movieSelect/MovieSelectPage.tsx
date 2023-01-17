@@ -83,7 +83,7 @@ export default function MovieSelectPage() {
             ) : (
               <>
                 <MovieBillboard />
-                <div className="padding">
+                <div className="padding movie-select-wrapper">
                   <MovieSelectTab title="Recommended for you" movieList={debouncedRecommendedMovies} />
                   <MovieSelectTab title="Trending" movieList={debouncedTrendingMovies} />
                   {Object.keys(debouncedGenreMovies).map((genre) => (

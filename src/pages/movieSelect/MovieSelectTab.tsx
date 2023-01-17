@@ -41,7 +41,7 @@ export default function MovieSelectTab({ title, movieList }: Props) {
   ));
 
   return (
-    <div>
+    <div className="movie-select-tab">
       <h2>{title}</h2>
       {movieElements.length === 0 ? (
         <div style={{ display: "flex", gap: 25 }}>{loadingElements}</div>

@@ -14,6 +14,10 @@
   animation: 1s movie-loading infinite alternate;
 }
 
+.movie-select-wrapper {
+  /* margin-top: -120px; */
+}
+
 /* Modal Content */
 .movie-modal__info-wrapper {
   display: flex;
