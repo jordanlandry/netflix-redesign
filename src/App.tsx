@@ -23,6 +23,21 @@ function App() {
   const [user, setUser] = useLocalStorage("user", null);
   const [search, setSearch] = useState("");
 
+  // Update the user data when the user changes (This is just for the demo,
+  // I didn't implement a backend, so I have to update this manually)
+  // As if I update it everytime I
+  useEffect(() => {
+    const userIndex = userData.findIndex((user: UserType) => user.id === user?.id);
+    if (userIndex !== -1 || JSON.stringify(userData[userIndex]) === JSON.stringify(user)) return;
+
+    setUserData((prev: any) => {
+      const newUserData = [...prev];
+      newUserData[userIndex] = user;
+
+      return newUserData;
+    });
+  }, [window.location.pathname]);
+
   // TODO - Add a loading screen
   // TODO - Add a 404 page
   // TODO - Change this to redux instead of context (I didn't want to implement redux yet to work on design and functionality first
