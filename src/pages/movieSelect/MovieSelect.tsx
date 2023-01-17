@@ -22,7 +22,13 @@ export default function MovieSelect({ title, posters, link, id }: Props) {
   const setUserData = useContext(SetUserDataContext);
   const setUser = useContext(SetUserContext);
 
-  const poster = selectPoster(user, posters);
+  // const poster = selectPoster(user, posters);
+
+  const [poster, setPoster] = useState<{ id: number; url: string; actor: string }>(selectPoster(user, posters));
+
+  useEffect(() => {
+    setPoster(selectPoster(user, posters));
+  }, [user, posters]);
 
   const onClick = () => {
     // Handle user data
