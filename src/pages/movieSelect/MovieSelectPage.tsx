@@ -7,6 +7,7 @@ import recommendGenres from "../../helpers/recommendGenres";
 import recommendMovies from "../../helpers/recommendMovies";
 import useDebounce from "../../hooks/useDebounce";
 import properties from "../../properties";
+import MovieBillboard from "./MovieBillboard";
 import MovieModal from "./MovieModal";
 import MovieSelect from "./MovieSelect";
 import MovieSelectTab from "./MovieSelectTab";
@@ -68,30 +69,32 @@ export default function MovieSelectPage() {
 
   return (
     <div className="movie-select">
-      <div>
-        {search ? (
-          <div className="movie-select-search">{searchElements}</div>
-        ) : (
-          <>
+      <MovieInViewContext.Provider value={movieInView}>
+        <SetMovieInViewContext.Provider value={setMovieInView}>
+          <div>
             {movieInView ? (
               <Modal open={movieInView !== ""} onClose={() => setMovieInView("")}>
                 <MovieModal movieId={movieInView} />
               </Modal>
             ) : null}
-            <MovieInViewContext.Provider value={movieInView}>
-              <SetMovieInViewContext.Provider value={setMovieInView}>
-                <MovieSelectTab title="Recommended for you" movieList={debouncedRecommendedMovies} />
-                <MovieSelectTab title="Trending" movieList={debouncedTrendingMovies} />
-                {
-                  Object.keys((debouncedGenreMovies)).map((genre) => (
+
+            {search ? (
+              <div className="movie-select-search padding">{searchElements}</div>
+            ) : (
+              <>
+                <MovieBillboard />
+                <div className="padding">
+                  <MovieSelectTab title="Recommended for you" movieList={debouncedRecommendedMovies} />
+                  <MovieSelectTab title="Trending" movieList={debouncedTrendingMovies} />
+                  {Object.keys(debouncedGenreMovies).map((genre) => (
                     <MovieSelectTab key={genre} title={genre} movieList={debouncedGenreMovies[genre]} />
-                  ))
-                }
-              </SetMovieInViewContext.Provider>
-            </MovieInViewContext.Provider>
-          </>
-        )}
-      </div>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        </SetMovieInViewContext.Provider>
+      </MovieInViewContext.Provider>
     </div>
   );
 }

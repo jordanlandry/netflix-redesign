@@ -52,3 +52,7 @@ body {
 .input:focus {
   outline: none;
 }
+
+.padding {
+  padding: var(--outside-padding);
+}
