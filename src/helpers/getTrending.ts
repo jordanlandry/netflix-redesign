@@ -12,7 +12,7 @@ export default function getTrending() {
 
   while (data.size < 10) {
     const randomMovie = Object.keys(moviesLeft)[Math.floor(Math.random() * Object.keys(moviesLeft).length)];
-    data.add(movieData[randomMovie]);
+    data.add({ ...movieData[randomMovie], id: randomMovie });
     delete moviesLeft[randomMovie];
   }
 

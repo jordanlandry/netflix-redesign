@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { SetUserContext, SetUserDataContext, UserContext } from "../../App";
 import movieData, { MovieType } from "../../data/movie/movieData";
 import selectPoster from "../../helpers/selectPoster";

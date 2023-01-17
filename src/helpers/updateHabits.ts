@@ -2,8 +2,6 @@ import movieData from "../data/movie/movieData";
 import { UserType } from "../data/userData";
 
 export default function updateHabits(movieId: string, user: UserType) {
-  // const { genres, actors, directors } = user.habits;
-
   const userGenres = user.habits.genres;
   const userActors = user.habits.actors;
   const userDirectors = user.habits.directors;

@@ -15,10 +15,6 @@ type Props = {
 
 // Carousel of movies
 export default function MovieSelectTab({ title, movieList }: Props) {
-  // const movieElements = Array.from(movieList).map((movie: any) => {
-  //   return <MovieSelect key={nextId()} {...movie} link={`/watch/${movie.id}`} />;
-  // });
-
   const user = useContext(UserContext)!;
 
   useEffect(() => {
