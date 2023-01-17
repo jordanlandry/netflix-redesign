@@ -3,6 +3,7 @@ import { SearchContext, UserContext } from "../../App";
 import Modal from "../../components/Modal";
 import movieData from "../../data/movie/movieData";
 import getTrending from "../../helpers/getTrending";
+import recommendGenres from "../../helpers/recommendGenres";
 import recommendMovies from "../../helpers/recommendMovies";
 import useDebounce from "../../hooks/useDebounce";
 import properties from "../../properties";
@@ -43,19 +44,23 @@ export default function MovieSelectPage() {
     />
   ));
 
+  const [recommendedGenres, setRecommendedGenres] = useState<any>([]);
   const [recommendedMovies, setRecommendedMovies] = useState<any>([]);
   const [trendingMovies, setTrendingMovies] = useState<any>([]);
 
   const debouncedRecommendedMovies = useDebounce(recommendedMovies);
   const debouncedTrendingMovies = useDebounce(trendingMovies);
+  const debouncedGenreMovies = useDebounce(recommendedGenres);
 
   useEffect(() => {
+    // Reset data
     setRecommendedMovies([]);
     setTrendingMovies([]);
-  }, [user]);
+    setRecommendedGenres(recommendGenres(user));
 
-  useEffect(() => {
+    // Fetch data after a random delay
     setTimeout(() => {
+      setRecommendedGenres(recommendGenres(user));
       setRecommendedMovies(recommendMovies(user));
       setTrendingMovies(getTrending());
     }, properties.SIMULATE_FETCH_DELAY * Math.random());

@@ -9,7 +9,7 @@ export type UserType = {
   };
 
   recentlyWatched: {
-    id: number;
+    id: string;
     time: number;
   }[];
 

@@ -17,7 +17,7 @@ export default function Modal({ children, open, onClose, className }: Props) {
     left: "50%",
     transform: "translate(-50%, -50%)",
     backgroundColor: "#fff",
-    padding: "50px",
+    padding: "25px",
     zIndex: 1000,
   };
 
