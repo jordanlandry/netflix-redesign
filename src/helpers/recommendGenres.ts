@@ -34,10 +34,13 @@ export default function recommendGenres(user: UserType, genreCount: number = 3, 
     // Pick 10 random movies from the genre
     let i = 0;
     const randomMovies: any = [];
-    while (randomMovies.length < movieCount && i < movieCount + 5) {
+    
+    // The more movies we have the lower chance we have to pick the same movie, so that's why this is fine
+    while (randomMovies.length < movieCount && i < movieCount + 25) {
       const randomMovie = movies[Math.floor(Math.random() * movies.length)];
-      if (!randomMovies.includes(randomMovie)) randomMovies.push({ ...movieData[randomMovie], id: randomMovie });
+      if (randomMovies.filter((movie: any) => movie.id === randomMovie).length === 0) randomMovies.push({ ...movieData[randomMovie], id: randomMovie });
 
+      // if (!randomMovies.includes(randomMovie)) randomMovies.push({ ...movieData[randomMovie], id: randomMovie });
       i++;
     }
 

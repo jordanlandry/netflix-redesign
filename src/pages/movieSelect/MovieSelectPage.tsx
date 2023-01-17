@@ -82,6 +82,11 @@ export default function MovieSelectPage() {
               <SetMovieInViewContext.Provider value={setMovieInView}>
                 <MovieSelectTab title="Recommended for you" movieList={debouncedRecommendedMovies} />
                 <MovieSelectTab title="Trending" movieList={debouncedTrendingMovies} />
+                {
+                  Object.keys((debouncedGenreMovies)).map((genre) => (
+                    <MovieSelectTab key={genre} title={genre} movieList={debouncedGenreMovies[genre]} />
+                  ))
+                }
               </SetMovieInViewContext.Provider>
             </MovieInViewContext.Provider>
           </>
