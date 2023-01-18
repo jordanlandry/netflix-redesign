@@ -1,4 +1,5 @@
 import movieData, { MovieType } from "../../data/movie/movieData";
+import properties from "../../properties";
 import searchSubstring from "./searchSubstring";
 
 export default function searchForMovies(search: string) {
@@ -11,17 +12,15 @@ export default function searchForMovies(search: string) {
 
   // What to multiply the distance by depending on what property it is
   const searchMultipliers = {
-    title: 0,
-    actors: 1,
-    genres: 2,
-    directors: 3,
+    title: 1,
+    actors: 1.25,
+    genres: 1.5,
+    directors: 2,
   };
 
   Object.keys(movieData).forEach((key) => {
     // Go through each property of the movie and check if the search string is a substring of it
     const { title, actors, genres, directors } = movieData[key];
-
-    // if (searchSubstring(title, search) !== false) results[key] = ;
 
     const distance = searchSubstring(title, search);
     if (distance !== -1) results[key] = distance * searchMultipliers.title;
@@ -46,6 +45,7 @@ export default function searchForMovies(search: string) {
   });
 
   const sortedResults = Object.keys(results).sort((a, b) => results[a] - results[b]);
+  const endResults = sortedResults.filter((key) => results[key] < properties.LEVENSHTEIN_DISTANCE);
 
-  return sortedResults;
+  return endResults;
 }

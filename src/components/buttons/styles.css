@@ -10,12 +10,13 @@
 }
 
 .play-button {
-  background-color: #fff;
-  color: black;
+  background-color: #fff !important;
+  color: black !important;
 }
 
 .info-button {
-  background-color: #555;
+  background-color: #777 !important;
+  color: #fff !important;
 }
 
 .billboard-button:hover {

@@ -9,12 +9,11 @@ export default function searchSubstring(str: string, substr: string) {
   if (substr.length === str.length) return levenshteinDistance(str, substr);
 
   // Need to do some sort of sliding window algorithm of the length of the substring, shifting ovcer by 1 each time
-  let distance = Infinity;
+  let distance = properties.LEVENSHTEIN_DISTANCE + 1;
   for (let i = 0; i < substr.length; i++) {
     const newDistance = levenshteinDistance(str.substring(i, substr.length + i), substr);
     if (newDistance === 0) return 0;
-
-    distance = Math.max(distance, newDistance);
+    distance = Math.min(distance, newDistance);
   }
 
   return distance;
