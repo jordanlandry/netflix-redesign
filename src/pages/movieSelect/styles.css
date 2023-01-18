@@ -14,10 +14,6 @@
   animation: 1s movie-loading infinite alternate;
 }
 
-.movie-select-wrapper {
-  /* margin-top: -120px; */
-}
-
 /* Modal Content */
 .movie-modal__info-wrapper {
   display: flex;
@@ -42,6 +38,10 @@
   border-radius: inherit;
 }
 
+.movie-modal__padding {
+  padding: 10px 0;
+}
+
 .movie-modal > img {
   width: 100%;
   height: 100%;
@@ -49,9 +49,18 @@
   border-radius: inherit;
 }
 
+.movie-modal__wrapper {
+  font-size: 0.8rem;
+}
+
 .movie-modal__on-image {
   position: absolute;
   transform: translateY(-150%);
+}
+
+.movie-modal__light {
+  font-weight: 300;
+  color: #aaa;
 }
 
 @keyframes movie-loading {

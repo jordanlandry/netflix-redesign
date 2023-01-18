@@ -31,24 +31,24 @@ export default function MovieModal({ movieId }: Props) {
         </div>
         <div className="movie-modal__wrapper">
           <div className="movie-modal__left">
-            <div className="movie-modal__info-wrapper">
+            <div className="movie-modal__info-wrapper movie-modal__padding">
               <span className="movie-modal__match">{getMatchAmount(user, movieId)}% Match</span>
-              <span>{year}</span>
+              <span className="movie-modal__light">{year}</span>
               <span>{formatRuntime(runtime)}</span>
             </div>
             <div>{plot}</div>
           </div>
           <div className="movie-modal__right">
-            <div>
-              <span>Cast: </span>
+            <div className="movie-modal__padding">
+              <span className="movie-modal__light">Cast: </span>
               <span>{actors.join(", ")}</span>
             </div>
-            <div>
-              <span>Genres: </span>
+            <div className="movie-modal__padding">
+              <span className="movie-modal__light">Genres: </span>
               <span>{genres.join(", ")}</span>
             </div>
-            <div>
-              <span>Directors: </span>
+            <div className="movie-modal__padding">
+              <span className="movie-modal__light">Directors: </span>
               <span>{directors.join(", ")}</span>
             </div>
           </div>
