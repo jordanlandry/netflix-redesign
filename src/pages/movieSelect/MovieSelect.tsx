@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { SetUserDataContext, UserContext } from "../../App";
 import selectPoster from "../../helpers/movie/selectPoster";
+import searchSubstring from "../../helpers/search/searchSubstring";
 import updateHabits from "../../helpers/update/updateHabits";
 import properties from "../../properties";
 import { SetMovieInViewContext } from "./MovieSelectPage";

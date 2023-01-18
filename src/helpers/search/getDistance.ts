@@ -2,6 +2,9 @@ export default function levenshteinDistance(a: string, b: string) {
   if (a.length === 0) return b.length;
   if (b.length === 0) return a.length;
 
+  a = a.toLowerCase();
+  b = b.toLowerCase();
+
   const matrix = [];
 
   for (let i = 0; i <= b.length; i++) {

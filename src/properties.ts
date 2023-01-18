@@ -16,6 +16,8 @@ const properties = {
   BREAKPOINTS: { m: 768, l: 1024, xl: 1280, xxl: 1536, max: 1920 },
 
   POSTER_ASPECT_RATIO: 73 / 41,
+
+  LEVENSHTEIN_DISTANCE: 5,
 };
 
 export default properties;

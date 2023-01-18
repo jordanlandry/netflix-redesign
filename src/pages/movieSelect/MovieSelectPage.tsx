@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { SearchContext, UserContext } from "../../App";
 import Modal from "../../components/Modal";
 import movieData from "../../data/movie/movieData";
+import levenshteinDistance from "../../helpers/search/getDistance";
 import getTrending from "../../helpers/movie/getTrending";
 import recommendGenres from "../../helpers/movie/recommendGenres";
 import recommendMovies from "../../helpers/movie/recommendMovies";
@@ -12,6 +13,7 @@ import MovieModal from "./MovieModal";
 import MovieSelect from "./MovieSelect";
 import MovieSelectTab from "./MovieSelectTab";
 import "./styles.css";
+import searchForMovies from "../../helpers/search/searchForMovies";
 
 export const MovieInViewContext = createContext<string | null>(null);
 export const SetMovieInViewContext = createContext<any>(null);
@@ -23,27 +25,28 @@ export default function MovieSelectPage() {
   const [movieInView, setMovieInView] = useState(""); // Movie id in view
 
   // Filter by search: actors, title, genres, directors (Returns an array of keys/ids)
-  const filteredSearchData = Object.keys(movieData).filter((key) => {
-    const { actors, title, genres, directors } = movieData[key];
+  // const filteredSearchData = Object.keys(movieData).filter((key) => searchForMovies(search);
 
-    return (
-      actors.some((actor) => actor.toLowerCase().includes(search.toLowerCase())) ||
-      title.toLowerCase().includes(search.toLowerCase()) ||
-      genres.some((genre) => genre.toLowerCase().includes(search.toLowerCase())) ||
-      directors.some((director) => director.toLowerCase().includes(search.toLowerCase()))
-    );
-  });
+  // actors.some((actor) => actor.toLowerCase().includes(search.toLowerCase())) ||
+  // title.toLowerCase().includes(search.toLowerCase()) ||
+  // genres.some((genre) => genre.toLowerCase().includes(search.toLowerCase())) ||
+  // directors.some((director) => director.toLowerCase().includes(search.toLowerCase())));
+  // );
+
+  const filteredSearchData = searchForMovies(search);
 
   // Search Elements
-  const searchElements = filteredSearchData.map((key) => (
-    <MovieSelect
-      id={key}
-      key={key}
-      title={movieData[key].title}
-      posters={movieData[key].posters}
-      link={`/watch/${key}`}
-    />
-  ));
+  const searchElements = filteredSearchData.map((key) => {
+    return (
+      <MovieSelect
+        id={key}
+        key={key}
+        title={movieData[key].title}
+        posters={movieData[key].posters}
+        link={`/watch/${key}`}
+      />
+    );
+  });
 
   const [recommendedGenres, setRecommendedGenres] = useState<any>([]);
   const [recommendedMovies, setRecommendedMovies] = useState<any>([]);

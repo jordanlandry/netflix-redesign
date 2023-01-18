@@ -703,7 +703,7 @@ const movieData: MovieType = {
     posters: [
       {
         id: 1,
-        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfFJKcmyxQNP9Fc7UzVcPnt49uE_ox4j9XqOglS7lHtcB7pnhoRhSUNwFxa1YTgHqPjwGff71deZJ7thMl-TaWKrIPmgsLVQYA.webp?r=d2c",
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZEv8z9IWm7DDzS-9C0AcARf1QvuUo6xW407C4bPfSOkK9M4MzE3g09yU8g7LF9v9dMop8Gfzm03gyHDsDlq56QSi_VLDk8GYD8.webp?r=c7f",
         actor: "Will Smith",
       },
     ],
@@ -719,7 +719,7 @@ const movieData: MovieType = {
     posters: [
       {
         id: 1,
-        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfFJKcmyxQNP9Fc7UzVcPnt49uE_ox4j9XqOglS7lHtcB7pnhoRhSUNwFxa1YTgHqPjwGff71deZJ7thMl-TaWKrIPmgsLVQYA.webp?r=d2c",
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRnJoMzXGJTmndJQ-cx8S1DdV2mG1vZg24mHUZXA18EVi6WF7BHwV0OewQvXzyC3Y6gyRysIIsnYWpzBdxxGHwBQSK9DlkizBVg.webp?r=f0e",
         actor: "Shawn Wayans",
       },
     ],
@@ -735,7 +735,7 @@ const movieData: MovieType = {
     posters: [
       {
         id: 1,
-        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfFJKcmyxQNP9Fc7UzVcPnt49uE_ox4j9XqOglS7lHtcB7pnhoRhSUNwFxa1YTgHqPjwGff71deZJ7thMl-TaWKrIPmgsLVQYA.webp?r=d2c",
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRnJoMzXGJTmndJQ-cx8S1DdV2mG1vZg24mHUZXA18EVi6WF7BHwV0OewQvXzyC3Y6gyRysIIsnYWpzBdxxGHwBQSK9DlkizBVg.webp?r=f0e",
         actor: "Daveigh Chase",
       },
     ],
@@ -752,7 +752,7 @@ const movieData: MovieType = {
     posters: [
       {
         id: 1,
-        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfFJKcmyxQNP9Fc7UzVcPnt49uE_ox4j9XqOglS7lHtcB7pnhoRhSUNwFxa1YTgHqPjwGff71deZJ7thMl-TaWKrIPmgsLVQYA.webp?r=d2c",
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTSKWRRN78_w5eR1VvnCKTLjOkl0ss4Nj5ubByf9b03DKYKJEN13NrP-ZEQKGI0wMh640Ay3xh9GeAsvKYr69mTTF4uTYmmFnuQ.webp?r=509",
         actor: "Will Ferrell",
       },
     ],
@@ -768,7 +768,7 @@ const movieData: MovieType = {
     posters: [
       {
         id: 1,
-        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfFJKcmyxQNP9Fc7UzVcPnt49uE_ox4j9XqOglS7lHtcB7pnhoRhSUNwFxa1YTgHqPjwGff71deZJ7thMl-TaWKrIPmgsLVQYA.webp?r=d2c",
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABV81lypIPFGEqWH_jCxEr4bNZtGtfV_c70IMi0AITa5QSiRzdebNXVq0B_cEP-OGMwTtAJlC7QKUkYvkP4qACHzwfZexWz-WC8k.webp?r=beb",
         actor: "Clint Eastwood",
       },
     ],
@@ -816,7 +816,7 @@ const movieData: MovieType = {
     posters: [
       {
         id: 1,
-        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSN2Ayq47edZ85io0jcScZcFmgBgSeV3jYSPSqkbXojiA8PREkbcK21otg4rbXXgZFg9HNS6DEIFXrVCPGBkamslHKdvqjhecdk.webp?r=269",
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABR7fatw-p349lRSjMrUqiqHuTE6EShbvFZ44TgYD9lU4Q-zbwnZ-_rgglaYiI0XK35ggdQzWMC02CijJnKyDBuP3YMENlaVHTuc.webp?r=b14",
         actor: "Danny DeVito",
       },
     ],
