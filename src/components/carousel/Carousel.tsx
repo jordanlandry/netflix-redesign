@@ -23,7 +23,6 @@ export default function Carousel({
   infinite = false,
 }: Props) {
   const width = useWidth();
-  const breakPoints = properties.BREAKPOINTS;
 
   const outsidePadding = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue("--outside-padding").replace("px", "")
@@ -54,12 +53,22 @@ export default function Carousel({
         const child = wrapperRef.current.children[i];
         child.children[0].setAttribute("width", w + "px");
       }
+
       updateSizes(w);
       setLoading(false);
     };
 
     update();
   }, [width, wrapperRef, scrollBarWidth, children]);
+
+  useEffect(() => {
+    if (scrollIndex < 0) setScrollIndex(0);
+
+    // @ts-ignore
+    if (scrollIndex > (children!.length - numberOfItemsToShow) / numberOfItemsToShow)
+      // @ts-ignore
+      setScrollIndex((children.length - numberOfItemsToShow) / numberOfItemsToShow);
+  }, [scrollIndex, children, numberOfItemsToShow]);
 
   // -4 everywhere because for some reason the height of the a tag is 4px larger than the image inside it, there is no padding or margin on the a tag so I don't know why this is happening
   const BUTTON_STYLES: React.CSSProperties = {
