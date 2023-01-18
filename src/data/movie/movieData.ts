@@ -28,7 +28,7 @@ const movieData: MovieType = {
     genres: ["Crime", "Drama"],
     directors: ["Frank Darabont"],
     actors: ["Tim Robbins", "Morgan Freeman", "Bob Gunton", "William Sadler"],
-    plot: "Two imprisoned...",
+    plot: "Conviced of murdering his wife and her lover, a quiet banker tries to survive prison by clinging to hope and befriending his fellow lifer named Red.",
     posters: [
       {
         id: 1,

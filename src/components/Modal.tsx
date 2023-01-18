@@ -1,3 +1,4 @@
+import { XLg } from "react-bootstrap-icons";
 import { createPortal } from "react-dom";
 import getBreakpoint from "../helpers/format/getBreakpoint";
 import useKeybind from "../hooks/useKeybind";
@@ -29,8 +30,8 @@ export default function Modal({ children, open, onClose, className }: Props) {
     top: "3%",
     left: "50%",
     transform: "translateX(-50%)",
-    backgroundColor: "#fff",
-    padding: "25px",
+    borderRadius: "8px",
+    backgroundColor: "#222",
     width: sizes[getBreakpoint(width)],
     zIndex: 1000,
   };
@@ -45,11 +46,22 @@ export default function Modal({ children, open, onClose, className }: Props) {
     zIndex: 1000,
   };
 
+  const X_STYLES: React.CSSProperties = {
+    position: "absolute",
+    cursor: "pointer",
+    color: "white",
+    top: 10,
+    right: 10,
+  };
+
   if (!open) return null;
   return createPortal(
     <>
       <div style={OVERLAY_STYLES} onClick={onClose}></div>
       <div style={MODAL_STYLES}>{children}</div>
+      <div>
+        <XLg style={X_STYLES} color="white" />
+      </div>
     </>,
     document.getElementById("portal")!
   );

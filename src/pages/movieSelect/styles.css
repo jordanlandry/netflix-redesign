@@ -22,11 +22,36 @@
 .movie-modal__info-wrapper {
   display: flex;
   gap: 15px;
+  font-weight: bold;
+}
+
+.movie-modal__match {
+  color: #4caf50;
 }
 
 .movie-modal__wrapper {
   display: flex;
   gap: 15px;
+}
+
+.movie-modal__outside {
+  padding: 20px;
+}
+
+.movie-modal {
+  border-radius: inherit;
+}
+
+.movie-modal > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.movie-modal__on-image {
+  position: absolute;
+  transform: translateY(-150%);
 }
 
 @keyframes movie-loading {

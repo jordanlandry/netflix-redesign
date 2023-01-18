@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { ChevronCompactLeft, ChevronCompactRight } from "react-bootstrap-icons";
 import getBreakpoint from "../../helpers/format/getBreakpoint";
 import useHover from "../../hooks/useHover";
 import useWidth from "../../hooks/useWidth";
+import { MovieInViewContext } from "../../pages/movieSelect/MovieSelectPage";
 import properties from "../../properties";
 import "./styles.css";
 
@@ -24,6 +25,8 @@ export default function Carousel({
   infinite = false,
 }: Props) {
   const width = useWidth();
+
+  const movieInView = useContext(MovieInViewContext);
 
   const [hovering, setHovering] = useState(false);
 
@@ -62,7 +65,7 @@ export default function Carousel({
     };
 
     update();
-  }, [width, wrapperRef, scrollBarWidth, children]);
+  }, [width, wrapperRef, scrollBarWidth, children, movieInView]);
 
   useEffect(() => {
     if (scrollIndex < 0) setScrollIndex(0);
@@ -92,7 +95,7 @@ export default function Carousel({
   const availableElements = children.length;
 
   return (
-    <div onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} className="SADASD">
+    <div onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
       {availableElements > numberOfItemsToShow && scrollIndex !== 0 ? (
         <div
           className="carousel__button"
