@@ -47,6 +47,5 @@ export default function searchForMovies(search: string) {
 
   const sortedResults = Object.keys(results).sort((a, b) => results[a] - results[b]);
 
-  console.log(sortedResults);
   return sortedResults;
 }

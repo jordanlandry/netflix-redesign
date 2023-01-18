@@ -21,18 +21,6 @@ export const SetMovieInViewContext = createContext<any>(null);
 export default function MovieSelectPage() {
   const user = useContext(UserContext)!;
   const search = useContext(SearchContext)!;
-
-  const [movieInView, setMovieInView] = useState(""); // Movie id in view
-
-  // Filter by search: actors, title, genres, directors (Returns an array of keys/ids)
-  // const filteredSearchData = Object.keys(movieData).filter((key) => searchForMovies(search);
-
-  // actors.some((actor) => actor.toLowerCase().includes(search.toLowerCase())) ||
-  // title.toLowerCase().includes(search.toLowerCase()) ||
-  // genres.some((genre) => genre.toLowerCase().includes(search.toLowerCase())) ||
-  // directors.some((director) => director.toLowerCase().includes(search.toLowerCase())));
-  // );
-
   const filteredSearchData = searchForMovies(search);
 
   // Search Elements
@@ -48,14 +36,19 @@ export default function MovieSelectPage() {
     );
   });
 
+  const [movieInView, setMovieInView] = useState(""); // Movie id in view
+
+  // Recommended Movies
   const [recommendedGenres, setRecommendedGenres] = useState<any>([]);
   const [recommendedMovies, setRecommendedMovies] = useState<any>([]);
   const [trendingMovies, setTrendingMovies] = useState<any>([]);
 
+  // Debounce data to prevent flickering
   const debouncedRecommendedMovies = useDebounce(recommendedMovies);
   const debouncedTrendingMovies = useDebounce(trendingMovies);
   const debouncedGenreMovies = useDebounce(recommendedGenres);
 
+  // Update what movies to recommend when the user changes
   useEffect(() => {
     // Reset data
     setRecommendedMovies([]);

@@ -17,7 +17,9 @@ const properties = {
 
   POSTER_ASPECT_RATIO: 73 / 41,
 
-  LEVENSHTEIN_DISTANCE: 3,
+  LEVENSHTEIN_DISTANCE: 2,
 };
 
 export default properties;
+
+// https://media.licdn.com/dms/image/C4D03AQGighgSMuJaxA/profile-displayphoto-shrink_100_100/0/1516264401193?e=1679529600&v=beta&t=sn_1rc-bVjFhPy7rO2wvdiSiNDa7PSNTPLgj7kPUCi0

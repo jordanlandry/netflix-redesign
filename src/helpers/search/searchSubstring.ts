@@ -6,12 +6,16 @@ export default function searchSubstring(str: string, substr: string) {
   substr = substr.toLowerCase();
 
   if (substr.length > str.length) return -1;
-  if (substr.length === str.length) return substr === str ? 0 : -1;
+  if (substr.length === str.length) return levenshteinDistance(str, substr);
 
-  for (let i = 0; i < str.length - substr.length + 1; i++) {
-    if (levenshteinDistance(str.substring(i, substr.length), substr) <= properties.LEVENSHTEIN_DISTANCE)
-      return properties.LEVENSHTEIN_DISTANCE;
+  // Need to do some sort of sliding window algorithm of the length of the substring, shifting ovcer by 1 each time
+  let distance = Infinity;
+  for (let i = 0; i < substr.length; i++) {
+    const newDistance = levenshteinDistance(str.substring(i, substr.length + i), substr);
+    if (newDistance === 0) return 0;
+
+    distance = Math.max(distance, newDistance);
   }
 
-  return -1;
+  return distance;
 }
