@@ -17,7 +17,7 @@ const properties = {
 
   POSTER_ASPECT_RATIO: 73 / 41,
 
-  LEVENSHTEIN_DISTANCE: 5,
+  LEVENSHTEIN_DISTANCE: 3,
 };
 
 export default properties;
