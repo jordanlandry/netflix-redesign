@@ -612,6 +612,231 @@ const movieData: MovieType = {
       },
     ],
   },
+  "37": {
+    title: "Step Brothers",
+    year: 2008,
+    runtime: 98,
+    genres: ["Comedy"],
+    directors: ["Adam McKay"],
+    actors: ["Will Ferrell", "John C. Reilly", "Mary Steenburgen", "Richard Jenkins"],
+    plot: "Two aimless middle-aged losers still living at home are forced against their will to become roommates when their parents marry.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABemeNcV3Wv06e1Q9XhVNOKKxKWwc_N-HeRWqSNp9nop6l5b47pkqSkRTWx5M9l7pWuGI4lOTiKSu-i_yg__pX8oD4HPv6w7lUDc.webp?r=a7c",
+        actor: "Will Ferrell",
+      },
+    ],
+  },
+  "38": {
+    title: "Taxi Driver",
+    year: 1976,
+    runtime: 113,
+    genres: ["Crime", "Drama"],
+    directors: ["Martin Scorsese"],
+    actors: ["Diahnne Abbott", "Frank Adu", "Gino Ardito", "Victor Argo"],
+    plot: "A mentally unstable Vietnam War veteran works as a night-time taxi driver in New York City where the perceived decadence and sleaze feeds his urge for violent action, attempting to save a preadolescent prostitute in the process.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABY7DackpCyZhOPNmB3EJ-D2ttoTGY59bQiDUmqohyk2GGXVAGzfaMn_zcVmqQQtBAY5H6ZNApKK6ca_HI-Vor1GC7KsvIvi69X0.webp?r=f12",
+        actor: "Robert De Niro",
+      },
+    ],
+  },
+  "39": {
+    title: "Boyz n the Hood",
+    year: 1991,
+    runtime: 112,
+    genres: ["Crime", "Drama"],
+    directors: ["John Singleton"],
+    actors: ["Cuba Gooding Jr.", "Ice Cube", "Morris Chestnut", "Larry Fishburne"],
+    plot: "Tells the story of three ...",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSzVCz0_OdbWBIlUbUpmLcJ49kO6ahj81UJFGwzqi7il-JDUmuNPxZyQBRIytZOnrcz2k3CO4bicC6aoqbsIVuX9tfyXGeodZJI.webp?r=b08",
+        actor: "Cuba Gooding Jr.",
+      },
+    ],
+  },
+  "40": {
+    title: "Coach Carter",
+    year: 2005,
+    runtime: 136,
+    genres: ["Drama", "Sport"],
+    directors: ["Thomas Carter"],
+    actors: ["Samuel L. Jackson", "Rob Brown", "Ashanti", "Robert Ri'chard"],
+    plot: "After the Richmond High basketball team's coach is fired for a technical foul, he takes over the team himself.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfiig0OJqkei771rIrOLOQlniUdDr94Hdw7cnyO3lOQlnditxg0TZbTlHiqqM3bJ74gP3chaJs3IRJwi2-h9xJSq4fOOyBRwIQ.webp?r=307",
+        actor: "Samuel L. Jackson",
+      },
+    ],
+  },
+  "41": {
+    title: "The Benchwarmers",
+    year: 2006,
+    runtime: 94,
+    genres: ["Comedy", "Sport"],
+    directors: ["David Mickey Evans"],
+    actors: ["Rob Schneider", "David Spade", "Jon Heder", "Jon Lovitz"],
+    plot: "Three clueless dads try to pose as coaches for their sons' baseball team.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfFJKcmyxQNP9Fc7UzVcPnt49uE_ox4j9XqOglS7lHtcB7pnhoRhSUNwFxa1YTgHqPjwGff71deZJ7thMl-TaWKrIPmgsLVQYA.webp?r=d2c",
+        actor: "Rob Schneider",
+      },
+    ],
+  },
+  "42": {
+    title: "The pursuit of Happyness",
+    year: 2006,
+    runtime: 117,
+    genres: ["Biography", "Drama"],
+    directors: ["Gabriele Muccino"],
+    actors: ["Will Smith", "Thandie Newton", "Jaden Smith", "Brian Howe"],
+    plot: "A struggling salesman takes custody of his son as he's poised to begin a life-changing professional career.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfFJKcmyxQNP9Fc7UzVcPnt49uE_ox4j9XqOglS7lHtcB7pnhoRhSUNwFxa1YTgHqPjwGff71deZJ7thMl-TaWKrIPmgsLVQYA.webp?r=d2c",
+        actor: "Will Smith",
+      },
+    ],
+  },
+  "43": {
+    title: "White Chicks",
+    year: 2004,
+    runtime: 109,
+    genres: ["Comedy", "Crime"],
+    directors: ["Keenen Ivory Wayans"],
+    actors: ["Shawn Wayans", "Marlon Wayans", "Busy Philipps", "Jaime King"],
+    plot: "Two FBI agents, posing as white supremacists, attempt to infiltrate a college sorority.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfFJKcmyxQNP9Fc7UzVcPnt49uE_ox4j9XqOglS7lHtcB7pnhoRhSUNwFxa1YTgHqPjwGff71deZJ7thMl-TaWKrIPmgsLVQYA.webp?r=d2c",
+        actor: "Shawn Wayans",
+      },
+    ],
+  },
+  "44": {
+    title: "Spirited Away",
+    year: 2001,
+    runtime: 125,
+    genres: ["Animation", "Adventure", "Family", "Fantasy", "Mystery"],
+    directors: ["Hayao Miyazaki"],
+    actors: ["Daveigh Chase", "Suzanne Pleshette", "Miyu Irino", "Rumi Hiiragi"],
+    plot: "During her family's move to the suburbs, a sullen 10-year",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfFJKcmyxQNP9Fc7UzVcPnt49uE_ox4j9XqOglS7lHtcB7pnhoRhSUNwFxa1YTgHqPjwGff71deZJ7thMl-TaWKrIPmgsLVQYA.webp?r=d2c",
+        actor: "Daveigh Chase",
+      },
+    ],
+  },
+
+  "45": {
+    title: "Megamind",
+    year: 2010,
+    runtime: 95,
+    genres: ["Animation", "Action", "Adventure", "Comedy", "Family", "Sci-Fi"],
+    directors: ["Tom McGrath"],
+    actors: ["Will Ferrell", "Brad Pitt", "Tina Fey", "David Cross"],
+    plot: "The supervillain Megamind finally defeats his nemesis, the superhero",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfFJKcmyxQNP9Fc7UzVcPnt49uE_ox4j9XqOglS7lHtcB7pnhoRhSUNwFxa1YTgHqPjwGff71deZJ7thMl-TaWKrIPmgsLVQYA.webp?r=d2c",
+        actor: "Will Ferrell",
+      },
+    ],
+  },
+  "46": {
+    title: "Escape From Alcatraz",
+    year: 1979,
+    runtime: 112,
+    genres: ["Biography", "Crime", "Drama"],
+    directors: ["Don Siegel"],
+    actors: ["Clint Eastwood", "Patrick McGoohan", "Roberts Blossom", "Fred Ward"],
+    plot: "The true story of the escape of three prisoners from Alcatraz in 1962.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfFJKcmyxQNP9Fc7UzVcPnt49uE_ox4j9XqOglS7lHtcB7pnhoRhSUNwFxa1YTgHqPjwGff71deZJ7thMl-TaWKrIPmgsLVQYA.webp?r=d2c",
+        actor: "Clint Eastwood",
+      },
+    ],
+  },
+  "47": {
+    title: "The Notebook",
+    year: 2004,
+    runtime: 123,
+    genres: ["Drama", "Romance"],
+    directors: ["Nick Cassavetes"],
+    actors: ["Ryan Gosling", "Rachel McAdams", "James Garner", "Gena Rowlands"],
+    plot: "A poor yet passionate young man falls in love with a rich ",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZKsZrRXPb9k_DPwzAapkk8CfQ-hnOdkrwZy9k7o7R7GVQ1IwctO4qsZenK5XZ4Yt3LwI56TiMki8hJ6dP3zmHItCWS03bl2_a0.webp?r=406",
+        actor: "Ryan Gosling",
+      },
+    ],
+  },
+  "48": {
+    title: "A Dog's Purpose",
+    year: 2017,
+    runtime: 100,
+    genres: ["Comedy", "Drama", "Family"],
+    directors: ["Lasse Hallström"],
+    actors: ["Josh Gad", "Dennis Quaid", "Britt Robertson", "Kathryn Prescott"],
+    plot: "A dog goes on quest to discover his purpose in life over the course of several lifetimes with multiple owners.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSN2Ayq47edZ85io0jcScZcFmgBgSeV3jYSPSqkbXojiA8PREkbcK21otg4rbXXgZFg9HNS6DEIFXrVCPGBkamslHKdvqjhecdk.webp?r=269",
+        actor: "Josh Gad",
+      },
+    ],
+  },
+  "49": {
+    title: "Deck The Halls",
+    year: 2006,
+    runtime: 90,
+    genres: ["Comedy", "Family"],
+    directors: ["John Whitesell"],
+    actors: ["Danny DeVito", "Matthew Broderick", "Kristin Chenoweth", "Kristin Davis"],
+    plot: "Two neighbors have it out after one of them decorates his house for the holidays so brightly that it can be seen from space.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSN2Ayq47edZ85io0jcScZcFmgBgSeV3jYSPSqkbXojiA8PREkbcK21otg4rbXXgZFg9HNS6DEIFXrVCPGBkamslHKdvqjhecdk.webp?r=269",
+        actor: "Danny DeVito",
+      },
+    ],
+  },
+  "50": {
+    title: "Ocean's Eleven",
+    year: 2001,
+    runtime: 116,
+    genres: ["Crime", "Thriller"],
+    directors: ["Steven Soderbergh"],
+    actors: ["George Clooney", "Brad Pitt", "Matt Damon", "Andy Garcia"],
+    plot: "Danny Ocean and his eleven accomplices plan to rob three Las Vegas casinos simultaneously.",
+    posters: [
+      {
+        id: 1,
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfUXx3hsDzcdw5wSicDui2-r8O5JJEq6_7puQFFTdLp1aQ8rRw4NFp5332xu9LuGXCugXDFe2_yRDp19N76WafBHkgiasCjTQV0.webp?r=2f0",
+        actor: "George Clooney",
+      },
+    ],
+  },
 };
 
 export default movieData;
