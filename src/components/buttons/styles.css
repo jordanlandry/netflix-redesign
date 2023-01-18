@@ -1,0 +1,23 @@
+.billboard-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.5rem;
+
+  padding: 0 10px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.play-button {
+  background-color: #fff;
+  color: black;
+}
+
+.info-button {
+  background-color: #555;
+}
+
+.billboard-button:hover {
+  opacity: 0.8;
+}

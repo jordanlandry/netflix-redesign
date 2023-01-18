@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../../App";
+import PlayButton from "../../components/buttons/PlayButton";
 import movieData from "../../data/movie/movieData";
 import formatRuntime from "../../helpers/format/formatRuntime";
 import getMatchAmount from "../../helpers/movie/getMatchAmount";
@@ -27,7 +28,7 @@ export default function MovieModal({ movieId }: Props) {
       <div className="movie-modal__outside">
         <div className="movie-modal__on-image">
           <h1>{title}</h1>
-          <button onClick={handlePlay}>Play</button>
+          <PlayButton movieId={movieId} />
         </div>
         <div className="movie-modal__wrapper">
           <div className="movie-modal__left">

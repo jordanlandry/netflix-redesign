@@ -1,5 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import InfoButton from "../../components/buttons/InfoButton";
+import PlayButton from "../../components/buttons/PlayButton";
 import useWidth from "../../hooks/useWidth";
+import { SetMovieInViewContext } from "./MovieSelectPage";
 
 interface BillboardType {
   id: string;
@@ -25,6 +28,7 @@ export default function MovieBillboard() {
     },
   ];
 
+  const setMovieInView = useContext(SetMovieInViewContext);
   const width = useWidth();
   const outsidePadding = getComputedStyle(document.body).getPropertyValue("--outside-padding");
   const [billboard, setBillboard] = useState<BillboardType | null>(null);
@@ -65,9 +69,9 @@ export default function MovieBillboard() {
               }}
             >
               <img alt={billboard.title} src={billboard.titleImg} style={{ width: "35vw" }} />
-              <div>
-                <button>Play</button>
-                <button>( i ) More Info</button>
+              <div className="movie-billboard__button-wrapper">
+                <PlayButton movieId={billboard.movieId} />
+                <InfoButton movieId={billboard.movieId} setMovieInView={setMovieInView} />
               </div>
             </div>
           </div>

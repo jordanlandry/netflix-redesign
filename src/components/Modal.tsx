@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import getBreakpoint from "../helpers/format/getBreakpoint";
 import useKeybind from "../hooks/useKeybind";
 import useWidth from "../hooks/useWidth";
-import { BreakpointsType } from "../properties";
+import "./modal.css";
 
 type Props = {
   children: React.ReactNode;
@@ -58,7 +58,9 @@ export default function Modal({ children, open, onClose, className }: Props) {
   return createPortal(
     <>
       <div style={OVERLAY_STYLES} onClick={onClose}></div>
-      <div style={MODAL_STYLES}>{children}</div>
+      <div className="modal" style={MODAL_STYLES}>
+        {children}
+      </div>
       <div>
         <XLg style={X_STYLES} color="white" />
       </div>
