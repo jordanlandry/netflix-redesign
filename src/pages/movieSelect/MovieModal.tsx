@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { UserContext } from "../../App";
 import movieData from "../../data/movie/movieData";
-import formatRuntime from "../../helpers/formatRuntime";
-import getMatchAmount from "../../helpers/getMatchAmount";
+import formatRuntime from "../../helpers/format/formatRuntime";
+import getMatchAmount from "../../helpers/movie/getMatchAmount";
 import { SetMovieInViewContext } from "./MovieSelectPage";
 
 type Props = { movieId: string };

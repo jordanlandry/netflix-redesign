@@ -1,5 +1,5 @@
-import movieData from "../data/movie/movieData";
-import { UserType } from "../data/userData";
+import movieData from "../../data/movie/movieData";
+import { UserType } from "../../data/userData";
 
 // Recommend movies from a specific genre that the user enjoys
 export default function recommendGenres(user: UserType, genreCount: number = 3, movieCount: number = 10) {

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronCompactLeft, ChevronCompactRight } from "react-bootstrap-icons";
-import getBreakpoint from "../../helpers/getBreakpoint";
-import sleep from "../../helpers/sleep";
+import getBreakpoint from "../../helpers/format/getBreakpoint";
 import useWidth from "../../hooks/useWidth";
 import properties from "../../properties";
 import "./styles.css";

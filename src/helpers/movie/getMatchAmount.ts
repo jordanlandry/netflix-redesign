@@ -1,5 +1,5 @@
-import movieData from "../data/movie/movieData";
-import { UserType } from "../data/userData";
+import movieData from "../../data/movie/movieData";
+import { UserType } from "../../data/userData";
 
 // Estimates how good a movie is for a user based on the user's habits and the movie's data
 // Returns a number between 0 and 1

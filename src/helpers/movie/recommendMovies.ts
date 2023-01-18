@@ -1,5 +1,5 @@
-import movieData from "../data/movie/movieData";
-import { UserType } from "../data/userData";
+import movieData from "../../data/movie/movieData";
+import { UserType } from "../../data/userData";
 
 // Find movies that the user has not watched that have actors/genres/directors that match
 // the user's preference If this was a real app, we would use a machine learning algorithm

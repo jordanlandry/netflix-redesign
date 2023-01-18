@@ -1,4 +1,4 @@
-import { UserType } from "../data/userData";
+import { UserType } from "../../data/userData";
 
 // TODO Fix this type
 export default function selectPoster(user: UserType, posters: any) {

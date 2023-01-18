@@ -3,9 +3,9 @@ import { ArrowLeftCircle, ArrowLeftCircleFill, ArrowRightCircle, ArrowRightCircl
 import nextId from "react-id-generator";
 import { SetUserDataContext } from "../../App";
 import avatarData from "../../data/avatars/avatarData";
-import daysPerMonth from "../../helpers/daysPerMonth";
-import getYear from "../../helpers/getYear";
-import random from "../../helpers/random";
+import daysPerMonth from "../../helpers/format/daysPerMonth";
+import getYear from "../../helpers/format/getYear";
+import random from "../../helpers/functions/random";
 import useHover from "../../hooks/useHover";
 import useKeybind from "../../hooks/useKeybind";
 import "./styles.css";

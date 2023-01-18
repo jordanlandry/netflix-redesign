@@ -1,5 +1,5 @@
-import movieData from "../data/movie/movieData";
-import { UserType } from "../data/userData";
+import movieData from "../../data/movie/movieData";
+import { UserType } from "../../data/userData";
 
 export default function updateHabits(movieId: string, user: UserType) {
   const userGenres = user.habits.genres;

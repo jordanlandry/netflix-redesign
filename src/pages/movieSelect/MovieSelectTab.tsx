@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import nextId from "react-id-generator";
 import { UserContext } from "../../App";
 import Carousel from "../../components/carousel/Carousel";
-import getBreakpoint from "../../helpers/getBreakpoint";
+import getBreakpoint from "../../helpers/format/getBreakpoint";
 import useWidth from "../../hooks/useWidth";
 import properties from "../../properties";
 import MovieLoading from "./MovieLoading";

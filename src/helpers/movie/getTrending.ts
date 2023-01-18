@@ -1,4 +1,4 @@
-import movieData from "../data/movie/movieData";
+import movieData from "../../data/movie/movieData";
 
 export default function getTrending() {
   // If this was a real program with a proper backend, I would probably have a viewCount property on

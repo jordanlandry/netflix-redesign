@@ -1,4 +1,4 @@
-import properties from "../properties";
+import properties from "../../properties";
 
 export default function getBreakpoint(width: number) {
   const breakPoints = properties.BREAKPOINTS;

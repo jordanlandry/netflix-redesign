@@ -1,4 +1,4 @@
-import properties from "../properties";
+import properties from "../../properties";
 
 // Based on the user's birthday, return the max year they can pick based on the max age
 export default function getYear(day: number, month: number) {
