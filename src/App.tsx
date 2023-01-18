@@ -51,7 +51,7 @@ function App() {
               <SetUserContext.Provider value={setUser}>
                 <SearchContext.Provider value={search}>
                   <SetSearchContext.Provider value={setSearch}>
-                    <NavWrapper />
+                    {/* <NavWrapper /> */}
                     <BrowserRouter>
                       <Routes>
                         <Route path="/" element={<MovieSelectPage />} />

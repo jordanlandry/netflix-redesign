@@ -1,6 +1,5 @@
 export default function levenshteinDistance(a: string, b: string) {
-  if (a.length === 0) return b.length;
-  if (b.length === 0) return a.length;
+  if (a.length === 0 || b.length === 0) return 0;
 
   a = a.toLowerCase();
   b = b.toLowerCase();

@@ -1,5 +1,8 @@
 import { createPortal } from "react-dom";
+import getBreakpoint from "../helpers/format/getBreakpoint";
 import useKeybind from "../hooks/useKeybind";
+import useWidth from "../hooks/useWidth";
+import { BreakpointsType } from "../properties";
 
 type Props = {
   children: React.ReactNode;
@@ -10,14 +13,25 @@ type Props = {
 
 export default function Modal({ children, open, onClose, className }: Props) {
   useKeybind("Escape", () => (open ? onClose() : null));
+  const width = useWidth();
+
+  const sizes = {
+    s: "85%",
+    m: "80%",
+    l: "70%",
+    xl: "60%",
+    xxl: "50%",
+    max: "40%",
+  };
 
   const MODAL_STYLES: React.CSSProperties = {
-    position: "fixed",
-    top: "50%",
+    position: "absolute",
+    top: "3%",
     left: "50%",
-    transform: "translate(-50%, -50%)",
+    transform: "translateX(-50%)",
     backgroundColor: "#fff",
     padding: "25px",
+    width: sizes[getBreakpoint(width)],
     zIndex: 1000,
   };
 
@@ -27,7 +41,7 @@ export default function Modal({ children, open, onClose, className }: Props) {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, .8)",
+    backgroundColor: "rgba(0, 0, 0, .7)",
     zIndex: 1000,
   };
 

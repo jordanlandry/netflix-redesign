@@ -31,18 +31,15 @@ export default function MovieModal({ movieId }: Props) {
           </div>
           <div>{plot}</div>
         </div>
-
         <div className="movie-modal__right">
           <div>
             <span>Cast: </span>
             <span>{actors.join(", ")}</span>
           </div>
-
           <div>
             <span>Genres: </span>
             <span>{genres.join(", ")}</span>
           </div>
-
           <div>
             <span>Directors: </span>
             <span>{directors.join(", ")}</span>

@@ -14,6 +14,8 @@ import MovieSelect from "./MovieSelect";
 import MovieSelectTab from "./MovieSelectTab";
 import "./styles.css";
 import searchForMovies from "../../helpers/search/searchForMovies";
+import NavWrapper from "../../components/navbar/NavWrapper";
+import useScrollY from "../../hooks/useScrollY";
 
 export const MovieInViewContext = createContext<string | null>(null);
 export const SetMovieInViewContext = createContext<any>(null);
@@ -55,7 +57,7 @@ export default function MovieSelectPage() {
     setTrendingMovies([]);
     setRecommendedGenres(recommendGenres(user));
 
-    // Fetch data after a random delay
+    // Fetch data after a random delay to simulate network latency
     setTimeout(() => {
       setRecommendedGenres(recommendGenres(user));
       setRecommendedMovies(recommendMovies(user));
@@ -63,8 +65,34 @@ export default function MovieSelectPage() {
     }, properties.SIMULATE_FETCH_DELAY * Math.random());
   }, [user]);
 
+  // This code block makes sure when you open the modal, the background doesn't scroll,
+  // and when you close the modal, the background scrolls to the same position as before
+  // but also makes sure when you open the modal, you're viewing the top of the modal
+
+  // Code block
+  const scrollY = useScrollY(); // Updates state when user scrolls
+  const [lastScrollY, setLastScrollY] = useState(scrollY); // Keep track of position when modal is closed
+
+  // Update last scroll when the modal is closed
+  useEffect(() => {
+    if (!movieInView) setLastScrollY(scrollY);
+  }, [scrollY, movieInView]);
+
+  // Scroll to top of modal when open, and scroll to last position when closed
+  useEffect(() => {
+    window.scrollTo(0, movieInView ? 0 : lastScrollY);
+  }, [movieInView]);
+
+  // Make the background not scroll when scrolling in the modal
+  const movieOpenStyles: React.CSSProperties = {
+    position: "fixed",
+    top: -lastScrollY,
+  };
+  // End of code block
+
   return (
-    <div className="movie-select">
+    <div className="movie-select" style={movieInView ? movieOpenStyles : {}}>
+      <NavWrapper />
       <MovieInViewContext.Provider value={movieInView}>
         <SetMovieInViewContext.Provider value={setMovieInView}>
           <div>

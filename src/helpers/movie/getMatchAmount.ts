@@ -27,5 +27,5 @@ export default function getMatchAmount(user: UserType, movieId: string) {
   // Normalize the match amount to a number between 0 and 1
   matchAmount /= Object.keys(genres).length + Object.keys(actors).length + Object.keys(directors).length;
 
-  return matchAmount;
+  return Math.floor(matchAmount);
 }

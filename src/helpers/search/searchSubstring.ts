@@ -5,7 +5,7 @@ export default function searchSubstring(str: string, substr: string) {
   str = str.toLowerCase();
   substr = substr.toLowerCase();
 
-  if (substr.length > str.length) return -1;
+  if (substr.length > str.length) return levenshteinDistance(substr, str);
   if (substr.length === str.length) return levenshteinDistance(str, substr);
 
   // Need to do some sort of sliding window algorithm of the length of the substring, shifting ovcer by 1 each time
