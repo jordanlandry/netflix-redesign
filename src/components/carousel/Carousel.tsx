@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronCompactLeft, ChevronCompactRight } from "react-bootstrap-icons";
 import getBreakpoint from "../../helpers/format/getBreakpoint";
+import useHover from "../../hooks/useHover";
 import useWidth from "../../hooks/useWidth";
 import properties from "../../properties";
 import "./styles.css";
@@ -17,12 +18,14 @@ type Props = {
 export default function Carousel({
   children,
   itemsToShow = 3,
-  gap = 10,
+  gap = 5,
   extraButtonStyles,
   aspectRatio,
   infinite = false,
 }: Props) {
   const width = useWidth();
+
+  const [hovering, setHovering] = useState(false);
 
   const outsidePadding = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue("--outside-padding").replace("px", "")
@@ -89,14 +92,14 @@ export default function Carousel({
   const availableElements = children.length;
 
   return (
-    <div>
-      {availableElements > numberOfItemsToShow ? (
+    <div onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)} className="SADASD">
+      {availableElements > numberOfItemsToShow && scrollIndex !== 0 ? (
         <div
           className="carousel__button"
           style={{ ...BUTTON_STYLES, left: 0 }}
           onClick={() => setScrollIndex((prev) => prev - 1)}
         >
-          <ChevronCompactLeft />
+          <ChevronCompactLeft opacity={hovering ? 1 : 0} />
         </div>
       ) : null}
       <div
@@ -104,19 +107,22 @@ export default function Carousel({
         style={{
           display: loading ? "none" : "flex",
           gap: `${gap}px`,
-          transform: `translateX(calc(${scrollIndex * -100}% - ${scrollIndex * gap}px))`,
+          transform: `translateX(calc(${scrollIndex * -100}% - ${scrollIndex * gap + outsidePadding}px))`,
           transition: `0.5s`,
+          padding: `0 ${outsidePadding}px`,
         }}
       >
         {children}
       </div>
-      {availableElements > numberOfItemsToShow ? (
+      {availableElements > numberOfItemsToShow &&
+      // @ts-ignore
+      scrollIndex !== (children!.length - numberOfItemsToShow) / numberOfItemsToShow ? (
         <div
           className="carousel__button"
           style={{ ...BUTTON_STYLES, right: 0, transform: `translateY(${-buttonHeight - 4}px)` }}
           onClick={() => setScrollIndex((prev) => prev + 1)}
         >
-          <ChevronCompactRight />
+          <ChevronCompactRight opacity={hovering ? 1 : 0} />
         </div>
       ) : null}
     </div>
