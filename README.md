@@ -3,6 +3,8 @@
 This project is a redesign of the Netflix website using React and TypeScript. The goal of this project is to demonstrate my ability to understand and implement features of an existing website, while also adding my own creative flair and technical skills in CSS, React, and TypeScript.
 
 ## Features
+TODO Fix the background for Spirited Away.
+I don't have access right now to netflix as I am on a small vacation.
 
 Upcoming:
 
