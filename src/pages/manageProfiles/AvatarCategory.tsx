@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import nextId from "react-id-generator";
-import { SetUserContext, UserContext } from "../../App";
+import { SetUserContext, SetUserDataContext, UserContext, UserDataContext } from "../../App";
 import Carousel from "../../components/carousel/Carousel";
-import users from "../../data/userData";
 
 type Props = {
   name: string;
@@ -13,6 +12,9 @@ export default function AvatarCategory({ name, avatars }: Props) {
   const user = useContext(UserContext)!;
   const setUser = useContext(SetUserContext)!;
 
+  const users = useContext(UserDataContext)!;
+  const setUsers = useContext(SetUserDataContext)!;
+
   const handleClick = (url: string) => {
     setUser((prev: any) => ({ ...prev, icon: url }));
 
@@ -22,11 +24,14 @@ export default function AvatarCategory({ name, avatars }: Props) {
     //   headers: {
     //     "Content-Type": "application/json",
     //   },
-    //   body: JSON.stringify({ icon: url + "png" }),
+    //   body: JSON.stringify({ icon: url }),
     // });
 
     // For this demo, I just update the local storage users variable and redirect to the homepage
-    // users.find((u) => u.id === user.id)!.icon = url + "png"
+
+    users.find((u: any) => u.id === user.id)!.icon = url;
+    setUsers(users);
+    window.location.href = "/manage-profiles";
   };
 
   const avatarElements = avatars.map((avatar) => (

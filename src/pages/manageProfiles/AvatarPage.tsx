@@ -10,7 +10,7 @@ export default function AvatarPage() {
 
   return (
     <div>
-      <h1>Avatars</h1>
+      <h1>Change Avatar</h1>
       {avatarCategoryElements}
     </div>
   );
