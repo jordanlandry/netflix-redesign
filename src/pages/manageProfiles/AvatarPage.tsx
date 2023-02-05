@@ -5,7 +5,7 @@ import AvatarCategory from "./AvatarCategory";
 import "./styles.css";
 
 type Props = {
-  editingUser: UserType;
+  editingUser: UserType | null;
 };
 
 export default function AvatarPage({ editingUser }: Props) {

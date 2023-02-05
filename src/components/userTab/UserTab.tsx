@@ -2,9 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { SetUserContext, UserContext, UserDataContext } from "../../App";
 import "./usertab.css";
 
-type Props = {};
-
-export default function UserTab({}: Props) {
+export default function UserTab() {
   // State
   const [hover, setHover] = useState(false);
 
@@ -35,6 +33,11 @@ export default function UserTab({}: Props) {
     </li>
   ));
 
+  const handleSignOut = () => {
+    setUser(null);
+    window.location.href = "/";
+  };
+
   // Render
   return (
     <div className="user-tab" onMouseEnter={() => setHover(true)} onMouseLeave={handleMouseLeave}>
@@ -55,7 +58,7 @@ export default function UserTab({}: Props) {
             <a href="">Help Center</a>
           </li> */}
           <hr />
-          <li>Sign out</li>
+          <li onClick={handleSignOut}>Sign out</li>
         </ul>
       ) : null}
     </div>

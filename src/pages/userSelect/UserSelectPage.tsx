@@ -20,11 +20,7 @@ export default function UserSelectPage({ onClick }: Props) {
     : null;
 
   const handleManageProfiles = () => {
-    console.error("Manage profiles not implemented yet");
-  };
-
-  const handleAddUser = () => {
-    console.error("Add user not implemented yet");
+    window.location.href = "/manage-profiles";
   };
 
   return (

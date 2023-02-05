@@ -54,7 +54,7 @@ function App() {
                       <Routes>
                         <Route path="/" element={<MovieSelectPage />} />
                         <Route path="/manage-profiles" element={<ManageProfilesPage />} />
-                        <Route path="/manage-profiles/change-avatar/:id" element={<AvatarPage />} />
+                        <Route path="/manage-profiles/change-avatar/:id" element={<AvatarPage editingUser={user} />} />
                         <Route path="/create-user" element={<CreateUserPage />} />
                       </Routes>
                     </BrowserRouter>
