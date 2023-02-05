@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { ArrowLeftCircle, ArrowLeftCircleFill, ArrowRightCircle, ArrowRightCircleFill } from "react-bootstrap-icons";
 import nextId from "react-id-generator";
-import { SetUserDataContext, UserContext } from "../../App";
+import { SetRouteContext, SetUserDataContext, UserContext } from "../../App";
 import avatarData from "../../data/avatars/avatarData";
 import daysPerMonth from "../../helpers/format/daysPerMonth";
 import getYear from "../../helpers/format/getYear";
@@ -11,6 +11,7 @@ import useKeybind from "../../hooks/useKeybind";
 import "./styles.css";
 
 export default function CreateUserPage() {
+  const setRoute = useContext(SetRouteContext)!;
   const setUserData = useContext(SetUserDataContext);
   const user = useContext(UserContext);
 
@@ -70,15 +71,15 @@ export default function CreateUserPage() {
         {
           id: nextId(),
           name,
-          birthday: { month, day, year },
           icon: avatar,
-          habits: { actors: {}, genres: {}, directors: {} },
           recentlyWatched: [],
+          birthday: { month, day, year },
+          habits: { actors: {}, genres: {}, directors: {} },
         },
       ]);
 
-      if (user) window.location.href = "/netflix-redesign/manage-profiles";
-      else window.location.href = "/netflix-redesign/";
+      // if (user) setRoute("manage-profile");
+      setRoute("");
     }
 
     // Unfocus input

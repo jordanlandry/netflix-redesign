@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import nextId from "react-id-generator";
-import { SetUserContext, SetUserDataContext, UserContext, UserDataContext } from "../../App";
+import { SetRouteContext, SetUserContext, SetUserDataContext, UserContext, UserDataContext } from "../../App";
 import Carousel from "../../components/carousel/Carousel";
 import { UserType } from "../../data/userData";
 
@@ -8,9 +8,11 @@ type Props = {
   name: string;
   avatars: string[];
   editingUser: UserType;
+  setEditingUser: any;
 };
 
-export default function AvatarCategory({ name, avatars, editingUser }: Props) {
+export default function AvatarCategory({ name, avatars, editingUser, setEditingUser }: Props) {
+  const setRoute = useContext(SetRouteContext)!;
   const setUser = useContext(SetUserContext)!;
 
   const users = useContext(UserDataContext)!;
@@ -36,7 +38,7 @@ export default function AvatarCategory({ name, avatars, editingUser }: Props) {
 
     users.find((u: any) => u.id === editingUser.id)!.icon = url;
     setUsers(users);
-    window.location.href = "/netflix-redesign/manage-profiles";
+    setEditingUser(null);
   };
 
   const avatarElements = avatars.map((avatar) => (

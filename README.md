@@ -37,7 +37,11 @@ Movies will be recommended to you based on your watch history, so if you search 
 
 ## Check it out here
 
-https://www.jordanlandry.github.io/netflix-redesign (Not currently up)
+_Important Note_
+I removed React Router, because a React-Router + Vite configuration does not work properly. To get around this, I added a state holding the path and am conditionally rendering the pages based on the path.
+This solution is not ideal, however since this site is just a demo, this will work fine.
+
+https://www.jordanlandry.github.io/netflix-redesign
 
 ## Built With
 

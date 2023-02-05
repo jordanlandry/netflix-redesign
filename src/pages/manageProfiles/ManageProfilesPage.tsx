@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { SetUserDataContext, UserContext, UserDataContext } from "../../App";
+import { SetRouteContext, SetUserDataContext, UserContext, UserDataContext } from "../../App";
 import UserSelect from "../userSelect/UserSelect";
 import AvatarPage from "./AvatarPage";
 
@@ -8,8 +8,11 @@ import { UserType } from "../../data/userData";
 import { Check, XLg } from "react-bootstrap-icons";
 
 export const EditingUserContext = createContext<UserType | null>(null);
+export const SetEditingUserContext = createContext<any>(null);
 
 export default function ManageProfilesPage() {
+  const setRoute = useContext(SetRouteContext)!;
+
   const [editingUser, setEditingUser] = useState<UserType | null>(null);
   const userData = useContext(UserDataContext)!;
   const setUserData = useContext(SetUserDataContext)!;
@@ -32,20 +35,22 @@ export default function ManageProfilesPage() {
     : null;
 
   const finishButton = () => {
-    if (userData.length === 0) window.location.href = "/create-user";
-    else window.location.href = "/";
+    if (userData.length === 0) setRoute("create-user");
+    else setRoute("");
   };
 
   const handleAddUser = () => {
-    window.location.href = "/create-user";
+    setRoute("create-user");
   };
 
   return (
     <div>
       {editingUser ? (
-        <EditingUserContext.Provider value={editingUser}>
-          <AvatarPage />
-        </EditingUserContext.Provider>
+        <SetEditingUserContext.Provider value={setEditingUser}>
+          <EditingUserContext.Provider value={editingUser}>
+            <AvatarPage />
+          </EditingUserContext.Provider>
+        </SetEditingUserContext.Provider>
       ) : (
         <div>
           <>

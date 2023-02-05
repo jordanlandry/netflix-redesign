@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { SetUserContext, UserContext, UserDataContext } from "../../App";
+import { SetRouteContext, SetUserContext, UserContext, UserDataContext } from "../../App";
 import "./usertab.css";
 
 export default function UserTab() {
+  const setRoute = useContext(SetRouteContext)!;
+
   // State
   const [hover, setHover] = useState(false);
 
@@ -35,7 +37,6 @@ export default function UserTab() {
 
   const handleSignOut = () => {
     setUser(null);
-    window.location.href = "/";
   };
 
   // Render
@@ -46,7 +47,9 @@ export default function UserTab() {
         <ul className="user-tab__list">
           {userElements}
           <li>
-            <a href="/manage-profiles">Manage Profiles</a>
+            <a href="#" onClick={() => setRoute("manage-profiles")}>
+              Manage Profiles
+            </a>
           </li>
           {/* <li>
             <a href="">Transfer Profile</a>

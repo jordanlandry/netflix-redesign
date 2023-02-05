@@ -31,11 +31,7 @@ export default function MovieSelect({ title, posters, link, id }: Props) {
     // Add to recently watched
     const newUser = updateHabits(id, { ...user });
 
-    // TODO - Make this a set
     if (newUser.recentlyWatched === undefined) newUser.recentlyWatched = [];
-
-    // Add to front
-    // newUser.recentlyWatched.unshift(id);
 
     // Remove last item if more than max
     if (newUser.recentlyWatched.length > properties.MAX_WATCH_HISTORY) newUser.recentlyWatched.pop();

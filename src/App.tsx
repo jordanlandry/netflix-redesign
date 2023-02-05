@@ -17,6 +17,8 @@ export const SetUserContext = createContext<any>(null);
 export const SearchContext = createContext<string | null>(null);
 export const SetSearchContext = createContext<any>(null);
 
+export const SetRouteContext = createContext<any>(null);
+
 function App() {
   const [userData, setUserData] = useLocalStorage("userData", ""); // This is just for the demo, I didn't implement a backend, so I just use local storage to store the users
   const [user, setUser] = useLocalStorage("user", null);
@@ -25,6 +27,10 @@ function App() {
   // Update the user data when the user changes (This is just for the demo,
   // I didn't implement a backend, so I have to update this manually)
   // As if I update it everytime I
+
+  // TODO - Change this to redux instead of context (I didn't want to implement redux yet to work on design and functionality first)
+  const [route, setRoute] = useState("");
+
   useEffect(() => {
     if (!user) return;
 
@@ -35,40 +41,49 @@ function App() {
       const newUser = userData[userIndex];
       return newUser;
     });
-  }, [window.location.pathname]);
-
-  // TODO - Add a 404 page
-  // TODO - Change this to redux instead of context (I didn't want to implement redux yet to work on design and functionality first)
+  }, [route]);
 
   return (
     <div className="App">
       {user ? (
-        <UserDataContext.Provider value={userData}>
-          <SetUserDataContext.Provider value={setUserData}>
-            <UserContext.Provider value={user}>
-              <SetUserContext.Provider value={setUser}>
-                <SearchContext.Provider value={search}>
-                  <SetSearchContext.Provider value={setSearch}>
-                    <BrowserRouter>
-                      <Routes>
-                        <Route path="/netflix-redesign/" element={<MovieSelectPage />} />
-                        <Route path="/netflix-redesign/manage-profiles" element={<ManageProfilesPage />} />
-                        <Route path="/netflix-redesign/manage-profiles/change-avatar/:id" element={<AvatarPage />} />
-                        <Route path="/netflix-redesign/create-user" element={<CreateUserPage />} />
-                      </Routes>
-                    </BrowserRouter>
-                  </SetSearchContext.Provider>
-                </SearchContext.Provider>
-              </SetUserContext.Provider>
-            </UserContext.Provider>
-          </SetUserDataContext.Provider>
-        </UserDataContext.Provider>
-      ) : (
-        <SetUserDataContext.Provider value={setUserData}>
+        <SetRouteContext.Provider value={setRoute}>
           <UserDataContext.Provider value={userData}>
-            <UserSelectPage onClick={setUser} />
+            <SetUserDataContext.Provider value={setUserData}>
+              <UserContext.Provider value={user}>
+                <SetUserContext.Provider value={setUser}>
+                  <SearchContext.Provider value={search}>
+                    <SetSearchContext.Provider value={setSearch}>
+                      {/* <BrowserRouter> */}
+                      {/* <Routes> */}
+                      {/* <Route path="/netflix-redesign/" element={<MovieSelectPage />} />
+                          <Route path="/netflix-redesign/manage-profiles/" element={<ManageProfilesPage />} />
+                          <Route path="/netflix-redesign/create-user/" element={<CreateUserPage />} /> */}
+
+                      {route === "" ? (
+                        <MovieSelectPage />
+                      ) : route === "manage-profiles" ? (
+                        <ManageProfilesPage />
+                      ) : route === "create-user" ? (
+                        <CreateUserPage />
+                      ) : null}
+
+                      {/* </Routes> */}
+                      {/* </BrowserRouter/> */}
+                    </SetSearchContext.Provider>
+                  </SearchContext.Provider>
+                </SetUserContext.Provider>
+              </UserContext.Provider>
+            </SetUserDataContext.Provider>
           </UserDataContext.Provider>
-        </SetUserDataContext.Provider>
+        </SetRouteContext.Provider>
+      ) : (
+        <SetRouteContext.Provider value={setRoute}>
+          <SetUserDataContext.Provider value={setUserData}>
+            <UserDataContext.Provider value={userData}>
+              <UserSelectPage onClick={setUser} />
+            </UserDataContext.Provider>
+          </SetUserDataContext.Provider>
+        </SetRouteContext.Provider>
       )}
     </div>
   );

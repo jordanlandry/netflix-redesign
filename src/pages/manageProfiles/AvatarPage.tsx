@@ -1,16 +1,22 @@
 import { useContext } from "react";
 import avatarData from "../../data/avatars/avatarData";
-import { UserType } from "../../data/userData";
 import AvatarCategory from "./AvatarCategory";
-import { EditingUserContext } from "./ManageProfilesPage";
+import { EditingUserContext, SetEditingUserContext } from "./ManageProfilesPage";
 
 import "./styles.css";
 
 export default function AvatarPage() {
   const editingUser = useContext(EditingUserContext)!;
+  const setEditingUser = useContext(SetEditingUserContext)!;
 
   const avatarCategoryElements = avatarData.map((cat) => (
-    <AvatarCategory key={cat.category} name={cat.category} avatars={cat.avatars} editingUser={editingUser} />
+    <AvatarCategory
+      key={cat.category}
+      name={cat.category}
+      avatars={cat.avatars}
+      editingUser={editingUser}
+      setEditingUser={setEditingUser}
+    />
   ));
 
   return (
