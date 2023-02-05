@@ -735,7 +735,7 @@ const movieData: MovieType = {
     posters: [
       {
         id: 1,
-        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRnJoMzXGJTmndJQ-cx8S1DdV2mG1vZg24mHUZXA18EVi6WF7BHwV0OewQvXzyC3Y6gyRysIIsnYWpzBdxxGHwBQSK9DlkizBVg.webp?r=f0e",
+        url: "https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfWbFfkOrqEYcMzhL3DuO8M9FDXO72fbSA3UCflURS18MYnK8hRr1fo4U4ga6ASNuaE1YNQZAFN_cwpQQS_dzTehx_u_AVM5jjc.webp?r=19d",
         actor: "Daveigh Chase",
       },
     ],

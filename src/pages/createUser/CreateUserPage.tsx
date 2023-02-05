@@ -23,8 +23,8 @@ export default function CreateUserPage() {
   const [day, setDay] = useState<number>();
   const [year, setYear] = useState("");
 
-  const rightArrowElement = useHover(<ArrowRightCircle size={30} />, <ArrowRightCircleFill size={30} color="white" />);
-  const leftArrowElement = useHover(<ArrowLeftCircle size={30} />, <ArrowLeftCircleFill size={30} color="white" />);
+  const rightArrowElement = useHover(<ArrowRightCircle size={24} />, <ArrowRightCircleFill size={24} color="white" />);
+  const leftArrowElement = useHover(<ArrowLeftCircle size={24} />, <ArrowLeftCircleFill size={24} color="white" />);
 
   const handleMonthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setMonth(e.target.value);
@@ -94,80 +94,82 @@ export default function CreateUserPage() {
     <div className="create-user-page">
       <h1>Create a profile</h1>
       <div className="create-user__wrapper">
-        <button className="btn-unstyled" onClick={() => setSection((prev) => prev - 1)}>
-          {leftArrowElement}
-        </button>
-        <form ref={formRef}>
-          <input
-            ref={inputRef}
-            className={`input create-user__section ${
-              section === 0 ? "create-user__next" : section === 1 ? "create-user__prev" : "create-user__none"
-            }`}
-            placeholder="Nickname"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <select
-            className={`create-user__section ${
-              section === 1 ? "create-user__next" : section === 2 ? "create-user__prev" : "create-user__none"
-            }`}
-            value={month}
-            onChange={handleMonthChange}
-          >
-            <option value="month">Month</option>
-            <option value="1">January</option>
-            <option value="2">February</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-          </select>
+        <div className="create-user__btn-wrapper">
+          <button className="btn-unstyled" onClick={() => setSection((prev) => prev - 1)}>
+            {leftArrowElement}
+          </button>
+          <form ref={formRef}>
+            <input
+              ref={inputRef}
+              className={`input create-user__section ${
+                section === 0 ? "create-user__next" : section === 1 ? "create-user__prev" : "create-user__none"
+              }`}
+              placeholder="Nickname"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <select
+              className={`create-user__section ${
+                section === 1 ? "create-user__next" : section === 2 ? "create-user__prev" : "create-user__none"
+              }`}
+              value={month}
+              onChange={handleMonthChange}
+            >
+              <option value="month">Month</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
 
-          <select
-            className={`create-user__section ${
-              section === 2 ? "create-user__next" : section === 3 ? "create-user__prev" : "create-user__none"
-            }`}
-            value={day}
-            onChange={handleDayChange}
-          >
-            <option value={day}>Day</option>
-            {daysPerMonth(parseInt(month) - 1).map((day: number) => {
-              return (
-                <option key={nextId()} value={day}>
-                  {day}
-                </option>
-              );
-            })}
-          </select>
+            <select
+              className={`create-user__section ${
+                section === 2 ? "create-user__next" : section === 3 ? "create-user__prev" : "create-user__none"
+              }`}
+              value={day}
+              onChange={handleDayChange}
+            >
+              <option value={day}>Day</option>
+              {daysPerMonth(parseInt(month) - 1).map((day: number) => {
+                return (
+                  <option key={nextId()} value={day}>
+                    {day}
+                  </option>
+                );
+              })}
+            </select>
 
-          <select
-            className={`create-user__section ${
-              section === 3 ? "create-user__next" : section === 4 ? "create-user__prev" : "create-user__none"
-            }`}
-            value={year}
-            onChange={handleYearChange}
-          >
-            <option value={year}>Year</option>
+            <select
+              className={`create-user__section ${
+                section === 3 ? "create-user__next" : section === 4 ? "create-user__prev" : "create-user__none"
+              }`}
+              value={year}
+              onChange={handleYearChange}
+            >
+              <option value={year}>Year</option>
 
-            {Array.from({ length: 120 }, (_, i) => getYear(day!, parseInt(month) - 1) - i).map((year: number) => {
-              return (
-                <option key={nextId()} value={year}>
-                  {year}
-                </option>
-              );
-            })}
-          </select>
-          {/* {section === 4 ? <AvatarPage /> : null} */}
-        </form>
-        <button className="btn-unstyled" onClick={() => setSection((prev) => prev + 1)}>
-          {rightArrowElement}
-        </button>
+              {Array.from({ length: 120 }, (_, i) => getYear(day!, parseInt(month) - 1) - i).map((year: number) => {
+                return (
+                  <option key={nextId()} value={year}>
+                    {year}
+                  </option>
+                );
+              })}
+            </select>
+            {/* {section === 4 ? <AvatarPage /> : null} */}
+          </form>
+          <button className="btn-unstyled" onClick={() => setSection((prev) => prev + 1)}>
+            {rightArrowElement}
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -19,14 +19,18 @@ export default function AvatarCategory({ name, avatars, editingUser }: Props) {
   const handleClick = (url: string) => {
     setUser((prev: any) => ({ ...prev, icon: url }));
 
+    const hasBackend = false;
+
     // Update backend (This project is just a demo for frontend, so I didn't implement this, but it would be something like this)
-    // fetch("/api/users/" + user.id, {
-    //   method: "PUT",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ icon: url }),
-    // });
+    if (hasBackend) {
+      fetch("/api/users/" + editingUser.id, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ icon: url }),
+      });
+    }
 
     // For this demo, I just update the local storage users variable and redirect to the homepage
 

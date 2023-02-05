@@ -24,11 +24,11 @@ export default function NavWindow({}: Props) {
     <div className="navbar__window">
       <ul className="navbar__window-wrapper">
         <NavLink to="/">
-          <img alt="logo"></img>
+          <img alt="logo" src="https://cdn.worldvectorlogo.com/logos/netflix-3.svg" width={100} />
         </NavLink>
-        <NavLink to="/tv-shows">TV Shows</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
-        <NavLink to="/new">New and Popular</NavLink>
+        {/* <NavLink to="/tv-shows">TV Shows</NavLink> */}
+        {/* <NavLink to="/movies">Movies</NavLink> */}
+        {/* <NavLink to="/new">New and Popular</NavLink> */}
       </ul>
       <div className="navbar__window-secondary flex-center">
         <div className={`flex-center navbar__window-search ${isSearching ? "navbar__window-search--active" : ""}`}>

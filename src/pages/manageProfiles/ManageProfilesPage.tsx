@@ -7,6 +7,8 @@ import "../userSelect/styles.css";
 import { UserType } from "../../data/userData";
 import { Check, XLg } from "react-bootstrap-icons";
 
+export const EditingUserContext = createContext<UserType | null>(null);
+
 export default function ManageProfilesPage() {
   const [editingUser, setEditingUser] = useState<UserType | null>(null);
   const userData = useContext(UserDataContext)!;
@@ -41,7 +43,9 @@ export default function ManageProfilesPage() {
   return (
     <div>
       {editingUser ? (
-        <AvatarPage editingUser={editingUser} />
+        <EditingUserContext.Provider value={editingUser}>
+          <AvatarPage />
+        </EditingUserContext.Provider>
       ) : (
         <div>
           <>

@@ -1,17 +1,13 @@
 .create-user-page {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-primary);
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.create-user__wrapper {
+/* .create-user__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,9 +16,9 @@
   position: relative;
 
   gap: min(max(650px, 45vw), 400px);
-}
+} */
 
-.create-user-page form {
+/* .create-user-page form {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -34,11 +30,24 @@
 
 .create-user-page form > * {
   font-size: 1.3rem;
-  width: min(max(600px, 40vw), 350px);
+  width: min(max(600px, 30vw), 300px);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+} */
+
+.create-user__btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 29px;
+}
+
+.create-user-page form > * {
+  font-size: 1.3rem;
+  width: min(30vw, 300px);
 }
 
 .create-user__none {
@@ -46,7 +55,8 @@
 }
 
 .create-user__prev {
-  animation: slide-prev 0.5s forwards;
+  /* animation: slide-prev 0.5s forwards; */
+  display: none;
 }
 
 .create-user__next {
@@ -56,22 +66,23 @@
 @keyframes slide-next {
   0% {
     opacity: 0;
-    transform: translate(-100%, -50%);
+    transform: translateX(-100%);
   }
   99% {
     opacity: 1;
-    transform: translate(-50%, -50%);
+    transform: translateX(0);
   }
 }
 
 @keyframes slide-prev {
   0% {
     opacity: 1;
-    transform: translate(-50%, -50%);
+    transform: translateX(0);
   }
+
   99% {
     opacity: 0;
-    transform: translate(-100%, -50%);
+    transform: translateX(-100%);
   }
 
   100% {
@@ -80,7 +91,7 @@
   }
 }
 
-/* The Current SVGs I'm using are circular so this is just to make it match that */
+/* The Current SVGs I'm using are circular so this is just to make it match that for where to hover */
 .create-user-page button {
   border-radius: 50%;
 }
