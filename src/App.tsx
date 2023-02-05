@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import NavWrapper from "./components/navbar/NavWrapper";
 import { UserType } from "./data/userData";
 import useLocalStorage from "./hooks/useLocalStorage";
 import CreateUserPage from "./pages/createUser/CreateUserPage";
@@ -52,10 +51,10 @@ function App() {
                   <SetSearchContext.Provider value={setSearch}>
                     <BrowserRouter>
                       <Routes>
-                        <Route path="/" element={<MovieSelectPage />} />
-                        <Route path="/manage-profiles" element={<ManageProfilesPage />} />
-                        <Route path="/manage-profiles/change-avatar/:id" element={<AvatarPage />} />
-                        <Route path="/create-user" element={<CreateUserPage />} />
+                        <Route path="/netflix-redesign/" element={<MovieSelectPage />} />
+                        <Route path="/netflix-redesign/manage-profiles" element={<ManageProfilesPage />} />
+                        <Route path="/netflix-redesign/manage-profiles/change-avatar/:id" element={<AvatarPage />} />
+                        <Route path="/netflix-redesign/create-user" element={<CreateUserPage />} />
                       </Routes>
                     </BrowserRouter>
                   </SetSearchContext.Provider>

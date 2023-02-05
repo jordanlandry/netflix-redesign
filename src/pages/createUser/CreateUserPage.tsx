@@ -77,8 +77,8 @@ export default function CreateUserPage() {
         },
       ]);
 
-      if (user) window.location.href = "/manage-profiles";
-      else window.location.href = "/";
+      if (user) window.location.href = "/netflix-redesign/manage-profiles";
+      else window.location.href = "/netflix-redesign/";
     }
 
     // Unfocus input

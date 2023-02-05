@@ -20,7 +20,7 @@ export default function UserSelectPage({ onClick }: Props) {
     : null;
 
   const handleManageProfiles = () => {
-    window.location.href = "/manage-profiles";
+    window.location.href = "/netflix-redesign/manage-profiles";
   };
 
   return (

@@ -36,7 +36,7 @@ export default function AvatarCategory({ name, avatars, editingUser }: Props) {
 
     users.find((u: any) => u.id === editingUser.id)!.icon = url;
     setUsers(users);
-    window.location.href = "/manage-profiles";
+    window.location.href = "/netflix-redesign/manage-profiles";
   };
 
   const avatarElements = avatars.map((avatar) => (
