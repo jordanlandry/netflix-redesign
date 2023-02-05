@@ -1,0 +1,67 @@
+.avatar__wrapper {
+  padding: var(--outside-padding);
+}
+
+.add-button {
+  height: 100px;
+
+  --add-btn-col: white;
+
+  background-color: transparent;
+  transition: 0.3s;
+
+  border-radius: 50%;
+}
+
+.add-button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 50px;
+  background-color: var(--add-btn-col);
+  transform: translateX(45px) translateY(50%);
+}
+
+.add-button::after {
+  content: "";
+  display: block;
+
+  position: absolute;
+  width: 50px;
+  height: 10px;
+  background-color: var(--add-btn-col);
+  transform: translateY(45px) translateX(50%);
+}
+
+.add-button-hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Delete button */
+.delete-button {
+  height: 100px;
+  width: 100px;
+}
+
+.delete-button-1 {
+  position: absolute;
+  width: 10px;
+  height: 50px;
+  background-color: white;
+  transform: translateX(45px) translateY(50%);
+
+  animation: delete-to-check-1 1s ease-in-out infinite;
+}
+
+.delete-button-2 {
+  position: absolute;
+  width: 50px;
+  height: 10px;
+  background-color: white;
+  transform: translateY(45px) translateX(50%);
+}
+
+.delete-button {
+  transform: rotate(45deg);
+}

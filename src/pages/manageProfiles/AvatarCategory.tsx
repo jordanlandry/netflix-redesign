@@ -2,14 +2,15 @@ import React, { useContext } from "react";
 import nextId from "react-id-generator";
 import { SetUserContext, SetUserDataContext, UserContext, UserDataContext } from "../../App";
 import Carousel from "../../components/carousel/Carousel";
+import { UserType } from "../../data/userData";
 
 type Props = {
   name: string;
   avatars: string[];
+  editingUser: UserType;
 };
 
-export default function AvatarCategory({ name, avatars }: Props) {
-  const user = useContext(UserContext)!;
+export default function AvatarCategory({ name, avatars, editingUser }: Props) {
   const setUser = useContext(SetUserContext)!;
 
   const users = useContext(UserDataContext)!;
@@ -29,7 +30,7 @@ export default function AvatarCategory({ name, avatars }: Props) {
 
     // For this demo, I just update the local storage users variable and redirect to the homepage
 
-    users.find((u: any) => u.id === user.id)!.icon = url;
+    users.find((u: any) => u.id === editingUser.id)!.icon = url;
     setUsers(users);
     window.location.href = "/manage-profiles";
   };

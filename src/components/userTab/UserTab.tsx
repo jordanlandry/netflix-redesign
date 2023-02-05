@@ -35,16 +35,6 @@ export default function UserTab({}: Props) {
     </li>
   ));
 
-  // const [showUserTab, setShowUserTab] = useState(false);
-  // useEffect(() => {
-  //   if (hover) setShowUserTab(true);
-  //   else {
-  //     setTimeout(() => {
-  //       setShowUserTab(false);
-  //     }, 500);
-  //   }
-  // }, [hover]);
-
   // Render
   return (
     <div className="user-tab" onMouseEnter={() => setHover(true)} onMouseLeave={handleMouseLeave}>
@@ -55,7 +45,7 @@ export default function UserTab({}: Props) {
           <li>
             <a href="/manage-profiles">Manage Profiles</a>
           </li>
-          <li>
+          {/* <li>
             <a href="">Transfer Profile</a>
           </li>
           <li>
@@ -63,7 +53,7 @@ export default function UserTab({}: Props) {
           </li>
           <li>
             <a href="">Help Center</a>
-          </li>
+          </li> */}
           <hr />
           <li>Sign out</li>
         </ul>

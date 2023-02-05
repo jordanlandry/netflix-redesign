@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { ArrowLeftCircle, ArrowLeftCircleFill, ArrowRightCircle, ArrowRightCircleFill } from "react-bootstrap-icons";
 import nextId from "react-id-generator";
-import { SetUserDataContext } from "../../App";
+import { SetUserDataContext, UserContext } from "../../App";
 import avatarData from "../../data/avatars/avatarData";
 import daysPerMonth from "../../helpers/format/daysPerMonth";
 import getYear from "../../helpers/format/getYear";
@@ -12,6 +12,7 @@ import "./styles.css";
 
 export default function CreateUserPage() {
   const setUserData = useContext(SetUserDataContext);
+  const user = useContext(UserContext);
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -53,10 +54,10 @@ export default function CreateUserPage() {
   }, []);
 
   const inputRef = useRef<HTMLInputElement>(null);
+
   // User creation
   useEffect(() => {
     if (formRef.current === null) return;
-
     if (section < 0) setSection(0);
 
     // If this was a real world app I would use a backend to store the data and not just the browser's local storage
@@ -75,6 +76,9 @@ export default function CreateUserPage() {
           recentlyWatched: [],
         },
       ]);
+
+      if (user) window.location.href = "/manage-profiles";
+      else window.location.href = "/";
     }
 
     // Unfocus input

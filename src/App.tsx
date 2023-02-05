@@ -38,7 +38,6 @@ function App() {
     });
   }, [window.location.pathname]);
 
-  // TODO - Add a loading screen
   // TODO - Add a 404 page
   // TODO - Change this to redux instead of context (I didn't want to implement redux yet to work on design and functionality first)
 
@@ -51,7 +50,6 @@ function App() {
               <SetUserContext.Provider value={setUser}>
                 <SearchContext.Provider value={search}>
                   <SetSearchContext.Provider value={setSearch}>
-                    {/* <NavWrapper /> */}
                     <BrowserRouter>
                       <Routes>
                         <Route path="/" element={<MovieSelectPage />} />

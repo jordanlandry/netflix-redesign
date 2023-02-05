@@ -1,36 +1,84 @@
-import { useContext, useState } from "react";
-import { UserDataContext } from "../../App";
+import { createContext, useContext, useState } from "react";
+import { SetUserDataContext, UserContext, UserDataContext } from "../../App";
 import UserSelect from "../userSelect/UserSelect";
-import UserSelectPage from "../userSelect/UserSelectPage";
 import AvatarPage from "./AvatarPage";
 
-export default function ManageProfilesPage() {
-  const [editingUser, setEditingUser] = useState(null);
-  const userData = useContext(UserDataContext)!;
+import "../userSelect/styles.css";
+import { UserType } from "../../data/userData";
+import { Check, XLg } from "react-bootstrap-icons";
 
-  // return <div>{editingUser ? <AvatarPage /> : <UserSelectPage onClick={setEditingUser} />}</div>;
+export default function ManageProfilesPage() {
+  const [editingUser, setEditingUser] = useState<UserType | null>(null);
+  const userData = useContext(UserDataContext)!;
+  const setUserData = useContext(SetUserDataContext)!;
+
+  const [isHoveringAddUser, setIsHoveringAddUser] = useState(false);
+  const [isHoveringDeleteUser, setIsHoveringDeleteUser] = useState(false);
+
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const handleDeleteUser = (user: UserType) => {
+    const newUserData = userData.filter((curr: any) => curr.id !== user.id);
+    setUserData(newUserData);
+  };
 
   // Users from local storage
   const userElements = userData
-    ? userData.map((user: any) => <UserSelect key={user.id} {...user} onClick={setEditingUser} />)
+    ? userData.map((user: any) => (
+        <UserSelect key={user.id} {...user} onClick={isDeleting ? handleDeleteUser : setEditingUser} />
+      ))
     : null;
 
   const finishButton = () => {
-    window.location.href = "/";
+    if (userData.length === 0) window.location.href = "/create-user";
+    else window.location.href = "/";
+  };
+
+  const handleAddUser = () => {
+    window.location.href = "/create-user";
   };
 
   return (
     <div>
       {editingUser ? (
-        <AvatarPage />
+        <AvatarPage editingUser={editingUser} />
       ) : (
         <div>
           <>
             <div className="user-select__flex">
               <div className="user-select">
                 <h1>Managing Users</h1>
-                <div className="user-select__container">{userElements}</div>
-                <button onClick={finishButton}>Finish</button>
+                <div className="user-select__container">
+                  {userElements}
+                  <div
+                    className="user-select__user"
+                    onClick={handleAddUser}
+                    onMouseEnter={() => setIsHoveringAddUser(true)}
+                    onMouseLeave={() => setIsHoveringAddUser(false)}
+                  >
+                    <div className={`add-button ${isHoveringAddUser ? "add-button-hover" : ""}`}></div>
+                    <span>Add Profile</span>
+                  </div>
+                  <div
+                    className="user-select__user"
+                    onClick={() => setIsDeleting((prev) => !prev)}
+                    onMouseEnter={() => setIsHoveringDeleteUser(true)}
+                    onMouseLeave={() => setIsHoveringDeleteUser(false)}
+                  >
+                    <div>
+                      {isDeleting ? (
+                        <Check size={100} />
+                      ) : (
+                        <div className={`delete-button ${isHoveringDeleteUser ? "delete-button-hover" : ""}`}>
+                          <div className="delete-button-1"></div>
+                          <div className="delete-button-2"></div>
+                        </div>
+                      )}
+                    </div>
+                    <span>{isDeleting ? "End Delete" : "Delete"}</span>
+                  </div>
+                </div>
+                <button onClick={finishButton}>Finish Managing Profiles</button>
               </div>
             </div>
           </>
