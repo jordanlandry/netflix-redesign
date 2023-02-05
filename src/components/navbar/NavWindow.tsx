@@ -23,7 +23,7 @@ export default function NavWindow({}: Props) {
   return (
     <div className="navbar__window">
       <ul className="navbar__window-wrapper">
-        <NavLink to="/">
+        <NavLink to="/netflix-redesign/">
           <img alt="logo" src="https://cdn.worldvectorlogo.com/logos/netflix-3.svg" width={100} />
         </NavLink>
         {/* <NavLink to="/tv-shows">TV Shows</NavLink> */}
