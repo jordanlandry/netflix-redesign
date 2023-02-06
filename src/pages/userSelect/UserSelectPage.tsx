@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { UserDataContext } from "../../App";
+import { useContext, useEffect } from "react";
+import { SetRouteContext, SetUserContext, SetUserDataContext, UserDataContext } from "../../App";
 import CreateUserPage from "../createUser/CreateUserPage";
 import "./styles.css";
 import UserSelect from "./UserSelect";
@@ -10,9 +10,11 @@ type Props = {
 
 export default function UserSelectPage({ onClick }: Props) {
   const userData = useContext(UserDataContext)!;
+  const setUser = useContext(SetUserContext)!;
+
+  const setRoute = useContext(SetRouteContext)!;
 
   // const userElements = userData.map((user) => <UserSelect key={user.id} {...user} onClick={onClick} />);
-
   // const userElements = userData.map((user) => <div key={nextId()}></div>);
 
   const userElements = userData
@@ -20,8 +22,13 @@ export default function UserSelectPage({ onClick }: Props) {
     : null;
 
   const handleManageProfiles = () => {
-    window.location.href = "/netflix-redesign/manage-profiles";
+    setRoute("manage-profiles");
   };
+
+  if (userData.length === 0) {
+    setUser(null);
+    return <CreateUserPage />;
+  }
 
   return (
     <>

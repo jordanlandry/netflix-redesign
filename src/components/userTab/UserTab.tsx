@@ -51,15 +51,6 @@ export default function UserTab() {
               Manage Profiles
             </a>
           </li>
-          {/* <li>
-            <a href="">Transfer Profile</a>
-          </li>
-          <li>
-            <a href="">Account</a>
-          </li>
-          <li>
-            <a href="">Help Center</a>
-          </li> */}
           <hr />
           <li onClick={handleSignOut}>Sign out</li>
         </ul>

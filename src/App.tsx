@@ -32,6 +32,11 @@ function App() {
   const [route, setRoute] = useState("");
 
   useEffect(() => {
+    if (userData.length === 0) {
+      setUser(null);
+      setRoute("/create-user");
+    }
+
     if (!user) return;
 
     const userIndex = userData.findIndex((user: UserType) => user.id === user?.id);
@@ -53,12 +58,6 @@ function App() {
                 <SetUserContext.Provider value={setUser}>
                   <SearchContext.Provider value={search}>
                     <SetSearchContext.Provider value={setSearch}>
-                      {/* <BrowserRouter> */}
-                      {/* <Routes> */}
-                      {/* <Route path="/netflix-redesign/" element={<MovieSelectPage />} />
-                          <Route path="/netflix-redesign/manage-profiles/" element={<ManageProfilesPage />} />
-                          <Route path="/netflix-redesign/create-user/" element={<CreateUserPage />} /> */}
-
                       {route === "" ? (
                         <MovieSelectPage />
                       ) : route === "manage-profiles" ? (
@@ -66,9 +65,6 @@ function App() {
                       ) : route === "create-user" ? (
                         <CreateUserPage />
                       ) : null}
-
-                      {/* </Routes> */}
-                      {/* </BrowserRouter/> */}
                     </SetSearchContext.Provider>
                   </SearchContext.Provider>
                 </SetUserContext.Provider>
@@ -80,7 +76,15 @@ function App() {
         <SetRouteContext.Provider value={setRoute}>
           <SetUserDataContext.Provider value={setUserData}>
             <UserDataContext.Provider value={userData}>
-              <UserSelectPage onClick={setUser} />
+              <SetUserContext.Provider value={setUser}>
+                {route === "" ? (
+                  <UserSelectPage onClick={setUser} />
+                ) : route === "manage-profiles" ? (
+                  <ManageProfilesPage />
+                ) : route === "create-user" ? (
+                  <CreateUserPage />
+                ) : null}
+              </SetUserContext.Provider>
             </UserDataContext.Provider>
           </SetUserDataContext.Provider>
         </SetRouteContext.Provider>
