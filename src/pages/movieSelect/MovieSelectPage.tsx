@@ -85,40 +85,44 @@ export default function MovieSelectPage() {
 
   // Make the background not scroll when scrolling in the modal
   const movieOpenStyles: React.CSSProperties = {
+    // marginTop: -lastScrollY,
     position: "fixed",
     top: -lastScrollY,
+    zIndex: 100,
   };
   // End of code block
 
   return (
-    <div className="movie-select" style={movieInView ? movieOpenStyles : {}}>
-      <NavWrapper />
-      <MovieInViewContext.Provider value={movieInView}>
-        <SetMovieInViewContext.Provider value={setMovieInView}>
-          <div>
-            {movieInView ? (
-              <Modal open={movieInView !== ""} onClose={() => setMovieInView("")}>
-                <MovieModal movieId={movieInView} />
-              </Modal>
-            ) : null}
+    <div>
+      <div className="movie-select" style={movieInView ? movieOpenStyles : {}}>
+        <NavWrapper />
+        <MovieInViewContext.Provider value={movieInView}>
+          <SetMovieInViewContext.Provider value={setMovieInView}>
+            <div>
+              {movieInView ? (
+                <Modal open={movieInView !== ""} onClose={() => setMovieInView("")}>
+                  <MovieModal movieId={movieInView} />
+                </Modal>
+              ) : null}
 
-            {search ? (
-              <div className="movie-select-search padding">{searchElements}</div>
-            ) : (
-              <>
-                <MovieBillboard />
-                <div className="padding movie-select-wrapper">
-                  <MovieSelectTab title="Recommended for you" movieList={debouncedRecommendedMovies} />
-                  <MovieSelectTab title="Trending" movieList={debouncedTrendingMovies} />
-                  {Object.keys(debouncedGenreMovies).map((genre) => (
-                    <MovieSelectTab key={genre} title={genre} movieList={debouncedGenreMovies[genre]} />
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-        </SetMovieInViewContext.Provider>
-      </MovieInViewContext.Provider>
+              {search ? (
+                <div className="movie-select-search padding">{searchElements}</div>
+              ) : (
+                <>
+                  <MovieBillboard />
+                  <div className="padding movie-select-wrapper">
+                    <MovieSelectTab title="Recommended for you" movieList={debouncedRecommendedMovies} />
+                    <MovieSelectTab title="Trending" movieList={debouncedTrendingMovies} />
+                    {Object.keys(debouncedGenreMovies).map((genre) => (
+                      <MovieSelectTab key={genre} title={genre} movieList={debouncedGenreMovies[genre]} />
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          </SetMovieInViewContext.Provider>
+        </MovieInViewContext.Provider>
+      </div>
     </div>
   );
 }

@@ -50,11 +50,13 @@ export default function Carousel({
     setButtonHeight(Math.ceil(w / aspectRatio));
   };
 
+  const [imageWidth, setImageWidth] = useState(0);
+
   useEffect(() => {
     const update = async () => {
       if (!wrapperRef.current) return;
-
       let w = (width - outsidePadding * 2 - gap * (numberOfItemsToShow - 1) - scrollBarWidth) / numberOfItemsToShow;
+      setImageWidth(w);
       for (let i = 0; i < wrapperRef.current.children.length; i++) {
         const child = wrapperRef.current.children[i];
         child.children[0].setAttribute("width", w + "px");
@@ -88,7 +90,7 @@ export default function Carousel({
     justifyContent: "center",
     transition: `0.5s font-size`,
     backgroundColor: "rgba(0, 0, 0, 0.6)",
-    zIndex: 2,
+    zIndex: 300,
     width: outsidePadding - gap,
   };
 
@@ -96,7 +98,11 @@ export default function Carousel({
   const availableElements = children.length;
 
   return (
-    <div onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+    <div
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+      style={{ maxWidth: imageWidth * numberOfItemsToShow + gap + outsidePadding / 2 + "px" }}
+    >
       {availableElements > numberOfItemsToShow && scrollIndex !== 0 ? (
         <div
           className="carousel__button"
