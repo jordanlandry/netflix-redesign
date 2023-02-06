@@ -41,9 +41,9 @@ _Important Note_
 I removed React Router, because a React-Router + Vite configuration does not work properly. To get around this, I added a state holding the path and am conditionally rendering the pages based on the path.
 This solution is not ideal, however since this site is just a demo, this will work fine.
 
-https://www.jordanlandry.github.io/netflix-redesign
+Try out the website! https://jordanlandry.github.io/netflix-redesign/
 
 ## Built With
 
-[React](https://reactjs.org/docs/getting-started.html) - A JavaScript library for building user interfaces
-[TypeScript](https://reactjs.org/docs/getting-started.html) - A typed superset of JavaScript that scales
+- [React](https://reactjs.org/docs/getting-started.html) - A JavaScript library for building user interfaces
+- [TypeScript](https://reactjs.org/docs/getting-started.html) - A typed superset of JavaScript that scales
