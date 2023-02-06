@@ -83,7 +83,7 @@ export default function Carousel({
   const BUTTON_STYLES: React.CSSProperties = {
     ...extraButtonStyles,
     cursor: "pointer",
-    height: buttonHeight,
+    height: buttonHeight + 1,
     position: "absolute",
     display: "flex",
     alignItems: "center",
@@ -129,7 +129,7 @@ export default function Carousel({
       scrollIndex !== (children!.length - numberOfItemsToShow) / numberOfItemsToShow ? (
         <div
           className="carousel__button"
-          style={{ ...BUTTON_STYLES, right: 0, transform: `translateY(${-buttonHeight - 4}px)` }}
+          style={{ ...BUTTON_STYLES, right: 0, transform: `translateY(${-buttonHeight - 5}px)` }}
           onClick={() => setScrollIndex((prev) => prev + 1)}
         >
           <ChevronCompactRight opacity={hovering ? 1 : 0} />

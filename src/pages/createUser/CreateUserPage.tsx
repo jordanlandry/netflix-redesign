@@ -56,6 +56,27 @@ export default function CreateUserPage() {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const [shake, setShake] = useState(false); // Animate the input field if the user tries to submit without entering field
+
+  useEffect(() => {
+    if (shake) {
+      const timeout = setTimeout(() => setShake(false), 1000);
+      return () => clearTimeout(timeout);
+    }
+  }, [shake]);
+
+  const handleNextSection = () => {
+    setSection((prev) => {
+      if (prev === 0 && name) return prev + 1;
+      if (prev === 1 && month) return prev + 1;
+      if (prev === 2 && day) return prev + 1;
+      if (prev === 3 && year) return prev + 1;
+
+      setShake(true);
+      return prev;
+    });
+  };
+
   // User creation
   useEffect(() => {
     if (formRef.current === null) return;
@@ -99,7 +120,7 @@ export default function CreateUserPage() {
           <button className="btn-unstyled" onClick={() => setSection((prev) => prev - 1)}>
             {leftArrowElement}
           </button>
-          <form ref={formRef}>
+          <form ref={formRef} className={shake ? "shake-effect" : ""}>
             <input
               ref={inputRef}
               className={`input create-user__section ${
@@ -167,7 +188,7 @@ export default function CreateUserPage() {
             </select>
             {/* {section === 4 ? <AvatarPage /> : null} */}
           </form>
-          <button className="btn-unstyled" onClick={() => setSection((prev) => prev + 1)}>
+          <button className="btn-unstyled" onClick={handleNextSection}>
             {rightArrowElement}
           </button>
         </div>

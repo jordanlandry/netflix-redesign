@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { XLg } from "react-bootstrap-icons";
 import { UserContext } from "../../App";
 import PlayButton from "../../components/buttons/PlayButton";
 import movieData from "../../data/movie/movieData";
@@ -6,15 +7,16 @@ import formatRuntime from "../../helpers/format/formatRuntime";
 import getMatchAmount from "../../helpers/movie/getMatchAmount";
 import { SetMovieInViewContext } from "./MovieSelectPage";
 
-type Props = { movieId: string };
+type Props = { movieId: string; onClose: any };
 
-export default function MovieModal({ movieId }: Props) {
+export default function MovieModal({ movieId, onClose }: Props) {
   const { title, year, runtime, genres, directors, actors, plot } = movieData[movieId];
 
   const user = useContext(UserContext)!;
 
   return (
     <div className="movie-modal">
+      <XLg size={32} className="movie-modal__x" onClick={onClose} />
       <div className="movie-modal__outside-padding">
         <img
           src="https://occ-0-7167-999.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABby3Mm4Tm65KlYAJZ0-0YIN9GCKS_Fa85plRIkFOBCspH8B4LGNXduQ7MppmEQvaovwpn1tbMOTiJsYJn4FT7p1ppioiIO6192lr.webp?r=caa"

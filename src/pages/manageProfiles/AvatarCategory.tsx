@@ -3,6 +3,7 @@ import nextId from "react-id-generator";
 import { SetRouteContext, SetUserContext, SetUserDataContext, UserContext, UserDataContext } from "../../App";
 import Carousel from "../../components/carousel/Carousel";
 import { UserType } from "../../data/userData";
+import Avatar from "./Avatar";
 
 type Props = {
   name: string;
@@ -41,11 +42,7 @@ export default function AvatarCategory({ name, avatars, editingUser, setEditingU
     setEditingUser(null);
   };
 
-  const avatarElements = avatars.map((avatar) => (
-    <div key={nextId()}>
-      <img onClick={() => handleClick(avatar)} src={`${avatar}`} loading="lazy" className="pointer" />
-    </div>
-  ));
+  const avatarElements = avatars.map((avatar) => <Avatar key={nextId()} avatar={avatar} handleClick={handleClick} />);
 
   return (
     <div className="avatar-category">

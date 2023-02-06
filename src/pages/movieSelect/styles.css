@@ -1,3 +1,7 @@
+.movie-select {
+  width: 100%;
+}
+
 .movie-select-search {
   display: flex;
   flex-wrap: wrap;
@@ -61,7 +65,7 @@
 }
 
 .movie-modal__wrapper {
-  font-size: 0.8rem;
+  font-size: max(1vw, 12px);
 }
 
 .movie-modal__on-image {
@@ -72,6 +76,22 @@
 .movie-modal__light {
   font-weight: 300;
   color: #aaa;
+}
+
+.movie-modal__x {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+
+  transition: 0.2s;
+}
+
+.movie-modal__x:hover {
+  transform: scale(1.1);
 }
 
 @keyframes movie-loading {

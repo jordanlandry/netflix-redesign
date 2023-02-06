@@ -101,7 +101,7 @@ export default function MovieSelectPage() {
             <div>
               {movieInView ? (
                 <Modal open={movieInView !== ""} onClose={() => setMovieInView("")}>
-                  <MovieModal movieId={movieInView} />
+                  <MovieModal movieId={movieInView} onClose={() => setMovieInView("")} />
                 </Modal>
               ) : null}
 

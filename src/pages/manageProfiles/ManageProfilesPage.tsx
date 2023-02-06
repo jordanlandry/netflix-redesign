@@ -6,6 +6,7 @@ import AvatarPage from "./AvatarPage";
 import "../userSelect/styles.css";
 import { UserType } from "../../data/userData";
 import { Check, XLg } from "react-bootstrap-icons";
+import { isMobile } from "react-device-detect";
 
 export const EditingUserContext = createContext<UserType | null>(null);
 export const SetEditingUserContext = createContext<any>(null);
@@ -30,7 +31,13 @@ export default function ManageProfilesPage() {
   // Users from local storage
   const userElements = userData
     ? userData.map((user: any) => (
-        <UserSelect key={user.id} {...user} onClick={isDeleting ? handleDeleteUser : setEditingUser} />
+        <UserSelect
+          key={user.id}
+          {...user}
+          onClick={isDeleting ? handleDeleteUser : setEditingUser}
+          isEditing={true}
+          isDeleting={isDeleting}
+        />
       ))
     : null;
 
@@ -56,7 +63,7 @@ export default function ManageProfilesPage() {
           <>
             <div className="user-select__flex">
               <div className="user-select">
-                <h1>Managing Users</h1>
+                <h1>{isMobile ? "Tap" : "Click"} user to change avatar </h1>
                 <div className="user-select__container">
                   {userElements}
                   <div
@@ -76,7 +83,7 @@ export default function ManageProfilesPage() {
                   >
                     <div>
                       {isDeleting ? (
-                        <Check size={100} />
+                        <Check size={100} className={isHoveringDeleteUser ? "delete-button-hover" : ""} />
                       ) : (
                         <div className={`delete-button ${isHoveringDeleteUser ? "delete-button-hover" : ""}`}>
                           <div className="delete-button-1"></div>

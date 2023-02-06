@@ -22,7 +22,8 @@ export default function AvatarPage() {
   return (
     <div>
       <a
-        href="/manage-profiles"
+        onClick={() => setEditingUser(false)}
+        href="#"
         style={{
           color: "white",
           textDecoration: "none",
