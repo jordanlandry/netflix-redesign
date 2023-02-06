@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     if (userData.length === 0) {
       setUser(null);
-      setRoute("/create-user");
+      setRoute("create-user");
     }
 
     if (!user) return;
