@@ -8,7 +8,7 @@ export default function recommendGenres(user: UserType, genreCount: number = 3, 
     .sort((a, b) => user.habits.genres[b] - user.habits.genres[a])
     .slice(0, genreCount + 2); // +2 to add more variety
 
-  if (sortedGenres.length < genreCount) return sortedGenres;
+  // if (sortedGenres.length < genreCount) return sortedGenres;
 
   let iterations = 0;
   const genrePicks: any = [];

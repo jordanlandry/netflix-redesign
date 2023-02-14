@@ -45,4 +45,4 @@ Try out the website! https://jordanlandry.github.io/netflix-redesign/
 
 - [React](https://reactjs.org/docs/getting-started.html) - A JavaScript library for building user interfaces (Used for the front-end)
 - [TypeScript](https://reactjs.org/docs/getting-started.html) - A typed superset of JavaScript that scales
-- [Python](https://www.python.org/downloads/) - A high level, interpreted programming language (Python was used to convert a text file to JSON)
+- [Python](https://www.python.org/downloads/) - A high level, interpreted programming language (Used to convert a text file to JSON)

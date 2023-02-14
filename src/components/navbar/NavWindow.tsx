@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+import { XLg } from "react-bootstrap-icons";
 import { useLocation } from "react-router-dom";
 import { SearchContext, SetSearchContext } from "../../App";
 import SearchIcon from "../icons/SearchIcon";
@@ -32,16 +33,17 @@ export default function NavWindow({}: Props) {
       </ul>
       <div className="navbar__window-secondary flex-center">
         <div className={`flex-center navbar__window-search ${isSearching ? "navbar__window-search--active" : ""}`}>
-          {isSearching ? (
-            <div>
-              <SearchIcon />
-            </div>
-          ) : (
+          {isSearching ? null : (
             <button onClick={() => setIsSearching(true)} className="pointer btn-unstyled">
               <SearchIcon />
             </button>
           )}
-          {isSearching ? (
+        </div>
+        {isSearching ? (
+          <div className="navbar__search">
+            <div>
+              <XLg onClick={() => setIsSearching(false)} />
+            </div>
             <input
               ref={inputRef}
               type="text"
@@ -49,8 +51,8 @@ export default function NavWindow({}: Props) {
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Titles, people, genres"
             />
-          ) : null}
-        </div>
+          </div>
+        ) : null}
 
         <UserTab />
       </div>
