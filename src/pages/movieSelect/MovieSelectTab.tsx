@@ -15,6 +15,8 @@ type Props = {
 
 // Carousel of movies
 export default function MovieSelectTab({ title, movieList }: Props) {
+  if (!movieList) return null;
+
   const user = useContext(UserContext)!;
 
   useEffect(() => {
@@ -39,6 +41,8 @@ export default function MovieSelectTab({ title, movieList }: Props) {
   const loadingElements = Array.from({ length: elementsCount }).map((_, index) => (
     <MovieLoading key={index} elementsCount={elementsCount} />
   ));
+
+  if (movieElements.length === 0) return null;
 
   return (
     <div className="movie-select-tab">

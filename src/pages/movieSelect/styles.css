@@ -7,7 +7,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  min-height: 101vh;
 }
 
 .movie-select__poster > img {
@@ -28,6 +27,10 @@
 /* Modal Content */
 .movie-modal__outside-padding {
   padding-bottom: 100vh;
+}
+
+.force-scrollbar {
+  min-height: 101vh;
 }
 
 .movie-modal__info-wrapper {

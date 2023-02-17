@@ -106,7 +106,9 @@ export default function MovieSelectPage() {
               ) : null}
 
               {search ? (
-                <div className="movie-select-search padding">{searchElements}</div>
+                <div className="force-scrollbar">
+                  <div className="movie-select-search padding">{searchElements}</div>
+                </div>
               ) : (
                 <>
                   <MovieBillboard />
