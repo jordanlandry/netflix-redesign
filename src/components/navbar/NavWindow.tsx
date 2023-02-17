@@ -24,7 +24,7 @@ export default function NavWindow({}: Props) {
   const unsearch = () => {
     setSearch("");
     setIsSearching(false);
-  }
+  };
 
   return (
     <div className="navbar__window">
@@ -38,11 +38,7 @@ export default function NavWindow({}: Props) {
       </ul>
       <div className="navbar__window-secondary flex-center">
         <div className={`flex-center navbar__window-search ${isSearching ? "navbar__window-search--active" : ""}`}>
-          {isSearching ? (
-            <button onClick={unsearch} className="pointer btn-unstyled">
-              <XLg />
-            </button>
-          ) : (
+          {isSearching ? null : (
             <button onClick={() => setIsSearching(true)} className="pointer btn-unstyled">
               <SearchIcon />
             </button>
@@ -51,7 +47,7 @@ export default function NavWindow({}: Props) {
         {isSearching ? (
           <div className="navbar__search">
             <div>
-              <XLg onClick={() => setIsSearching(false)} />
+              <XLg onClick={unsearch} />
             </div>
             <input
               ref={inputRef}
@@ -62,7 +58,6 @@ export default function NavWindow({}: Props) {
             />
           </div>
         ) : null}
-
         <UserTab />
       </div>
     </div>

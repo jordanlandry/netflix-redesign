@@ -20,8 +20,8 @@ export const SetSearchContext = createContext<any>(null);
 export const SetRouteContext = createContext<any>(null);
 
 function App() {
-  const [userData, setUserData] = useLocalStorage("userData", ""); // This is just for the demo, I didn't implement a backend, so I just use local storage to store the users
-  const [user, setUser] = useLocalStorage("user", null);
+  const [userData, setUserData] = useLocalStorage("netflix_userData", ""); // This is just for the demo, I didn't implement a backend, so I just use local storage to store the users
+  const [user, setUser] = useLocalStorage("netflix_user", null);
   const [search, setSearch] = useState("");
 
   // Update the user data when the user changes (This is just for the demo,
