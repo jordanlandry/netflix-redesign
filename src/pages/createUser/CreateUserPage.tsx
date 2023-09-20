@@ -1,8 +1,8 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { ArrowLeftCircle, ArrowLeftCircleFill, ArrowRightCircle, ArrowRightCircleFill } from "react-bootstrap-icons";
 import nextId from "react-id-generator";
-import { SetRouteContext, SetUserDataContext, UserContext } from "../../App";
-import avatarData from "../../data/avatars/avatarData";
+import { StoreContext } from "../../App";
+import avatarData from "../../data/avatars/avatarDataOld";
 import daysPerMonth from "../../helpers/format/daysPerMonth";
 import getYear from "../../helpers/format/getYear";
 import random from "../../helpers/functions/random";
@@ -11,9 +11,7 @@ import useKeybind from "../../hooks/useKeybind";
 import "./styles.css";
 
 export default function CreateUserPage() {
-  const setRoute = useContext(SetRouteContext)!;
-  const setUserData = useContext(SetUserDataContext);
-  const user = useContext(UserContext);
+  const { setRoute, setUserData, user } = useContext(StoreContext);
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -86,13 +84,14 @@ export default function CreateUserPage() {
     if (section === formRef.current.children.length) {
       const avatarCategory = avatarData[random(0, avatarData.length - 1)];
       const avatar = avatarCategory.avatars[random(0, avatarCategory.avatars.length - 1)];
+      const avatarDefault = "/netflix-redesign/profile.png";
 
       setUserData((prev: any) => [
         ...prev,
         {
           id: nextId(),
           name,
-          icon: avatar,
+          icon: avatarDefault,
           recentlyWatched: [],
           birthday: { month, day, year },
           habits: { actors: {}, genres: {}, directors: {} },
@@ -131,9 +130,7 @@ export default function CreateUserPage() {
               onChange={(e) => setName(e.target.value)}
             />
             <select
-              className={`create-user__section ${
-                section === 1 ? "create-user__next" : section === 2 ? "create-user__prev" : "create-user__none"
-              }`}
+              className={`create-user__section ${section === 1 ? "create-user__next" : section === 2 ? "create-user__prev" : "create-user__none"}`}
               value={month}
               onChange={handleMonthChange}
             >
@@ -153,9 +150,7 @@ export default function CreateUserPage() {
             </select>
 
             <select
-              className={`create-user__section ${
-                section === 2 ? "create-user__next" : section === 3 ? "create-user__prev" : "create-user__none"
-              }`}
+              className={`create-user__section ${section === 2 ? "create-user__next" : section === 3 ? "create-user__prev" : "create-user__none"}`}
               value={day}
               onChange={handleDayChange}
             >
@@ -170,9 +165,7 @@ export default function CreateUserPage() {
             </select>
 
             <select
-              className={`create-user__section ${
-                section === 3 ? "create-user__next" : section === 4 ? "create-user__prev" : "create-user__none"
-              }`}
+              className={`create-user__section ${section === 3 ? "create-user__next" : section === 4 ? "create-user__prev" : "create-user__none"}`}
               value={year}
               onChange={handleYearChange}
             >

@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { SetRouteContext, SetUserContext, SetUserDataContext, UserDataContext } from "../../App";
+import { StoreContext } from "../../App";
 import CreateUserPage from "../createUser/CreateUserPage";
 import "./styles.css";
 import UserSelect from "./UserSelect";
@@ -9,17 +9,9 @@ type Props = {
 };
 
 export default function UserSelectPage({ onClick }: Props) {
-  const userData = useContext(UserDataContext)!;
-  const setUser = useContext(SetUserContext)!;
+  const { userData, setUser, setRoute } = useContext(StoreContext);
 
-  const setRoute = useContext(SetRouteContext)!;
-
-  // const userElements = userData.map((user) => <UserSelect key={user.id} {...user} onClick={onClick} />);
-  // const userElements = userData.map((user) => <div key={nextId()}></div>);
-
-  const userElements = userData
-    ? userData.map((user: any) => <UserSelect key={user.id} {...user} onClick={onClick} />)
-    : null;
+  const userElements = userData ? userData.map((user: any) => <UserSelect key={user.id} {...user} onClick={onClick} />) : null;
 
   const handleManageProfiles = () => {
     setRoute("manage-profiles");

@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { ChevronCompactLeft, ChevronCompactRight } from "react-bootstrap-icons";
 import getBreakpoint from "../../helpers/format/getBreakpoint";
-import useHover from "../../hooks/useHover";
 import useWidth from "../../hooks/useWidth";
 import { MovieInViewContext } from "../../pages/movieSelect/MovieSelectPage";
-import properties from "../../properties";
 import "./styles.css";
 
 type Props = {
@@ -16,23 +14,14 @@ type Props = {
   infinite?: boolean;
 };
 
-export default function Carousel({
-  children,
-  itemsToShow = 3,
-  gap = 5,
-  extraButtonStyles,
-  aspectRatio,
-  infinite = false,
-}: Props) {
+export default function Carousel({ children, itemsToShow = 3, gap = 5, extraButtonStyles, aspectRatio, infinite = false }: Props) {
   const width = useWidth();
 
   const movieInView = useContext(MovieInViewContext);
 
   const [hovering, setHovering] = useState(false);
 
-  const outsidePadding = parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue("--outside-padding").replace("px", "")
-  );
+  const outsidePadding = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--outside-padding").replace("px", ""));
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [scrollIndex, setScrollIndex] = useState(0);
@@ -104,11 +93,7 @@ export default function Carousel({
       style={{ maxWidth: imageWidth * numberOfItemsToShow + gap + outsidePadding / 2 + "px" }}
     >
       {availableElements > numberOfItemsToShow && scrollIndex !== 0 ? (
-        <div
-          className="carousel__button"
-          style={{ ...BUTTON_STYLES, left: 0 }}
-          onClick={() => setScrollIndex((prev) => prev - 1)}
-        >
+        <div className="carousel__button" style={{ ...BUTTON_STYLES, left: 0 }} onClick={() => setScrollIndex((prev) => prev - 1)}>
           <ChevronCompactLeft opacity={hovering ? 1 : 0} />
         </div>
       ) : null}

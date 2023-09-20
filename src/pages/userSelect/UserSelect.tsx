@@ -5,17 +5,7 @@ import { Pencil, X, XLg } from "react-bootstrap-icons";
 //   onClick: any;
 // }
 
-export default function UserSelect({
-  id,
-  name,
-  icon,
-  birthday,
-  recentlyWatched,
-  habits,
-  onClick,
-  isEditing,
-  isDeleting,
-}: any) {
+export default function UserSelect({ id, name, icon, birthday, recentlyWatched, habits, onClick, isEditing, isDeleting }: any) {
   // I have this instead of css hover because I only want to outline the icon when the user is hovering over the entire div
   const [hoveredClassName, setHoveredClassName] = useState("");
 

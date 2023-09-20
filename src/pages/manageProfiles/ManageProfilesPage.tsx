@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { SetRouteContext, SetUserDataContext, UserContext, UserDataContext } from "../../App";
 import UserSelect from "../userSelect/UserSelect";
 import AvatarPage from "./AvatarPage";
 
@@ -7,16 +6,15 @@ import "../userSelect/styles.css";
 import { UserType } from "../../data/userData";
 import { Check, XLg } from "react-bootstrap-icons";
 import { isMobile } from "react-device-detect";
+import { StoreContext } from "../../App";
 
 export const EditingUserContext = createContext<UserType | null>(null);
 export const SetEditingUserContext = createContext<any>(null);
 
 export default function ManageProfilesPage() {
-  const setRoute = useContext(SetRouteContext)!;
+  const { setRoute, userData, setUserData } = useContext(StoreContext);
 
   const [editingUser, setEditingUser] = useState<UserType | null>(null);
-  const userData = useContext(UserDataContext)!;
-  const setUserData = useContext(SetUserDataContext)!;
 
   const [isHoveringAddUser, setIsHoveringAddUser] = useState(false);
   const [isHoveringDeleteUser, setIsHoveringDeleteUser] = useState(false);
@@ -31,13 +29,7 @@ export default function ManageProfilesPage() {
   // Users from local storage
   const userElements = userData
     ? userData.map((user: any) => (
-        <UserSelect
-          key={user.id}
-          {...user}
-          onClick={isDeleting ? handleDeleteUser : setEditingUser}
-          isEditing={true}
-          isDeleting={isDeleting}
-        />
+        <UserSelect key={user.id} {...user} onClick={isDeleting ? handleDeleteUser : setEditingUser} isEditing={true} isDeleting={isDeleting} />
       ))
     : null;
 

@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { XLg } from "react-bootstrap-icons";
-import { useLocation } from "react-router-dom";
-import { SearchContext, SetSearchContext } from "../../App";
+import { StoreContext } from "../../App";
 import SearchIcon from "../icons/SearchIcon";
 import UserTab from "../userTab/UserTab";
 import "./navbar.css";
@@ -10,8 +9,9 @@ import NavLink from "./NavLink";
 type Props = {};
 
 export default function NavWindow({}: Props) {
-  const search = useContext(SearchContext);
-  const setSearch = useContext(SetSearchContext);
+  // const search = useContext(SearchContext);
+  // const setSearch = useContext(SetSearchContext);
+  const { search, setSearch } = useContext(StoreContext);
 
   const [isSearching, setIsSearching] = useState(false);
 
@@ -49,13 +49,7 @@ export default function NavWindow({}: Props) {
             <div>
               <XLg onClick={unsearch} />
             </div>
-            <input
-              ref={inputRef}
-              type="text"
-              value={search!}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Titles, people, genres"
-            />
+            <input ref={inputRef} type="text" value={search!} onChange={(e) => setSearch(e.target.value)} placeholder="Titles, people, genres" />
           </div>
         ) : null}
         <UserTab />

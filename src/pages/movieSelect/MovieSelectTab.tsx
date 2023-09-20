@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import nextId from "react-id-generator";
-import { UserContext } from "../../App";
+import { StoreContext } from "../../App";
 import Carousel from "../../components/carousel/Carousel";
 import getBreakpoint from "../../helpers/format/getBreakpoint";
 import useWidth from "../../hooks/useWidth";
@@ -17,7 +17,7 @@ type Props = {
 export default function MovieSelectTab({ title, movieList }: Props) {
   if (!movieList) return null;
 
-  const user = useContext(UserContext)!;
+  const { user } = useContext(StoreContext);
 
   useEffect(() => {
     movieElements.length = 0;
@@ -38,14 +38,17 @@ export default function MovieSelectTab({ title, movieList }: Props) {
   const itemsToShow = { s: 2, m: 3, l: 4, xl: 5, xxl: 6, max: 7 };
   const elementsCount = itemsToShow[getBreakpoint(width)];
 
-  const loadingElements = Array.from({ length: elementsCount }).map((_, index) => (
-    <MovieLoading key={index} elementsCount={elementsCount} />
-  ));
+  const loadingElements = Array.from({ length: elementsCount }).map((_, index) => <MovieLoading key={index} elementsCount={elementsCount} />);
 
-  if (movieElements.length === 0) return null;
+  const imageWidth =
+    window.innerWidth / elementsCount - parseInt(getComputedStyle(document.documentElement).getPropertyValue("--outside-padding").replace("px", ""));
+
+  // I need to make sure the height stays consistent.
+  // If I don't, then the height will change when the images load, and the page will jump.
+  const height = imageWidth / properties.POSTER_ASPECT_RATIO + 75;
 
   return (
-    <div className="movie-select-tab">
+    <div className="movie-select-tab" style={{ height: `${height}px` }}>
       <h2>{title}</h2>
       {movieElements.length === 0 ? (
         <div style={{ display: "flex", gap: 25 }}>{loadingElements}</div>

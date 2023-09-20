@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { XLg } from "react-bootstrap-icons";
-import { UserContext } from "../../App";
+import { StoreContext } from "../../App";
 import PlayButton from "../../components/buttons/PlayButton";
 import movieData from "../../data/movie/movieData";
 import formatRuntime from "../../helpers/format/formatRuntime";
@@ -12,7 +12,7 @@ type Props = { movieId: string; onClose: any };
 export default function MovieModal({ movieId, onClose }: Props) {
   const { title, year, runtime, genres, directors, actors, plot } = movieData[movieId];
 
-  const user = useContext(UserContext)!;
+  const { user } = useContext(StoreContext);
 
   return (
     <div className="movie-modal">

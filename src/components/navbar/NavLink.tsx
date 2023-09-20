@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { SetRouteContext } from "../../App";
+import { StoreContext } from "../../App";
 
 type Props = { children: React.ReactNode; to: string; className?: string };
 
 export default function NavLink({ children, to, className }: Props) {
   const [active, setActive] = useState(window.location.pathname === to);
 
-  const setRoute = useContext(SetRouteContext)!;
+  const { setRoute } = useContext(StoreContext);
 
   return (
     <li className={className ? className : ""}>

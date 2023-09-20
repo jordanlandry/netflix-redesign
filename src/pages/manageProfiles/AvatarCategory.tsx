@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import nextId from "react-id-generator";
-import { SetRouteContext, SetUserContext, SetUserDataContext, UserContext, UserDataContext } from "../../App";
+import { StoreContext } from "../../App";
 import Carousel from "../../components/carousel/Carousel";
 import { UserType } from "../../data/userData";
 import Avatar from "./Avatar";
@@ -13,11 +13,7 @@ type Props = {
 };
 
 export default function AvatarCategory({ name, avatars, editingUser, setEditingUser }: Props) {
-  const setRoute = useContext(SetRouteContext)!;
-  const setUser = useContext(SetUserContext)!;
-
-  const users = useContext(UserDataContext)!;
-  const setUsers = useContext(SetUserDataContext)!;
+  const { setRoute, setUser, users, setUsers } = useContext(StoreContext);
 
   const handleClick = (url: string) => {
     setUser((prev: any) => ({ ...prev, icon: url }));
@@ -36,7 +32,6 @@ export default function AvatarCategory({ name, avatars, editingUser, setEditingU
     }
 
     // For this demo, I just update the local storage users variable and redirect to the homepage
-
     users.find((u: any) => u.id === editingUser.id)!.icon = url;
     setUsers(users);
     setEditingUser(null);

@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { SetUserDataContext, UserContext } from "../../App";
+import { StoreContext } from "../../App";
 import selectPoster from "../../helpers/movie/selectPoster";
-import searchSubstring from "../../helpers/search/searchSubstring";
 import updateHabits from "../../helpers/update/updateHabits";
 import properties from "../../properties";
 import { SetMovieInViewContext } from "./MovieSelectPage";
@@ -14,10 +13,9 @@ type Props = {
 };
 
 export default function MovieSelect({ title, posters, link, id }: Props) {
-  const user = useContext(UserContext)!;
+  const { user, setUserData } = useContext(StoreContext);
 
   const setMovieInView = useContext(SetMovieInViewContext);
-  const setUserData = useContext(SetUserDataContext);
 
   const [poster, setPoster] = useState<{ id: number; url: string; actor: string }>(selectPoster(user, posters));
 

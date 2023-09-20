@@ -1,17 +1,16 @@
 import { useContext, useEffect, useState } from "react";
-import { SetRouteContext, SetUserContext, UserContext, UserDataContext } from "../../App";
+import { StoreContext } from "../../App";
 import "./usertab.css";
 
 export default function UserTab() {
-  const setRoute = useContext(SetRouteContext)!;
+  // const setRoute = useContext(SetRouteContext)!;
 
   // State
   const [hover, setHover] = useState(false);
 
   // Context
-  const { id, name, icon, birthday, recentlyWatched, habits } = useContext(UserContext)!;
-  const userData = useContext(UserDataContext)!;
-  const setUser = useContext(SetUserContext)!;
+  const { user, userData, setUser, setRoute } = useContext(StoreContext);
+  const { id, name, icon, birthday, recentlyWatched, habits } = user;
 
   // Functions
   const handleMouseLeave = () => setHover(false);

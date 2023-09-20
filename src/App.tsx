@@ -8,17 +8,14 @@ import ManageProfilesPage from "./pages/manageProfiles/ManageProfilesPage";
 import MovieSelectPage from "./pages/movieSelect/MovieSelectPage";
 import UserSelectPage from "./pages/userSelect/UserSelectPage";
 
-export const UserDataContext = createContext<any>(null);
-export const SetUserDataContext = createContext<any>(null);
+type AvailableRoutes = "" | "manage-profiles" | "create-user";
+const router = {
+  "": <MovieSelectPage />,
+  "manage-profiles": <ManageProfilesPage />,
+  "create-user": <CreateUserPage />,
+} as { [key in AvailableRoutes]: JSX.Element };
 
-export const UserContext = createContext<UserType | null>(null);
-export const SetUserContext = createContext<any>(null);
-
-export const SearchContext = createContext<string | null>(null);
-export const SetSearchContext = createContext<any>(null);
-
-export const SetRouteContext = createContext<any>(null);
-
+export const StoreContext = createContext<any>(null);
 function App() {
   const [userData, setUserData] = useLocalStorage("netflix_userData", ""); // This is just for the demo, I didn't implement a backend, so I just use local storage to store the users
   const [user, setUser] = useLocalStorage("netflix_user", null);
@@ -30,8 +27,10 @@ function App() {
 
   // TODO - Change this to redux instead of context (I didn't want to implement redux yet to work on design and functionality first)
   const [route, setRoute] = useState("");
+  const store = { userData, setUserData, user, setUser, search, setSearch, route, setRoute };
 
   useEffect(() => {
+    // If there are no users, go to the create user page
     if (userData.length === 0) {
       setUser(null);
       setRoute("create-user");
@@ -48,48 +47,12 @@ function App() {
     });
   }, [route]);
 
+  const page = router[route as AvailableRoutes];
+
   return (
-    <div className="App">
-      {user ? (
-        <SetRouteContext.Provider value={setRoute}>
-          <UserDataContext.Provider value={userData}>
-            <SetUserDataContext.Provider value={setUserData}>
-              <UserContext.Provider value={user}>
-                <SetUserContext.Provider value={setUser}>
-                  <SearchContext.Provider value={search}>
-                    <SetSearchContext.Provider value={setSearch}>
-                      {route === "" ? (
-                        <MovieSelectPage />
-                      ) : route === "manage-profiles" ? (
-                        <ManageProfilesPage />
-                      ) : route === "create-user" ? (
-                        <CreateUserPage />
-                      ) : null}
-                    </SetSearchContext.Provider>
-                  </SearchContext.Provider>
-                </SetUserContext.Provider>
-              </UserContext.Provider>
-            </SetUserDataContext.Provider>
-          </UserDataContext.Provider>
-        </SetRouteContext.Provider>
-      ) : (
-        <SetRouteContext.Provider value={setRoute}>
-          <SetUserDataContext.Provider value={setUserData}>
-            <UserDataContext.Provider value={userData}>
-              <SetUserContext.Provider value={setUser}>
-                {route === "" ? (
-                  <UserSelectPage onClick={setUser} />
-                ) : route === "manage-profiles" ? (
-                  <ManageProfilesPage />
-                ) : route === "create-user" ? (
-                  <CreateUserPage />
-                ) : null}
-              </SetUserContext.Provider>
-            </UserDataContext.Provider>
-          </SetUserDataContext.Provider>
-        </SetRouteContext.Provider>
-      )}
-    </div>
+    <StoreContext.Provider value={store}>
+      <div className="App">{!user && route === "" ? <UserSelectPage onClick={setUser} /> : page}</div>
+    </StoreContext.Provider>
   );
 }
 

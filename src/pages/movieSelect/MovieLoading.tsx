@@ -11,8 +11,7 @@ export default function MovieLoading({ elementsCount }: Props) {
   const [animationTime, setAnimationTime] = useState(Math.random() * 4000 + 1000);
 
   const width =
-    window.innerWidth / elementsCount -
-    parseInt(getComputedStyle(document.documentElement).getPropertyValue("--outside-padding").replace("px", ""));
+    window.innerWidth / elementsCount - parseInt(getComputedStyle(document.documentElement).getPropertyValue("--outside-padding").replace("px", ""));
 
   const height = width / properties.POSTER_ASPECT_RATIO;
 

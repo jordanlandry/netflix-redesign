@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { SearchContext, UserContext } from "../../App";
 import Modal from "../../components/Modal";
 import movieData from "../../data/movie/movieData";
 import levenshteinDistance from "../../helpers/search/getDistance";
@@ -16,26 +15,18 @@ import "./styles.css";
 import searchForMovies from "../../helpers/search/searchForMovies";
 import NavWrapper from "../../components/navbar/NavWrapper";
 import useScrollY from "../../hooks/useScrollY";
+import { StoreContext } from "../../App";
 
 export const MovieInViewContext = createContext<string | null>(null);
 export const SetMovieInViewContext = createContext<any>(null);
 
 export default function MovieSelectPage() {
-  const user = useContext(UserContext)!;
-  const search = useContext(SearchContext)!;
+  const { user, search } = useContext(StoreContext);
   const filteredSearchData = searchForMovies(search);
 
   // Search Elements
   const searchElements = filteredSearchData.map((key) => {
-    return (
-      <MovieSelect
-        id={key}
-        key={key}
-        title={movieData[key].title}
-        posters={movieData[key].posters}
-        link={`/watch/${key}`}
-      />
-    );
+    return <MovieSelect id={key} key={key} title={movieData[key].title} posters={movieData[key].posters} link={`/watch/${key}`} />;
   });
 
   const [movieInView, setMovieInView] = useState(""); // Movie id in view
@@ -85,7 +76,7 @@ export default function MovieSelectPage() {
 
   // Make the background not scroll when scrolling in the modal
   const movieOpenStyles: React.CSSProperties = {
-    // marginTop: -lastScrollY,
+    marginTop: -lastScrollY,
     position: "fixed",
     top: -lastScrollY,
     zIndex: 100,

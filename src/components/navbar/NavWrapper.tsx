@@ -1,7 +1,5 @@
-import React, { useState } from "react";
 import useWidth from "../../hooks/useWidth";
 import properties from "../../properties";
-import UserTab from "../userTab/UserTab";
 import NavMobile from "./NavMobile";
 import NavWindow from "./NavWindow";
 
